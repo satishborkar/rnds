@@ -1,0 +1,267 @@
+<!doctype html>
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js ie7 oldie" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js ie8 oldie" lang="en"> <![endif]-->
+<!-- Consider adding an manifest.appcache: h5bp.com/d/Offline -->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+
+  <!-- Use the .htaccess and remove these lines to avoid edge case issues.
+       More info: h5bp.com/b/378 -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+  <title>This is WHAT I AM {in css 3}</title>
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <!-- Mobile viewport optimized: j.mp/bplateviewport -->
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+
+  <!-- Place favicon.ico and apple-touch-icon.png in the root directory: mathiasbynens.be/notes/touch-icons -->
+
+  <!-- CSS: implied media=all -->
+  <!-- CSS concatenated and minified via ant build script-->
+  <link rel="stylesheet" href="css/css3.css">
+  <!-- end CSS-->
+
+  <!-- More ideas for your <head> here: h5bp.com/d/head-Tips -->
+
+  <!-- All JavaScript at the bottom, except for Modernizr / Respond.
+       Modernizr enables HTML5 elements & feature detects; Respond is a polyfill for min/max-width CSS3 Media Queries
+       For optimal performance, use a custom Modernizr build: www.modernizr.com/download/ -->
+  <script src="js/libs/modernizr-2.0.6.min.js"></script>
+</head>
+
+<body>
+
+  <div id="container">
+    <header>
+
+    </header>
+    <div id="main" role="main">
+    	<h1>CSS 3 by Examples</h1>
+    	<p>CSS 3 is maily divided into eight[8] modules :</p>
+    	<ol type="1">
+    		<li>Selectors</li>
+    		<li>Box Model</li>
+    		<li>Backgrounds and Borders</li>
+    		<li>Text Effects</li>
+    		<li>2D/3D Transformations</li>
+    		<li>Animations</li>
+    		<li>Multiple Column Layout</li>
+    		<li>User Interface</li>
+    	</ol>
+    	<section class="box-model">
+    		<article>border-radius: 1-4 length|% / 1-4 length|%;</article>
+    		
+    		<section class="box radius">Border Radius</section>
+    		<section class="box round">Border Radius in %</section>
+    		
+    		
+    		<article>box-shadow: h-shadow v-shadow blur spread color inset;</article>
+    		
+    		<section class="box shadow">Box Shadow</section>
+    		<section class="box shadowNoAngle">Box shadow with only blurr</section>
+    		<section class="box">No Shadow</section>
+    		
+    		
+    		<article>border-image: source slice width outset repeat; </article>
+    		
+    		<section class="box-no-br borderCornersRound">Border Image round</section>
+    		<section class="box-no-br borderCornersStretch">Border Image Stretch</section>
+    		<section class="box-no-br brdCorWidth">Border Width 20 px</section>
+    		
+    		
+    		<article>background-size: length|percentage|cover|contain; </article>
+    		
+    		<section class="box bgSize">Background size 50px</section>
+    		<section class="box bgSizePer">Background size %</section>
+    		<section class="box bgSizeContain">Background size contain</section>
+    		<section class="box bgSizeCover">Background size cover</section>
+    		
+    		
+    		<article>background-origin: padding-box|border-box|content-box;</article>
+    		
+    		<section class="box bg_originPB">Background Origin padding-box </section>
+    		<section class="box bg_originCB">Background Origin content box</section>
+    		<section class="box bg_originBB">Background Origin border box</section>
+    		
+    		
+    		<article>background-clip: border-box|padding-box|content-box;</article>
+    		
+    		<section class="box bgClip_pb">Background Clip padding-box </section>
+    		<section class="box bgClip_cb">Background Clip content box</section>
+    		<section class="box bgClip_bb">Background Clip border box</section>
+    		
+    		<article>text-shadow: h-shadow v-shadow blur color;</article>
+    		<div class="full">
+    		<p class="experimental tshadow">Experimental text</p>
+    		<p class="experimental tshado">Experimental text</p>
+    		<p class="experimental tsado2">Experimental text</p>
+    		<p class="experimental tsado">Experimental text</p>
+    		<p class="experimental txtGlow">Experimental text</p>
+    		<p class="experimental txtStroke">Experimental text</p>
+    		<p class="experimental txtStrke">Experimental text</p>
+    		<p class="experimental txtStrke2">Experimental text</p>
+    		<p class="experimental txtStrke3">Experimental text</p>
+    		<p class="experimental txtRnd">Experimental text</p>
+    		</div>
+    		
+    		
+    		<article>word-break:keep-all | normal|break-all|hyphenate;</article>
+    		
+    		
+    		<section class="box wrdbrkAll">word-break:break-all
+    			This paragraph contains a very long word: thisisaveryveryveryveryveryverylongword. The long word will break and wrap to the next line.
+    			</section>
+    			<section class="box wrdbrkNrml">word-break: normal 
+    			This paragraph contains a very long word: thisisaveryveryveryveryveryverylongword. The long word will break and wrap to the next line.
+    			</section>
+    		<section class="box wrdbrkepAl">word-break:keep-all;
+    			This paragraph contains a very long word: thisisaveryveryveryveryveryverylongword. The long word will break and wrap to the next line.
+    			</section>
+    		<section class="box wrdbrkhy">word-break:hyphenate;
+    			This paragraph contains a very long word: thisisaveryveryveryveryveryverylongword. The long word will break and wrap to the next line.
+    			</section>
+    		<article>transforms :rotate | translate | scale | skew | perspective| matrix  -- 2D Transforms </article>
+    		<article>transforms : rotate(deg) | rotateX(deg) | rotateY(deg) | rotateZ(deg) | rotate3d(x,y,z, deg) </article>
+    		<section class="box rotate1">Rotate 30 deg </section>
+    		<section class="box rotate2">RotateX 90 deg </section>
+    		<section class="box rotate3">RotateY 130 deg </section>
+    		<section class="box rotate4">Rotate 240 deg </section>
+    		
+    		<article>transforms : translate(x,y) | translateX(n) | translateY(n) -- 2D Transforms </article>
+    		<section class="box translate1">translate 10 10 px from top left </section>
+    		<section class="box translate2">translate -10 -10 px from top left </section>
+    		<section class="box translate3">no - translate this is normal </section>
+    		
+    		<article>transforms : scale | scaleX | scaleY  -- 2D Transforms </article>
+    		<section class="box scale1">hover scale </section>
+    		
+    		<article>transforms : skew(x-angle,y-angle) | skewX(angle) -- 2D Transforms </article>
+    		<section class="box skew1">skew </section>
+    		<section class="box skew2">skew </section>
+    		<section class="box skew3">skew </section>
+    		
+    		
+    		<article>transforms : perspective -- 2D Transforms </article>
+    		<div class="full">
+    		<div id="perspective1">
+    			<div id="perspective2">perspective</div>
+    		 </div>
+    		 
+    		 <div id="perspective3">
+    			<div id="perspective4">perspective</div>
+    		 </div>
+    		 
+    		 </div>   		
+    		
+    		<article>transform: matrix(a,b,c,d,tx,ty)  || transform:matrix(0.866,0.5,-0.5,0.866,0,0);</article>
+    		<div class="full">
+    			<p>Where :a : x scale, b : y skew, c : x skew, 
+d: y scale, tx: x translation( position)
+ty : y translation (position)
+ </p>
+    		</div>
+    		<section class="box matrix1">matrix </section>
+    		<section class="box matrix2">matrix </section>
+    		<section class="box matrix3">matrix </section>
+    		<section class="box matrix4">matrix </section>
+    		<section class="box matrix5">matrix </section>
+    		<section class="box matrix6">matrix </section>
+    		
+    		
+    		
+    		<article>transforms : rotate(angle) -- 3D Transforms </article>
+    		<section class="box skew1">skew </section>
+    		<section class="box skew2">skew </section>
+    		<section class="box skew3">skew </section>
+    		
+    		
+    		<article>transition: property duration timing-function delay;</article>
+    		<section class="box transition1">CSS transition Width </section>
+    		<section class="box transition2">CSS transition  BG  </section>
+    		<section class="box transition3">Color </section>
+    		<section class="box transition4">Width delay 1 s </section>
+    		
+    		<article>CSS 3 Animation</article>
+    		<section class="box anim1"> animation </section>
+    		<section class="box anim2"> animation </section>
+    		<section class="box anim3"> animation </section>
+    		
+    		
+    		<article>columns: column-width column-count;</article>
+    		<div class="full">
+    		<p class="column1">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    		<p class="column2">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    		<p class="column3">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    		</div>
+    		
+    		
+    		<article>resize: none|both|horizontal|vertical</article>
+    		<section class="box resizeB">Resize Both</section>
+    		<section class="box resizeH">Resize horizontal</section>
+    		<section class="box resizeV">Resize vertical</section>
+    		
+    		<article>box-sizing: content-box|border-box|inherit:</article>
+    		<section class="box bxSizing-CB">content-box</section>
+    		<section class="box bxSizing-BB">border-box</section>
+    		
+    		<article>outline-offset: length|inherit:</article>
+    		<section class="box outlineOff">Out Line Offset Line</section>
+    		<section class="box slide">CSS Animation Slide</section>
+    	</section	
+    	
+    	
+		<code>
+			<label for="all style selector">All style selector</label>: * [style]
+		</code>
+		<section class="casCadeSelector"><span style="font-size: 15px">This is Cascade Selector</span>
+		</section>
+		
+		<code>
+			<label for="Universal Selector">Universal Selector</label> : *
+		</code>
+		<section>
+							
+		</section>
+</div>
+    <footer>
+
+    </footer>
+  </div> <!--! end of #container -->
+
+
+  <!-- JavaScript at the bottom for fast page loading -->
+
+  <!-- Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if offline -->
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+  <script>window.jQuery || document.write('<script src="js/libs/jquery-1.6.2.min.js"><\/script>')</script>
+
+
+  <!-- scripts concatenated and minified via ant build script-->
+  <script defer src="js/plugins.js"></script>
+  <script defer src="js/script.js"></script>
+  <!-- end scripts-->
+
+	
+  <!-- Change UA-XXXXX-X to be your site's ID -->
+  <script>
+    window._gaq = [['_setAccount','UAXXXXXXXX1'],['_trackPageview'],['_trackPageLoadTime']];
+    Modernizr.load({
+      load: ('https:' == location.protocol ? '//ssl' : '//www') + '.google-analytics.com/ga.js'
+    });
+  </script>
+
+
+  <!-- Prompt IE 6 users to install Chrome Frame. Remove this if you want to support IE 6.
+       chromium.org/developers/how-tos/chrome-frame-getting-started -->
+  <!--[if lt IE 7 ]>
+    <script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.3/CFInstall.min.js"></script>
+    <script>window.attachEvent('onload',function(){CFInstall.check({mode:'overlay'})})</script>
+  <![endif]-->
+  
+</body>
+</html>

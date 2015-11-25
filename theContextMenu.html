@@ -1,0 +1,99 @@
+<!doctype html> <!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js ie7 oldie" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js ie8 oldie" lang="en"> <![endif]-->
+<!-- Consider adding an manifest.appcache: h5bp.com/d/Offline -->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="en">
+	<!--<![endif]-->
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<title>The Context Menu </title>
+		<meta name="description" content="">
+		<meta name="author" content="">
+		<meta name="viewport" content="width=device-width,initial-scale=1">
+		<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600' rel='stylesheet' type='text/css'>
+		<link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
+		<link href="http://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+		<script type="text/javascript" src="js/libs/jquery-1.6.2.js"></script>
+		<script type="text/javascript">
+			function openContextMenu(event) {
+				var posLeft = event.clientX;
+				var posTop = event.clientY;
+				$('.theContextMenu').css({
+					"left" : posLeft,
+					"top" : posTop
+				}).fadeIn();
+				return false;
+			};
+
+			function hideContextMenu() {
+				$('.theContextMenu').hide();
+			};
+			
+			function changeBgColor(colorVal){
+				$('html, body').css("background-color", colorVal);				
+			}
+
+			document.oncontextmenu = openContextMenu;
+			document.onclick = hideContextMenu;
+
+		</script>
+		<style type="text/css">
+			body {
+				font-family: "Open Sans", Arial, sans-serif;
+				font-weight: 200;
+				font-size: 12px;
+				width:1000px;
+				margin: 50px auto 0 auto;
+			}
+			
+			p{
+				padding: 20px 0 0 0;
+				font-size: 14px;
+				line-height: 22px;
+			}
+			.theContextMenu {
+				width: 150px;
+				height: auto;
+				display: none;
+				padding: 2px;
+				border: 1px solid #ccc;
+				box-shadow: 0 0 15px #000;
+				position: absolute;
+				z-index: 999999 !important;
+				background: #fff;
+			}
+
+			.theContextMenu a {
+				display: block;
+				width: 100%;
+				height: 22px;
+				line-height: 22px;
+				color: #000;
+				border-bottom: 1px solid #ccc;
+				text-decoration: none;
+			}
+
+			.theContextMenu a:hover {
+				background: #930717;
+				color:#fff;
+			}
+
+		</style>
+	</head>
+	<body>
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+		<div class="theContextMenu">
+			<a href="#nogo" onclick="changeBgColor('red')"><i class="icon-fixed-width icon-plus-sign"></i> Add New</a>
+			<a href="#nogo" onclick="changeBgColor('green')"><i class="icon-fixed-width icon-pencil"></i> Edit</a>
+			<a href="#nogo" onclick="changeBgColor('blue')"><i class="icon-fixed-width icon-trash"></i> Delete</a>
+			<a href="#nogo" onclick="changeBgColor('yellow')"><i class="icon-fixed-width icon-ban-circle"></i> Ban</a>
+			<a href="#nogo" onclick="changeBgColor('aqua')"><i class="icon-fixed-width icon-refresh"></i> Switch to</a>
+		</div>
+		
+	</body>
+</html>

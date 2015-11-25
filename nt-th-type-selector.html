@@ -1,0 +1,277 @@
+<!doctype html>
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js ie7 oldie" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js ie8 oldie" lang="en"> <![endif]-->
+<!-- Consider adding an manifest.appcache: h5bp.com/d/Offline -->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+
+  <!-- Use the .htaccess and remove these lines to avoid edge case issues.
+       More info: h5bp.com/b/378 -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+  <title>CSS 3 [E:nth-of-type] Selectors understanding</title>
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <!-- Mobile viewport optimized: j.mp/bplateviewport -->
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link href='http://fonts.googleapis.com/css?family=Josefin+Sans' rel='stylesheet' type='text/css'>
+<style>
+	*, *:after, *:before {
+    -moz-box-sizing: border-box;
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+}
+
+body{
+	background: #000;
+	color:#fff;
+	margin: 0;
+    padding: 0;
+}
+
+h1{
+	font-size: 35px;
+	font-weight: 700;
+	text-align: center;
+	margin: 10px 0; 
+}
+
+#container{
+	width: 100%;
+	height: auto;
+	float: left;
+	text-align: center;
+}
+
+.square{
+	width: 155px;
+	height: 155px;
+	line-height:155px;
+	background: #fff;
+	display: inline-block;
+	text-align: center;
+	margin:9px 0 0 5px;
+	vertical-align: middle !important;
+	border:5px solid #fff;
+	color:#000;
+	font-size:80px;
+	position: relative;
+}
+
+/* any child's of conatiner after before selectors  */
+#container .square:before, #container .square:after{
+	display: block;
+	width: 100%;
+	height: 25px;
+	line-height:25px;
+	font-size:14px;
+	position: absolute;
+	left: 0;
+	color: #fff;
+}
+
+#container .square:before{
+	top:0;
+}
+
+#container .square:after{
+	bottom: 0;	
+}
+
+.square:first-child, .square:last-child{
+	background: #ff0000;
+	border-color: #ff0000;
+}
+
+.square:first-child:after{
+	content: "Start";
+}
+
+.square:last-child:after{
+	content: "Ends";
+}
+
+/*
+
+The :nth-child() and :nth-of-type() 
+pseudo-classes allows you to select elements with a formula.
+
+The syntax is :nth-child(an+b), 
+where you replace a and b by numbers of your choice. 
+For instance, :nth-child(3n+1) selects the 1st, 4th, 7th etc. child.
+
+:nth-of-type() works the same, 
+except that it only considers element of the given type (<div> in the example).
+
+*/
+
+/*
+  :nth-child(3n+3)
+           3rd + next 3rd
+ */
+
+.square:nth-child(8){
+	background: #02adea;
+	border-color: #02adea;
+	color: #fff;
+}
+
+.square:nth-child(8):after{
+	content: 'nth-child(8)';
+}
+
+.square:nth-child(5n){
+	border-bottom-color:#126567 !important; 
+}
+
+/* Selects the 1st, 8th , 16th & etc  element of every row */
+.square:nth-of-type(8n+1){
+	background: #6441a5;
+	border-color: #6441a5;
+	color:#fff;	
+}
+
+.square:nth-child(3n+3){
+	background: #ffcc33;
+	border-color: #ffcc33;
+	color:#fff;
+}
+
+/*
+.square:nth-child(odd){}
+.square:nth-child(even){}
+*/
+
+/* slects the first 2rd then fifth element */
+.square:nth-of-type(5n+2){
+	background: #ea0a8e;
+	border-color: #ea0a8e;
+	color:#fff;
+}
+.square:nth-of-type(5n+2):after{
+	content:" :5n+2";
+}
+
+.square:nth-of-type(4n-5){
+	background: #003366;
+	border-color: #003366;
+	color:#fff;
+}
+
+.square:nth-of-type(4n-5):before{
+	content: 'nth-of-type(4n-5)';
+}
+
+/* select every fifth element */
+.square:nth-last-child(5n+1){
+	background: #cf0005;
+	border-color: #cf0005;
+	color:#fff;
+}
+
+.square:nth-last-child(5n+1):before{
+	content: ":5n+1";
+}
+
+
+.square:nth-child(12n+1){
+	background: #0000e6;
+	border-color: #0000e6;
+	color:#fff;
+}
+
+.square:nth-child(12n+1):after{
+	content: ":12n+1";
+}
+
+.square:nth-child(4){
+	background: #89c507;
+	border-color: #89c507;
+	color:#fff;
+}
+
+.square:nth-last-child(4):after{
+	content: ":nth-child(4)";
+}
+
+/* selectsecond from last  */
+.square:nth-last-child(2){
+}
+
+.square:nth-last-child(2):after{
+	content: ":nth-last-child(2)";
+}
+</style>
+</head>
+
+<body>
+<h1> Examples of [:nth-type] of selector </h1>
+  <div id="container">
+   	<div class="square">01</div>
+   	<div class="square">02</div>
+   	<div class="square">03</div>
+   	<div class="square">04</div>
+   	<div class="square">05</div>
+   	<div class="square">06</div>
+   	<div class="square">07</div>
+   	<div class="square">08</div>
+   	<div class="square">09</div>
+   	<div class="square">10</div>
+   	<div class="square">11</div>
+   	<div class="square">12</div>
+   	<div class="square">13</div>
+   	<div class="square">14</div>
+   	<div class="square">15</div>
+   	<div class="square">16</div>
+   	<div class="square">17</div>
+   	<div class="square">18</div>
+   	<div class="square">19</div>
+   	<div class="square">20</div>
+   	<div class="square">21</div>
+   	<div class="square">22</div>
+   	<div class="square">23</div>
+   	<div class="square">24</div>
+   	<div class="square">25</div>
+   	<div class="square">26</div>
+   	<div class="square">27</div>
+   	<div class="square">28</div>
+   	<div class="square">29</div>
+   	<div class="square">30</div>
+   	<div class="square">31</div>
+   	<div class="square">32</div>
+   	<div class="square">33</div>
+   	<div class="square">34</div>
+   	<div class="square">35</div>
+   	<div class="square">36</div>
+   	<div class="square">37</div>
+   	<div class="square">38</div>
+   	<div class="square">39</div>
+   	<div class="square">40</div>
+   	<div class="square">41</div>
+   	<div class="square">42</div>
+   	<div class="square">43</div>
+   	<div class="square">44</div>
+   	<div class="square">45</div>
+   	<div class="square">46</div>
+   	<div class="square">47</div>
+   	<div class="square">48</div>
+   	<div class="square">49</div>
+   	<div class="square">50</div>
+   	<div class="square">51</div>
+   	<div class="square">52</div>
+   	<div class="square">53</div>
+   	<div class="square">54</div>
+   	<div class="square">55</div>
+   	<div class="square">56</div>
+   	<div class="square">57</div>
+   	<div class="square">58</div>
+   	<div class="square">59</div>
+   	<div class="square">60</div>
+  </div> <!--! end of #container -->
+</body>
+</html>

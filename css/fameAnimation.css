@@ -1,0 +1,194 @@
+*,*:after, *:before{
+	margin: 0px;
+	padding: 0px;
+	vertical-align: top;
+}
+
+body{
+	width: 1000px;
+	margin: 50px auto;
+	font-family: 'Codystar', cursive;
+	font-size: 30px;
+	font-weight: 400;
+	perspective: 800px;
+	-webkit-perspective: 800px;
+	-moz-perspective: 800px;
+	-ms-perspective: 800px;
+	-o-perspective: 800px;
+	perspective-origin: 0 100%;
+	-webkit-perspective-origin: 0 100%;
+	-moz-perspective-origin: 0 100%;
+	-ms-perspective-origin: 0 100%;
+	-o-perspective-origin: 0 100%;
+	
+}
+
+h1{
+	padding: 15px 0;
+	font-size: 100px;
+	font-weight: 300;
+	word-spacing: 20px;
+	letter-spacing: 8px;
+	text-align: center;
+	-webkit-transition: all .5s ease-in;
+	-moz-transition: all .5s ease-in;
+	-ms-transition: all .5s ease-in;
+	-o-transition: all .5s ease-in;
+	transition: all .5s ease-in;
+	transform: rotateX(45deg)
+	animation: skew-text .5s infinite;
+	-moz-animation: skew-text .5s infinite; 
+}
+
+h1:hover{
+	text-shadow: 2px 2px 20px #000;
+	-moz-text-shadow: 2px 2px 20px #000;
+}
+
+
+@-moz-keyframes skew-text{
+
+}
+
+
+.mr-john{
+	width: 139.5px;
+	height: 113px;
+	position: relative;
+	border:5px solid #79bae2;
+	background: url(../img/bolkaBahula.png);
+	box-shadow: 0 0 15px #79bae2 inset;
+	webkit-transition: -webkit-box-shadow .2s ease-in;
+	-moz-transition: -moz-box-shadow .2s ease-in;
+	-ms-transition: -ms-box-shadow .2s ease-in;
+	-o-transition: -o-box-shadow .2s ease-in;
+	transition: box-shadow  .2s ease-in; 
+}
+
+.mr-john:hover{
+	cursor: pointer;
+	-webkit-animation: letJohnSpeak 0.9s steps(6,end) infinite;
+	-moz-animation: letJohnSpeak 0.9s steps(6,end) infinite;
+	-ms-animation: letJohnSpeak 0.9s steps(6,end) infinite;
+	-o-animation: letJohnSpeak 0.9s steps(6,end) infinite;
+	animation: letJohnSpeak 0.9s steps(6,end) infinite;
+	box-shadow: 0 0 45px #79bae2 inset;
+	transform: scale(2);
+	-moz-transform: scale(2);
+	
+}
+
+.skeleton{
+	width: 226.28px;
+	height: 634px;
+	float: left;
+	margin: 20px;
+	background: url(../img/dancing_skeleton.png);
+}
+
+.skeleton:hover{
+	-webkit-animation: let-me-jump .9s steps(7,end) infinite;
+	-moz-animation: let-me-jump .9s steps(7,end) infinite;
+	-ms-animation: let-me-jump .9s steps(7,end)n infinite;
+	-o-animation: let-me-jump .9s steps(7,end) infinite;
+	animation: let-me-jump .9s steps(7,end) infinite;
+}
+
+
+
+.skeleton-small{
+	width: 77.42px;
+	height: 217px;
+	float: left;
+	margin: 20px;
+	background: url(../img/small_dancing_skeleton.png);
+}
+
+.skeleton-small:hover{
+	-webkit-animation: let-me-jump-small .9s steps(7,end) infinite;
+	-moz-animation: let-me-jump-small .9s steps(7,end) infinite;
+	-ms-animation: let-me-jump-small .9s steps(7,end)n infinite;
+	-o-animation: let-me-jump-small .9s steps(7,end) infinite;
+	animation: let-me-jump-small .9s steps(7,end) infinite;
+}
+
+
+
+@-webkit-keyframes let-me-jump{
+	0%{ background-position: 0 0 }
+	100%{ background-position: -1584px 0 }
+}
+
+@-moz-keyframes let-me-jump{
+	0%{ background-position: 0 0 }
+	100%{ background-position: -1584px 0 }
+}
+
+@-ms-keyframes let-me-jump{
+	0%{ background-position: 0 0 }
+	100%{ background-position: -1584px 0 }
+}
+
+@-o-keyframes let-me-jump{
+	0%{ background-position: 0 0 }
+	100%{ background-position: -1584px 0 }
+}
+
+@keyframes let-me-jump{
+	0%{ background-position: 0 0 }
+	100%{ background-position: -1584px 0 }
+}
+
+
+@-webkit-keyframes letJohnSpeak{
+	0%{background-position: 0 0}
+	100%{background-position: -837 0}
+}
+
+@-moz-keyframes letJohnSpeak{
+	0%{background-position: 0 0}
+	100%{background-position: -837px 0}
+}
+
+@-ms-keyframes letJohnSpeak{
+	0%{background-position: 0 0}
+	100%{background-position: -837px 0}
+}
+
+@-o-keyframes letJohnSpeak{
+	0%{background-position: 0 0}
+	100%{background-position: -837px 0}
+}
+
+@keyframes letJohnSpeak{
+	0%{background-position: 0 0}
+	100%{background-position: -837px 0}
+}
+
+
+@-webkit-keyframes let-me-jump-small{
+	0%{ background-position: 0 0 }
+	100%{ background-position: -542px 0 }
+}
+
+@-moz-keyframes let-me-jump-small{
+	0%{ background-position: 0 0 }
+	100%{ background-position: -542px 0 }
+}
+
+@-ms-keyframes let-me-jump-small{
+	0%{ background-position: 0 0 }
+	100%{ background-position: -542px 0 }
+}
+
+@-o-keyframes let-me-jump-small{
+	0%{ background-position: 0 0 }
+	100%{ background-position: -542px 0 }
+}
+
+@keyframes let-me-jump-small{
+	0%{ background-position: 0 0 }
+	100%{ background-position: -542px 0 }
+}
+
+

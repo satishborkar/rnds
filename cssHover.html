@@ -1,0 +1,182 @@
+<!doctype html> <!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js ie7 oldie" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js ie8 oldie" lang="en"> <![endif]-->
+<!-- Consider adding an manifest.appcache: h5bp.com/d/Offline -->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="en">
+	<!--<![endif]-->
+	<head>
+		<meta charset="utf-8">
+
+		<!-- Use the .htaccess and remove these lines to avoid edge case issues.
+		More info: h5bp.com/b/378 -->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+		<title>Miscllanious</title>
+		<meta name="description" content="">
+		<meta name="author" content="">
+
+		<!-- Mobile viewport optimized: j.mp/bplateviewport -->
+		<meta name="viewport" content="width=device-width,initial-scale=1">
+
+		<!-- Place favicon.ico and apple-touch-icon.png in the root directory: mathiasbynens.be/notes/touch-icons -->
+
+		<!-- CSS: implied media=all -->
+		<!-- CSS concatenated and minified via ant build script-->
+		<style type="text/css">
+			@import url(http://fonts.googleapis.com/css?family=Open+Sans:700);
+			* {
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+				-moz-box-sizing: border-box;
+				-webkit-box-sizing: border-box;
+				-o-box-sizing: border-box;
+			}
+
+			:before, :after {
+				content: '';
+				display: block;
+				position: absolute;
+				box-sizing: border-box;
+				-moz-box-sizing: border-box;
+				-webkit-box-sizing: border-box;
+				-o-box-sizing: border-box;
+			}
+
+			html, body {
+				height: 100%;
+				background: #ddd;
+				overflow: hidden;
+			}
+
+			.btn {
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				margin: -25px 0 0 -100px;
+				display: block;
+				width: 200px;
+				height: 50px;
+				font: 700 18px/50px 'Open Sans', sans-serif;
+				text-transform: uppercase;
+				text-align: center;
+				color: #fff;
+				perspective: 800px;
+				
+				-moz-perspective: 800px;
+				-webkit-perspective: 800px;
+				-o-perspective: 800px;
+			}
+
+			.btn span {
+				position: relative;
+				display: inline-block;
+				width: 200px;
+				height: 50px;
+				line-height: 50px;
+				background: #567;
+				box-shadow: inset 0 3px #345;
+				transition: background 0.6s;
+				transform-style: preserve-3d;
+				transform-origin: 0% 50%;
+				
+				-moz-transition: background 0.6s;
+				-moz-transform-style: preserve-3d;
+				-moz-transform-origin: 0% 50%;
+				
+				-webkit-transition: background 0.6s;
+				-webkit-transform-style: preserve-3d;
+				-webkit-transform-origin: 0% 50%;
+				
+				
+				-o-transition: background 0.6s;
+				-o-transform-style: preserve-3d;
+				-o-transform-origin: 0% 50%;
+				
+			}
+
+			.btn span::before {
+				content: attr(data-hover);
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 101%;
+				background: #fff;
+				color: #aaa;
+				box-shadow: inset 0 3px #aaa;
+				transform: rotateX(270deg);
+				transition: transform 0.6s;
+				transform-origin: 0 0;
+				
+				-moz-transform: rotateX(270deg);
+				-moz-transition: transform 0.6s;
+				-moz-transform-origin: 0 0;
+				
+				
+				-webkit-transform: rotateX(270deg);
+				-webkit-transition: transform 0.6s;
+				-webkit-transform-origin: 0 0;
+				
+				-o-transform: rotateX(270deg);
+				-o-transition: transform 0.6s;
+				-o-transform-origin: 0 0;
+				
+			}
+
+			.btn:hover span::before, .btn:focus span::before {
+				transform: rotateX(10deg);
+				-moz-transform: rotateX(10deg);
+				-webkit-transform: rotateX(10deg);
+				-o-transform: rotateX(10deg);
+			}
+
+		</style>
+		<!-- end CSS-->
+
+		<!-- More ideas for your <head> here: h5bp.com/d/head-Tips -->
+
+		<!-- All JavaScript at the bottom, except for Modernizr / Respond.
+		Modernizr enables HTML5 elements & feature detects; Respond is a polyfill for min/max-width CSS3 Media Queries
+		For optimal performance, use a custom Modernizr build: www.modernizr.com/download/ -->
+		<script src="js/libs/modernizr-2.0.6.min.js"></script>
+	</head>
+
+	<body>
+
+		<div id="container">
+			<a class="btn"> <span data-hover="Thank you">Hover me</span> </a>
+		</div>
+		<!--! end of #container -->
+
+		<!-- JavaScript at the bottom for fast page loading -->
+
+		<!-- Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if offline -->
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+		<script>
+			window.jQuery || document.write('<script src="js/libs/jquery-1.6.2.min.js"><\/script>')
+		</script>
+
+		<!-- scripts concatenated and minified via ant build script-->
+		<script defer src="js/plugins.js"></script>
+		<script defer src="js/script.js"></script>
+		<!-- end scripts-->
+
+		<!-- Change UA-XXXXX-X to be your site's ID -->
+		<script>
+			window._gaq = [['_setAccount', 'UAXXXXXXXX1'], ['_trackPageview'], ['_trackPageLoadTime']];
+			Modernizr.load({
+				load : ('https:' == location.protocol ? '//ssl' : '//www') + '.google-analytics.com/ga.js'
+			});
+		</script>
+
+		<!-- Prompt IE 6 users to install Chrome Frame. Remove this if you want to support IE 6.
+		chromium.org/developers/how-tos/chrome-frame-getting-started -->
+		<!--[if lt IE 7 ]>
+		<script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.3/CFInstall.min.js"></script>
+		<script>window.attachEvent('onload',function(){CFInstall.check({mode:'overlay'})})</script>
+		<![endif]-->
+
+	</body>
+</html>

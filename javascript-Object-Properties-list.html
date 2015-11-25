@@ -1,0 +1,3119 @@
+<!doctype html> <!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js ie7 oldie" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js ie8 oldie" lang="en"> <![endif]-->
+<!-- Consider adding an manifest.appcache: h5bp.com/d/Offline -->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="en">
+	<!--<![endif]-->
+	<head>
+		<meta charset="utf-8">
+
+		<!-- Use the .htaccess and remove these lines to avoid edge case issues.
+		More info: h5bp.com/b/378 -->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<title>JavaScript Built-in objects : Array Object Properties </title>
+		<meta name="description" content="">
+		<meta name="author" content="">
+		<!-- Mobile viewport optimized: j.mp/bplateviewport -->
+		<meta name="viewport" content="width=device-width,initial-scale=1">
+		<!-- CSS: implied media=all -->
+		<!-- CSS concatenated and minified via ant build script-->
+		<!-- end CSS-->
+		<!-- More ideas for your <head> here: h5bp.com/d/head-Tips -->
+
+		<!-- All JavaScript at the bottom, except for Modernizr / Respond.
+		Modernizr enables HTML5 elements & feature detects; Respond is a polyfill for min/max-width CSS3 Media Queries
+		For optimal performance, use a custom Modernizr build: www.modernizr.com/download/ -->
+		<script src="js/libs/modernizr-2.0.6.min.js"></script>
+
+		<style type="text/css">
+			body {
+				background: #000;
+				width: 96%;
+				margin: 0 auto;
+				color: #999999;
+				font-size: 13px;
+				/*font-family: Consolas, Arial, Vardana;
+				font-family: Lucida Sans, Arial, Helvetica, sans-serif;*/
+				font-family: Consolas, Arial, Vardana;
+			}
+
+			table.jsObjects {
+				border-right: 1px solid #333;
+				border-top: 1px solid #333;
+			}
+
+			table.jsObjects tr td, table.jsObjects tr th {
+				text-align: left;
+				vertical-align: top;
+				border-left: 1px solid #333;
+				border-bottom: 1px solid #333;
+				padding: 4px 8px;
+			}
+
+			table.jsObjects tr th {
+				background: #333;
+				border-left-color: #444;
+				vertical-align: middle;
+				text-align: center;
+			}
+
+			table.jsObjects tr th:first-child {
+				width: 25% !important;
+			}
+
+			table.jsObjects tr td h1 {
+				margin: 0px;
+				padding: 0px;
+				color: #ff7400;
+				font-size: 18px;
+				line-height: 15px;
+			}
+
+			.syntax, .example {
+				font-family: Consolas, Arial, Vardana;
+				color: #9b6431
+			}
+
+			.example a {
+				cursor: pointer;
+				text-decoration: underline;
+			}
+			
+			td.example:last-child{
+				color: #6a9d6a;
+			}
+
+			.desc {
+				font-size: 13px;
+				min-width: 300px;
+				font-family: Consolas, Arial, Vardana;
+				color:#ccc;
+			}
+
+			.syntax {
+				color: #c5af75;
+			}
+			pre {
+				margin: 0px;
+			}
+
+			button {
+				padding: 4px 8px;
+			}
+			p {
+				padding: 4px;
+				margin: 0px;
+			}
+			label {
+				display: inline-block;
+				padding: 1px 3px;
+				border-radius: 2px;
+				background: #00bcf2;
+				color: #fff;
+				cursor: pointer;
+				margin-top: 2px !important;
+				margin-bottom: 2px !important;
+				margin-right: 4px !important;
+				text-transform: capitalize
+			}
+
+			label.array {
+				background: #00bcf2;
+			}
+			label.date {
+				background: #0b4dc5;
+			}
+			label.boolean {
+				background: #ea3e23;
+			}
+			label.number {
+				background: #ffb800;
+			}
+			label.math {
+				background: #b50033;
+			}
+			label.string {
+				background: #125e8b;
+			}
+			label.regexp {
+				background: #9f0c9a;
+			}
+			label.window {
+				background: #68217a;
+			}
+			label.navigator {
+				/*background: #8eb300;*/
+				background: #007b6f;
+			}
+			label.screen {
+				background: #c13c0e;
+			}
+			label.history {
+				background: #727272;
+			}
+			label.location {
+				background: #73880a;
+			}
+			label.global {
+				background: green;
+			}
+
+			label.document {
+				background: #b02b2c;
+			}
+
+			.warning {
+				color: #FFFF00;
+				font-size: 11.5px;
+				display: block;
+				padding: 2px;
+			}
+
+		</style>
+
+	</head>
+
+	<body dir="ltr" lang="en-us" id="mylangId">
+		<h1>Javascript Object Properties</h1>
+		<table cellpadding="0" class="jsObjects" cellspacing="0" border="0" width="100%">
+			<thead>
+				<tr>
+					<th>Property of [ Object(s) ]</th>
+					<th>Syntax </th>
+					<th>Description</th>
+					<th>Sample Code</th>
+					<th>Example</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td class="object"> Array,Boolean,Date,String </td>
+					<td class="syntax">Array.object.constructor
+					<br/>
+					Boolean.object.constructor
+					Date.object.constructor
+					String.object.constructor </td>
+					<td class="desc">Returns the function that created the object's prototype.</td>
+					<td class="example">
+					<p>
+						function getConstructorType() {
+						var fruits = ["banana", "orange", "apple"];
+						var x = document.getElementById("test");
+						x.innerHTML = fruits.constructor;
+						}
+					</p></td>
+					<td class="example">
+					<p id="getConstructorType">
+						Click the button to view output
+					</p>
+					<button onclick="getConstructorType()">
+						getConstructorType
+					</button>
+					<script type="text/javascript">
+						function getConstructorType() {
+							var fruits = ["banana", "orange", "apple"];
+							var x = document.getElementById("getConstructorType");
+							x.innerHTML = fruits.constructor;
+						}
+					</script></td>
+				</tr>
+
+				<tr>
+					<td class="object">Array, String, Window, History</td>
+					<td class="syntax">Array.length
+					<br/>
+					String.length
+					<br/>
+					Window.length
+					<br/>
+					History.length
+					<br/>
+					<br/>
+					Array.length=number </td>
+					<td class="desc">Sets or returns the number of elements in an Obeject</td>
+					<td class="example">
+					<p>
+						function getLength() {
+						var fruits = ["banana", "orange", "apple", "papaya"];
+						var x = document.getElementById("test2");
+						x.innerHTML = fruits.length;
+						}
+					</p></td>
+					<td class="example">
+					<p id="getLength">
+						Click the button to view output
+					</p>
+					<button onclick="getLength()">
+						getLength
+					</button>
+					<script type="text/javascript">
+						function getLength() {
+							var fruits = ["banana", "orange", "apple", "papaya"];
+							var x = document.getElementById("getLength");
+							x.innerHTML = fruits.length;
+						}
+					</script></td>
+				</tr>
+
+				<tr>
+					<td class="object"> Array, Boolean, Date, String, Number </td>
+					<td class="syntax"> Array.prototype.name=value
+					<br/>
+					Boolean.prototype.name=value
+					<br/>
+					Date.prototype.name=value
+					<br/>
+					String.prototype.name=value
+					<br/>
+					Number.prototype.name=value
+					<br/>
+					</td>
+					<td class="desc">
+					<p>
+						The prototype constructor allows you to add new properties and methods to the Object().
+					</p>
+					<p>
+						When constructing a property, ALL Object will be given the property, and it's value, as default.
+					</p>
+					<p>
+						When constructing a method, ALL Object will have this method available.
+					</p>
+					<p>
+						Note: Array.prototype does not refer to a single array, but to the Array() object itself.
+					</p>
+					<p>
+						Note: Prototype is a global object constructor which is available for all JavaScript objects.
+					</p></td>
+					<td class="example">
+					<p>
+						Array.prototype.changeCase = function(){
+						for(i=0 ; i &lt; this.length; i++){
+						this[i] = this[i].toUpperCase();
+						}
+						}
+
+						function retrieveData() {
+						var fruits = ["banana", "orange", "apple", "papaya"];
+						fruits.changeCase();
+						var x = document.getElementById("proto");
+						x.innerHTML = fruits;
+						}
+					</p></td>
+					<td class="example"> pending </td>
+				</tr>
+
+				<tr>
+					<td class="object">Math</td>
+					<td class="syntax">Math.E</td>
+					<td class="desc">
+					<p>
+						Math is not a constructor. All properties/methods of Math can be called by using Math as an object, without creating it.
+					</p>
+					<p>
+						The E property returns the <em> Euler's number </em> and the base of natural logarithms, approximately 2.718.
+					</p></td>
+					<td class="example">
+					<p>
+						function myFunction()
+						{
+						document.getElementById("demo")
+						.innerHTML=Math.E;
+						}
+					</p></td>
+					<td class="example">
+					<p id="demo">
+						Click the button to display Euler's number.
+					</p>
+					<button onclick="myFunction()">
+						Try it
+					</button>
+					<script>
+						function myFunction() {
+							document.getElementById("demo").innerHTML = Math.E;
+						}
+					</script></td>
+				</tr>
+
+				<tr>
+					<td class="object">Math</td>
+					<td class="syntax">Math.LN2; </td>
+					<td class="desc">The LN2 property returns the natural logarithm of 2, approximately 0.693.</td>
+					<td class="example">
+					<p>
+						function getLn2Val()
+						{
+						document.getElementById("ln2")
+						.innerHTML=Math.LN2;
+						}
+					</p></td>
+					<td class="example">
+					<p id="ln2">
+						Click the button to display the natural logarithm of 2.
+					</p>
+					<button onclick="getLn2Val()">
+						Try it
+					</button>
+					<script>
+						function getLn2Val() {
+							document.getElementById("ln2").innerHTML = Math.LN2;
+						}
+					</script></td>
+				</tr>
+
+				<tr>
+					<td class="object">Math</td>
+					<td class="syntax">Math.LN10; </td>
+					<td class="desc">The LN10 property returns the natural logarithm of 10, approximately 2.302.</td>
+					<td class="example">
+					<p>
+						function returnLn10()
+						{
+						document.getElementById("returnLn10")
+						.innerHTML=Math.LN10;
+						}
+					</p></td>
+					<td class="example">
+					<p id="returnLn10">
+						Click the button to display the natural logarithm of 10.
+					</p>
+					<button onclick="returnLn10()">
+						Try it
+					</button>
+					<script>
+						function returnLn10() {
+							document.getElementById("returnLn10").innerHTML = Math.LN10;
+						}
+					</script></td>
+				</tr>
+
+				<tr>
+					<td class="object">Math</td>
+					<td class="syntax">Math.LOG2E</td>
+					<td class="desc">Returns the base-2 logarithm of E (approx. 1.442)</td>
+					<td class="example">
+					<p>
+						function returnLog2e()
+						{
+						document.getElementById("demo")
+						.innerHTML=Math.LOG2E;
+						}
+					</p></td>
+					<td class="example">
+					<p id="returnLog2e">
+						Click the button to display the base-2 logarithm of E.
+					</p>
+					<button onclick="returnLog2e()">
+						Try it
+					</button>
+					<script>
+						function returnLog2e() {
+							document.getElementById("returnLog2e").innerHTML = Math.LOG2E;
+						}
+					</script></td>
+				</tr>
+
+				<tr>
+					<td class="object">Math</td>
+					<td class="syntax">Math.LOG10E </td>
+					<td class="desc">Returns the base-10 logarithm of E (approx. 0.434)</td>
+					<td class="example">
+					<p>
+						function returnLog10e()
+						{
+						document.getElementById("returnLog10e")
+						.innerHTML=Math.LOG10E;
+						}
+					</p></td>
+					<td class="example">
+					<p id="returnLog10e">
+						Click the button to display the base-10 logarithm of E.
+					</p>
+					<button onclick="returnLog10e()">
+						Try it
+					</button>
+					<script>
+						function returnLog10e() {
+							document.getElementById("returnLog10e").innerHTML = Math.LOG10E;
+						}
+					</script></td>
+				</tr>
+
+				<tr>
+					<td class="object">Math</td>
+					<td class="syntax">Math.PI; </td>
+					<td class="desc">The PI property returns the ratio of a circle's area to the square of its radius, approximately 3.14</td>
+					<td class="example">
+					<p>
+						function returnThePi()
+						{
+						document.getElementById("returnThePi")
+						.innerHTML=Math.PI;
+						}
+					</p></td>
+					<td class="example">
+					<p id="returnThePi">
+						Click the button to display PI.
+					</p>
+					<button onclick="returnThePi()">
+						Try it
+					</button>
+					<script>
+						function returnThePi() {
+							document.getElementById("returnThePi").innerHTML = Math.PI;
+						}
+					</script></td>
+				</tr>
+
+				<tr>
+					<td class="object">Math</td>
+					<td class="syntax">Math.SQRT1_2</td>
+					<td class="desc">The SQRT1_2 property returns the square root of 1/2, approximately 0.707.</td>
+					<td class="example">
+					<p>
+						function squareRootOf()
+						{
+						document.getElementById("squareRootOf")
+						.innerHTML=Math.SQRT1_2;
+						}
+					</p></td>
+					<td class="example">
+					<p id="squareRootOf">
+						Click the button to display the square root of 1/2.
+					</p>
+					<button onclick="squareRootOf()">
+						Try it
+					</button>
+					<script>
+						function squareRootOf() {
+							document.getElementById("squareRootOf").innerHTML = Math.SQRT1_2;
+						}
+					</script></td>
+				</tr>
+
+				<tr>
+					<td class="object">Math</td>
+					<td class="syntax">Math.SQRT2</td>
+					<td class="desc">The SQRT2 property returns the square root of 2, approximately 1.414.</td>
+					<td class="example">
+					<p>
+						function squareRootOf2()
+						{
+						document.getElementById("squareRootOf2")
+						.innerHTML=Math.SQRT2;
+						}
+					</p></td>
+					<td class="example">
+					<p id="squareRootOf2">
+						Click the button to display the square root of 2.
+					</p>
+					<button onclick="squareRootOf2()">
+						Try it
+					</button>
+					<script>
+						function squareRootOf2() {
+							document.getElementById("squareRootOf2").innerHTML = Math.SQRT2;
+						}
+					</script></td>
+				</tr>
+				<tr>
+					<td class="object">Number</td>
+					<td class="syntax">Number.MAX_VALUE; </td>
+					<td class="desc"> Return the largest number possible in JavaScript.
+					<br/>
+					Sice MAX_VALUE is a property of the Number object wrapper, you always use it as Number.MAX_VALUE.
+					<br/>
+					Using x.MAX_VALUE, where x a Number object you have created, will return undefined. </td>
+					<td class="example">
+					<p>
+						function myNumberMaxVal()
+						{
+						document.getElementById("myNumberMaxVal")
+						.innerHTML=Number.MAX_VALUE;
+						}
+					</p></td>
+					<td class="example">
+					<p id="myNumberMaxVal">
+						Click the button to display the largest possible number in JavaScript.
+					</p>
+					<button onclick="myNumberMaxVal()">
+						Try it
+					</button>
+					<script>
+						function myNumberMaxVal() {
+							document.getElementById("myNumberMaxVal").innerHTML = Number.MAX_VALUE;
+						}
+					</script></td>
+				</tr>
+				<tr>
+					<td class="object">Number</td>
+					<td class="syntax">Number.MIN_VALUE; </td>
+					<td class="desc"> The MIN_VALUE property returns the smallest number possible in JavaScript.
+					<br/>
+					This static property has a value of 5e-324.
+					<br/>
+					Note: Numbers smaller than this are converted to 0.
+					<br/>
+					Note: MIN_VALUE is the closest number to 0 possible in JavaScript. NOT the most negative number, which is the negative MAX_NUMBER.
+					<br/>
+					</td>
+					<td class="example">
+					<p>
+						function getMinNumberVal()
+						{
+						document.getElementById("getMinNumberVal")
+						.innerHTML=Number.MIN_VALUE;
+						}
+					</p></td>
+					<td class="example">
+					<p id="getMinNumberVal">
+						Click the button to display the smallest possible number in JavaScript.
+					</p>
+					<button onclick="getMinNumberVal()">
+						Try it
+					</button>
+					<script>
+						function getMinNumberVal() {
+							document.getElementById("getMinNumberVal").innerHTML = Number.MIN_VALUE;
+						}
+					</script></td>
+				</tr>
+				<tr>
+					<td class="object">Number</td>
+					<td class="syntax">Number.NEGATIVE_INFINITY; </td>
+					<td class="desc"> The NEGATIVE_INFINITY property represents negative infinity.
+					<br/>
+					Negative infinity can be explained as something that is lower than any other number. </td>
+					<td class="example">
+					<p>
+						function negativeInfinityNo()
+						{
+						var negativeInfinityNo=document
+						.getElementById("negativeInfinityNo");
+						negativeInfinityNo
+						.innerHTML=Number.NEGATIVE_INFINITY;
+						}
+					</p></td>
+					<td class="example">
+					<p id="negativeInfinityNo">
+						Click the button to display negative infinity.
+					</p>
+					<button onclick="negativeInfinityNo()">
+						Try it
+					</button>
+					<script>
+						function negativeInfinityNo() {
+							var negativeInfinityNo = document.getElementById("negativeInfinityNo");
+							negativeInfinityNo.innerHTML = Number.NEGATIVE_INFINITY;
+						}
+					</script></td>
+				</tr>
+				<tr>
+					<td class="object">Number</td>
+					<td class="syntax">Number.NaN</td>
+					<td class="desc"> The NaN property represents "Not-a-Number" value. This property indicates that a value is not a legal number.
+					<br/>
+					The NaN property is the same as the Number.Nan property.
+					<br/>
+					Tip: Use the isNaN() global function to check if a value is a NaN value.
+					<br/>
+					</td>
+					<td class="example"><p>
+
+					</p></td>
+					<td class="example"></td>
+				</tr>
+				<tr>
+					<td class="object">Number</td>
+					<td class="syntax">Number.POSITIVE_INFINITY; </td>
+					<td class="desc"> The POSITIVE_INFINITY property represents positive infinity.
+					<br/>
+					Positive infinity can be explained as something that is higher than any other number. </td>
+					<td class="example">
+					<p>
+						function POSITIVEINFINITY()
+						{
+						var x=100;
+						var POSITIVEINFINITY=document
+						.getElementById("POSITIVEINFINITY");
+						POSITIVEINFINITY.innerHTML=x.POSITIVE_INFINITY;
+						}
+
+					</p></td>
+					<td class="example">
+					<p id="POSITIVEINFINITY">
+						Click the button to display positive infinity.
+					</p>
+					<button onclick="POSITIVEINFINITY()">
+						Try it
+					</button>
+					<script>
+						function POSITIVEINFINITY() {
+							var x = 100;
+							var POSITIVEINFINITY = document.getElementById("POSITIVEINFINITY");
+							POSITIVEINFINITY.innerHTML = x.POSITIVE_INFINITY;
+						}
+					</script></td>
+				</tr>
+				<!-- <tr>
+				<td colspan="3">
+				<h2>RegExp Object</h2>
+				A regular expression is an object that describes a pattern of characters.<br/>
+				Regular expressions are used to perform pattern-matching and "search-and-replace" functions on text.<br/>
+				</td>
+				<td colspan="2" class="example">
+				var patt=new RegExp(pattern,modifiers);<br/>
+				or more simply:<br/>
+				var patt=/pattern/modifiers;<br/>
+				pattern specifies the pattern of an expression<br/>
+				modifiers specify if a search should be global, case-sensitive, etc.
+				</td>
+				</tr> -->
+				<tr>
+					<td class="object">Global</td>
+					<td class="syntax">Infinity</td>
+					<td class="desc"> Infinity is a numeric value that represents positive infinity.
+					<br/>
+					-Infinity is a numeric value that represents negative infinity.
+					<br/>
+					Infinity is displayed when a number exceeds the upper limit of the floating point numbers, which is 1.7976931348623157E+10308.
+					<br/>
+					-Infinity is displayed when a number exceeds the lower limit of the floating point numbers, which is -1.7976931348623157E+10308.
+					<br/>
+					</td>
+					<td class="example">
+					<p>
+						var x=1.7976931348623157E+10308;
+						document.write(x + "
+						<br>
+						");
+						var y=-1.7976931348623157E+10308;
+						document.write(y);
+					</p></td>
+					<td class="example">
+					<script>
+						var x = 1.7976931348623157E+10308;
+						document.write(x + "<br>");
+						var y = -1.7976931348623157E+10308;
+						document.write(y);
+					</script></td>
+				</tr>
+				<tr>
+					<td class="object">Global</td>
+					<td class="syntax">Object.NaN</td>
+					<td class="desc"> The NaN property represents "Not-a-Number" value. This property indicates that a value is not a legal number.
+					<br/>
+					The NaN property is the same as the Number.Nan property.
+					<br/>
+					Tip: Use the isNaN() global function to check if a value is a NaN value.
+					<br/>
+					</td>
+					<td class="example"><p>
+
+					</p></td>
+					<td class="example"></td>
+				</tr>
+				<tr>
+					<td class="object">Global</td>
+					<td class="syntax">undefined </td>
+					<td class="desc">The undefined property indicates that a variable has not been assigned a value.</td>
+					<td class="example">
+					<p>
+						var t1="";
+						var t2;
+						if (t1===undefined)
+						{
+						document.getElementById("undefinedData")
+						.innerHTML = "t1 is undefined";
+						}
+						if (t2===undefined)
+						{
+						document.getElementById("undefinedData")
+						.innerHTML = "t2 is undefined";
+						}
+					</p></td>
+					<td class="example"><div id="undefinedData"></div>
+					<script>
+						var t1 = "";
+						var t2;
+						if (t1 === undefined) {
+							document.getElementById("undefinedData").innerHTML = "t1 is undefined";
+						}
+						if (t2 === undefined) {
+							document.getElementById("undefinedData").innerHTML = "t2 is undefined";
+						}
+					</script></td>
+				</tr>
+
+				<tr>
+					<td colspan="5"><h1>Window Object</h1> The window object represents an open window in a browser.
+					<br/>
+					If a document contain frames (&lt;frame&gt; or &lt;iframe&gt; tags), the browser creates one window object for the HTML document, and one additional window object for each frame.
+					<br/>
+					Note Note: There is no public standard that applies to the Window object, but all major browsers support it.
+					<br/>
+					</td>
+				</tr>
+				<tr>
+					<td class="object">Window</td>
+					<td class="syntax">window.closed</td>
+					<td class="desc">Returns a Boolean value indicating whether a window has been closed or not</td>
+					<td class="example">
+					<p>
+						var myWindow;
+						function openWin(){
+						myWindow=window.open("","","width=400,height=200");
+						}
+						function closeWin(){
+						if (myWindow)
+						{
+						myWindow.close();
+						}
+						}
+						function checkWin(){
+						if (!myWindow) {
+						document.getElementById("msg").innerHTML
+						="'myWindow' has never been opened!";
+						}
+						else{
+						if (myWindow.closed){
+						document.getElementById("msg").innerHTML
+						="'myWindow' has been closed!";
+						}
+						else{
+						document.getElementById("msg").innerHTML
+						="'myWindow' has not been closed!";
+						}
+						}
+						}
+					</p></td>
+					<td class="example">
+					<script>
+						var myWindow;
+						function openWin() {
+							myWindow = window.open("", "", "width=400,height=200");
+						}
+
+						function closeWin() {
+							if (myWindow) {
+								myWindow.close();
+							}
+						}
+
+						function checkWin() {
+							if (!myWindow) {
+								document.getElementById("msg").innerHTML = "'myWindow' has never been opened!";
+							} else {
+								if (myWindow.closed) {
+									document.getElementById("msg").innerHTML = "'myWindow' has been closed!";
+								} else {
+									document.getElementById("msg").innerHTML = "'myWindow' has not been closed!";
+								}
+							}
+						}
+					</script>
+					<input type="button" value="Open 'myWindow'" onclick="openWin()" />
+					<input type="button" value="Close 'myWindow'" onclick="closeWin()" />
+					<br>
+					<br>
+					<input type="button" value="Has 'myWindow' been closed?" onclick="checkWin()" />
+					<br>
+					<br>
+					<div id="msg"></div></td>
+				</tr>
+				<tr>
+					<td class="object">Window </td>
+					<td class="syntax">window.defaultStatus</td>
+					<td class="desc"><span class="warning">support only in opera;</span>
+					<br/>
+					The defaultStatus property sets or returns the default text in the status bar at the bottom of the browser (the text will be displayed when the page loads). </td>
+					<td class="example">
+					<p>
+						window.defaultStatus
+						="This is the default text in the status bar!!";
+					</p></td>
+					<td class="example">
+					<script>
+						window.defaultStatus = "This is the default text in the status bar!!"
+					</script></td>
+				</tr>
+				<tr>
+					<td class="object">Window</td>
+					<td class="syntax">window.frames</td>
+					<td class="desc"> The frames property returns an array of all the frames (including iframes) in the current window.
+					<br/>
+					<span class="warning">Tip: Use frames.length to find the number of frames.</span></td>
+					<td class="example">
+					<p>
+						for (var i=0; i &lt frames.length; i++)
+						{
+						frames[i].location="http://w3schools.com"
+						}
+					</p></td>
+					<td class="example">
+					<script>
+						for (var i = 0; i < frames.length; i++) {
+							frames[i].location = "http://w3schools.com"
+						}
+					</script></td>
+				</tr>
+
+				<tr>
+					<td class="object">Window</td>
+					<td class="syntax"> Get:
+					<br/>
+					window.innerWidth
+					<br/>
+					window.innerHeight
+					<br/>
+					Set:
+					<br/>
+					window.innerWidth=pixels
+					<br/>
+					window.innerHeight=pixels
+					<br/>
+					</td>
+					<td class="desc"> The innerWidth property sets or returns the inner width of a window's content area.
+					<br/>
+					The innerHeight property sets or returns the inner height of a window's content area.
+					<br/>
+					<span class="warning">Note: Use the outerWidth and outerHeight properties to get width/height with toolbars/scrollbars.</span></td>
+					<td class="example">
+					<p>
+						function calcInnerDismensions()
+						{
+						var w=window.innerWidth;
+						var h=window.innerHeight;
+						x=document.getElementById("calcInnerDismensions");
+						x.innerHTML="Width: " + w + " Heigth: " + h;
+						}
+
+					</p></td>
+					<td class="example">
+					<p id="calcInnerDismensions">
+						Click the button to display this window's height and width (NOT including toolbars and scrollbars).
+					</p>
+					<button onclick="calcInnerDismensions()">
+						Try it
+					</button>
+					<script>
+						function calcInnerDismensions() {
+							var w = window.innerWidth;
+							var h = window.innerHeight;
+							x = document.getElementById("calcInnerDismensions");
+							x.innerHTML = "Width: " + w + " Heigth: " + h;
+						}
+					</script></td>
+				</tr>
+				<tr>
+					<td class="object">Window</td>
+					<td class="syntax">window.name</td>
+					<td class="desc">Return the name of the window <span class="warning"></span></td>
+					<td class="example">
+					<p>
+						function openWin()
+						{
+						myWindow=window.open('','MsgWindow','width=200,height=100');
+						myWindow.document.write("
+					<p>
+						This window's name is: " + myWindow.name + "
+					</p>");
+					} </p></td>
+					<td class="example">
+					<input type="button" value="Open 'myWindow'" onclick="openWin()">
+					<script>
+						function openWin() {
+							myWindow = window.open('', 'MsgWindow', 'width=200,height=100');
+							myWindow.document.write("<p>This window's name is: " + myWindow.name + "</p>");
+						}
+					</script></td>
+				</tr>
+				<tr>
+					<td class="object">Window</td>
+					<td class="syntax">window.opener</td>
+					<td class="desc"> Returns a reference to the window that created the window.
+					When opening a window with window.open(), you can use this property from the destination window to return details of the source (parent) window.
+					<br/>
+					<span class="warning">Coding Tip: window.opener.close() will close the source (parent) window.</span></td>
+					<td class="example">
+					<p>
+						function openerWin()
+						{
+						myWindow=window.open('','','width=200,height=100');
+						myWindow.document.write("
+					<p>
+						This is 'myWindow'
+					</p>");
+					myWindow.focus();
+					myWindow.opener.document.write("
+					<p>
+						This is the source window!
+					</p>");
+					} </p></td>
+					<td class="example">
+					<script>
+						function openerWin() {
+							myWindow = window.open('', '', 'width=200,height=100');
+							myWindow.document.write("<p>This is 'myWindow'</p>");
+							myWindow.focus();
+							myWindow.opener.document.getElementById("speakMe").innerHTML = "<p>This is the source window!</p>";
+						}
+					</script>
+					<input type="button" value="Open 'myWindow'" onclick="openerWin()" />
+					<div id="speakMe"></div></td>
+				</tr>
+				<tr>
+					<td class="object">Window</td>
+					<td class="syntax"> Get:
+					window.outerWidth
+					<br/>
+					window.outerHeight
+					<br/>
+					<br/>
+					Set:
+					<br/>
+					window.outerWidth=pixels
+					<br/>
+					window.outerHeight=pixels
+					<br/>
+					</td>
+					<td class="desc"> Sets or returns the outer Weight/ Height of a window, including toolbars/scrollbars
+					<br/>
+					<span class="warning"></span></td>
+					<td class="example">
+					<p>
+						function getOuterDimensions()
+						{
+						var w=window.outerWidth;
+						var h=window.outerHeight;
+						x=document.getElementById("getOuterDimensions");
+						x.innerHTML="Width: " + w + " Heigth: " + h;
+						}
+					</p></td>
+					<td class="example">
+					<p id="getOuterDimensions">
+						Click the button to display this window's height and width (including toolbars and scrollbars).
+					</p>
+					<button onclick="getOuterDimensions()">
+						Try it
+					</button>
+					<script>
+						function getOuterDimensions() {
+							var w = window.outerWidth;
+							var h = window.outerHeight;
+							x = document.getElementById("getOuterDimensions");
+							x.innerHTML = "Width: " + w + " Heigth: " + h;
+						}
+					</script></td>
+				</tr>
+				<tr>
+					<td class="object">Window</td>
+					<td class="syntax"> window.pageXOffset
+					<br/>
+					window.pageYOffset </td>
+					<td class="desc"> The pageXOffset and pageYOffset properties returns the pixels the current document has been scrolled from the upper left corner of the window, horizontally and vertically.
+					<br/>
+					<br/>
+					<span class="warning"> Note: IE 8 and earlier does not support this property, but may use "document.body.scrollLeft" and "document.body.scrollTop" instead. </span></td>
+					<td class="example">
+					<p>
+						function scrollWindow()
+						{
+						window.scrollBy(100,100)
+						alert("pageXOffset: " + window.pageXOffset +
+						", pageYOffset: " + window.pageYOffset)
+						}
+					</p></td>
+					<td class="example">
+					<script>
+						function scrollWindow() {
+							window.scrollBy(100, 100)
+							alert("pageXOffset: " + window.pageXOffset + ", pageYOffset: " + window.pageYOffset)
+						}
+					</script>
+					<input type="button" onclick="scrollWindow()" value="Scroll" />
+					</td>
+				</tr>
+
+				<tr>
+					<td class="object">Window</td>
+					<td class="syntax">window.parent</td>
+					<td class="desc"> Returns parent property returns the parent window of the current window. <span class="warning"></span></td>
+					<td class="example">
+					<p>
+						function parentWinInfo()
+						{
+						window.open('','','width=200,height=100');
+						alert(window.parent.location);
+						}
+					</p></td>
+					<td class="example">
+					<script>
+						function parentWinInfo() {
+							window.open('', '', 'width=200,height=100');
+							alert(window.parent.location);
+						}
+					</script>
+					<input type="button" value="Open window" onclick="parentWinInfo()">
+					</td>
+				</tr>
+				<tr>
+					<td class="object">Window</td>
+					<td class="syntax"> window.screenLeft
+					<br/>
+					window.screenTop </td>
+					<td class="desc"> The screenLeft and screenTop properties are supported in all major browsers, except Firefox. <span class="warning">Note: For Firefox, use "window.screenX" and "window.screenY".</span></td>
+					<td class="example">
+					<p>
+						{
+						myWindow=window.open('','');
+						myWindow.document.write("
+					<p>
+						This is 'myWindow'");
+						myWindow.document.write("
+						<br>
+						ScreenLeft: " + myWindow.screenLeft);
+						myWindow.document.write("
+						<br>
+						ScreenTop: " + myWindow.screenTop + "
+					</p>");
+					} </p></td>
+					<td class="example">
+					<script>
+						function newWindScreenCoordinates() {
+							myWindow = window.open('', '');
+							myWindow.document.write("<p>This is 'myWindow'");
+							myWindow.document.write("<br>ScreenLeft: " + myWindow.screenLeft);
+							myWindow.document.write("<br>ScreenTop: " + myWindow.screenTop + "</p>");
+						}
+					</script>
+					<input type="button" value="Open 'myWindow'" onclick="newWindScreenCoordinates()">
+					</td>
+				</tr>
+				<tr>
+					<td class="object">Window</td>
+					<td class="syntax">window.screenX
+					<br/>
+					window.screenY</td>
+					<td class="desc"> The screenX and screenY properties returns the x and y coordinates of the window relative to the screen.
+					<br/>
+					<span class="warning">Note: IE equivalents are "window.screenLeft" and "window.screenTop".</span></td>
+					<td class="example">
+					<p>
+						function screenCoordinates()
+						{
+						myWindow=window.open('','');
+						myWindow.document.write("
+					<p>
+						This is 'myWindow'");
+						myWindow.document.write("
+						<br>
+						ScreenX: " + myWindow.screenX);
+						myWindow.document.write("
+						<br>
+						ScreenY: " + myWindow.screenY + "
+					</p>");
+					} </p></td>
+					<td class="example">
+					<script>
+						function screenCoordinates() {
+							myWindow = window.open('', '');
+							myWindow.document.write("<p>This is 'myWindow'");
+							myWindow.document.write("<br>ScreenX: " + myWindow.screenX);
+							myWindow.document.write("<br>ScreenY: " + myWindow.screenY + "</p>");
+						}
+					</script>
+					<input type="button" value="Open 'myWindow'" onclick="screenCoordinates()">
+					</td>
+				</tr>
+				<tr>
+					<td class="object">Window</td>
+					<td class="syntax">window.self</td>
+					<td class="desc"> The self property returns the current window. <span class="warning"></span></td>
+					<td class="example">
+					<p>
+						function checkSelfWindow(){
+						if (window.top!=window.self){
+						document.write("
+					<p>
+						This window is not the topmost window! Am I in a frame?
+					</p>");
+					}else{
+					document.write("
+					<p>
+						This window is the topmost window!
+					</p>");
+					}
+					} </p></td>
+					<td class="example">
+					<script>
+						function checkSelfWindow() {
+							if (window.top != window.self) {
+								document.write("<p>This window is not the topmost window! Am I in a frame?</p>")
+							} else {
+								document.write("<p>This window is the topmost window!</p>")
+							}
+						}
+					</script>
+					<input type="button" onclick="checkSelfWindow()" value="Check window">
+					</td>
+				</tr>
+				<tr>
+					<td class="object">Window</td>
+					<td class="syntax">window.status</td>
+					<td class="desc"> Note: The status property does not work in the default configuration of IE, Firefox, Chrome, or Safari. To allow scripts to change the text of the status, the user must set the dom.disable_window_status_change preference to false in the about:config screen. (or in Firefox: "Tools - Options - Content -Enable JavaScript / Advanced - Allow scripts to change status bar text"). <span class="warning">Only works in Opera</span></td>
+					<td class="example">
+					<p>
+						window.status="Some text in the status bar!!";
+					</p></td>
+					<td class="example"></td>
+				</tr>
+				<tr>
+					<td class="object">Window</td>
+					<td class="syntax">window.top</td>
+					<td class="desc"> The top property returns the topmost browser window of the current window. <span class="warning"></span></td>
+					<td class="example">
+					<p>
+						function checkTopWindow(){
+						if (window.top!=window.self){
+						document.write("
+					<p>
+						This window is not the topmost window! Am I in a frame?
+					</p>")
+					}else{
+					document.write("
+					<p>
+						This window is the topmost window!
+					</p>")
+					}
+					} </p></td>
+					<td class="example">
+					<script>
+						function checkTopWindow() {
+							if (window.top != window.self) {
+								document.write("<p>This window is not the topmost window! Am I in a frame?</p>")
+							} else {
+								document.write("<p>This window is the topmost window!</p>")
+							}
+						}
+					</script>
+					<input type="button" onclick="checkTopWindow()" value="Check window">
+					</td>
+				</tr>
+				<tr>
+					<td class="object">Navigator</td>
+					<td class="syntax">navigator.appCodeName</td>
+					<td class="desc"> The appCodeName property returns the code name of the browser. <span class="warning"></span></td>
+					<td class="example">
+					<p>
+						document.write("CodeName: " + navigator.appCodeName);
+					</p></td>
+					<td class="example">
+					<script>
+						document.write("CodeName: " + navigator.appCodeName);
+					</script></td>
+				</tr>
+
+				<td class="object">Navigator</td>
+				<td class="syntax">navigator.appName</td>
+				<td class="desc"> The appName property is supported in all major browsers. <span class="warning"></span></td>
+				<td class="example">
+				<p>
+					document.write("Name: " + navigator.appName);
+				</p></td>
+				<td class="example">
+				<script>
+					document.write("Name: " + navigator.appName);
+				</script></td>
+				</tr>
+				<tr>
+					<td class="object">Navigator</td>
+					<td class="syntax">navigator.appVersion</td>
+					<td class="desc"> Returns the version information of the browser <span class="warning"></span></td>
+					<td class="example">
+					<p>
+						document.write("Vesrion Name: " + navigator.appVersion);
+					</p></td>
+					<td class="example">
+					<script>
+						document.write("Vesrion Name: " + navigator.appVersion);
+					</script></td>
+				</tr>
+				<tr>
+					<td class="object">Navigator</td>
+					<td class="syntax">navigator.cookieEnabled</td>
+					<td class="desc"> Determines whether cookies are enabled in the browser <span class="warning"></span></td>
+					<td class="example">
+					<p>
+						document.write("Cookies enabled: " + navigator.cookieEnabled);
+					</p></td>
+					<td class="example">
+					<script>
+						document.write("Cookies enabled: " + navigator.cookieEnabled);
+					</script></td>
+				</tr>
+				<tr>
+					<td class="object">Navigator</td>
+					<td class="syntax">navigator.onLine</td>
+					<td class="desc"> Boolean, returns true if the browser is on line, otherwise false. <span class="warning"></span></td>
+					<td class="example">
+					<p>
+						function checkBrowsersOnLine()
+						{
+						var x=navigator.onLine;
+						document.getElementById("checkBrowsersOnLine").innerHTML=x;
+						}
+					</p></td>
+					<td class="example">
+					<script>
+						function checkBrowsersOnLine() {
+							var x = navigator.onLine;
+							document.getElementById("checkBrowsersOnLine").innerHTML = x;
+						}
+					</script>
+					<p id="checkBrowsersOnLine">
+						Click the button to see if the browser is online.
+					</p>
+					<button onclick="checkBrowsersOnLine()">
+						Try it
+					</button></td>
+				</tr>
+				<tr>
+					<td class="object">Navigator</td>
+					<td class="syntax">navigator.platform</td>
+					<td class="desc"> Returns for which platform the browser is compiled <span class="warning"></span></td>
+					<td class="example">
+					<p>
+						document.write("Platform: " + navigator.platform);
+					</p></td>
+					<td class="example">
+					<script>
+						document.write("Platform: " + navigator.platform);
+					</script></td>
+				</tr>
+				<tr>
+					<td class="object">Navigator</td>
+					<td class="syntax">navigator.userAgent</td>
+					<td class="desc"> Returns the user-agent header sent by the browser to the server <span class="warning"></span></td>
+					<td class="example">
+					<p>
+						document.write("User-agent header sent:
+						" + navigator.userAgent);
+					</p></td>
+					<td class="example">
+					<script>
+						document.write("User-agent header sent: " + navigator.userAgent);
+					</script></td>
+				</tr>
+
+				<tr>
+					<td class="object">Screen</td>
+					<td class="syntax">screen.availHeight
+					<br/>
+					screen.availWidth </td>
+					<td class="desc"> The availHeight &amp; availWidth property returns the height &amp; Width of the visitor's screen, in pixels, minus interface features like the Windows Taskbar.
+					<br/>
+					<span class="warning">Returns the Height &amp; width of the screen (excluding the Windows Taskbar)</span></td>
+					<td class="example">
+					<p>
+						document.write("Available Height: " + screen.availHeight);
+						document.write("Available Width: " + screen.availWidth);
+					</p></td>
+					<td class="example">
+					<script>
+						document.write("Available Height: " + screen.availHeight);
+						document.write("<br/>");
+						document.write("Available Width: " + screen.availWidth);
+					</script></td>
+				</tr>
+
+				<tr>
+					<td class="object">Screen</td>
+					<td class="syntax">screen.colorDepth</td>
+					<td class="desc"> Returns the bit depth of the color palette for displaying images <span class="warning"></span></td>
+					<td class="example">
+					<p>
+						document.write("Color Depth: " + screen.colorDepth);
+					</p></td>
+					<td class="example">
+					<script>
+						document.write("Color Depth: " + screen.colorDepth);
+					</script></td>
+				</tr>
+
+				<tr>
+					<td class="object">Screen</td>
+					<td class="syntax">screen.height</td>
+					<td class="desc"> Returns the total height of the screen <span class="warning"></span></td>
+					<td class="example">
+					<p>
+						document.write("Total Height: " + screen.height);
+					</p></td>
+					<td class="example">
+					<script>
+						document.write("Total Height: " + screen.height);
+					</script></td>
+				</tr>
+
+				<tr>
+					<td class="object">Screen</td>
+					<td class="syntax">screen.pixelDepth</td>
+					<td class="desc"> Returns the color resolution (in bits per pixel) of the screen
+					<br/>
+					<span class="warning"> Tip: The colorDepth property represents the same thing as the pixelDepth property. Since all major browsers support colorDepth, use that property instead. </span></td>
+					<td class="example">
+					<p>
+						document.write("Color resolution: " + screen.pixelDepth);
+
+					</p></td>
+					<td class="example">
+					<script>
+						document.write("Color resolution: " + screen.pixelDepth);
+					</script></td>
+				</tr>
+
+				<tr>
+					<td class="object">Screen</td>
+					<td class="syntax">screen.width</td>
+					<td class="desc"> Returns the total width of the screen <span class="warning"></span></td>
+					<td class="example">
+					<p>
+						document.write("Total Width: " + screen.width);
+					</p></td>
+					<td class="example">
+					<script>
+						document.write("Total Width: " + screen.width);
+					</script></td>
+				</tr>
+
+				<tr>
+					<td colspan="5"><h1>Location</h1>
+					<br/>
+					The location object contains information about the current URL. <span class="warning"> The location object is part of the window object and is accessed through the window.location property. </span>
+					<br/>
+					</td>
+				</tr>
+				<tr>
+					<td class="object">Location</td>
+					<td class="syntax">location.hash</td>
+					<td class="desc"> Return the anchor portion of a URL. Assume that the current URL is http://www.example.com/test.htm#part2: <span class="warning"></span></td>
+					<td class="example">
+					<p>
+						document.write(location.hash);
+					</p></td>
+					<td class="example">
+					<script>
+						document.write(location.hash);
+					</script></td>
+				</tr>
+
+				<tr>
+					<td class="object">Location</td>
+					<td class="syntax">location.host</td>
+					<td class="desc"> The host property returns the hostname and port of a URL. <span class="warning"></span></td>
+					<td class="example">
+					<p>
+						document.write(location.host);
+					</p></td>
+					<td class="example">
+					<script>
+						document.write(location.host);
+					</script></td>
+				</tr>
+
+				<tr>
+					<td class="object">Location</td>
+					<td class="syntax">location.hostname</td>
+					<td class="desc"> Return the hostname of the current URL: <span class="warning"></span></td>
+					<td class="example">
+					<p>
+						document.write(location.hostname);
+					</p></td>
+					<td class="example">
+					<script>
+						document.write(location.hostname);
+					</script></td>
+				</tr>
+
+				<tr>
+					<td class="object">Location</td>
+					<td class="syntax">location.href</td>
+					<td class="desc"> Return the entire URL (of the current page): <span class="warning"></span></td>
+					<td class="example">
+					<p>
+						document.write(location.href);
+					</p></td>
+					<td class="example">
+					<script>
+						document.write(location.href);
+					</script></td>
+				</tr>
+
+				<tr>
+					<td class="object">Location</td>
+					<td class="syntax">location.pathname</td>
+					<td class="desc"> The pathname property returns the path name of a URL. <span class="warning"></span></td>
+					<td class="example">
+					<p>
+						document.write(location.pathname);
+					</p></td>
+					<td class="example">
+					<script>
+						document.write(location.pathname);
+					</script></td>
+				</tr>
+
+				<tr>
+					<td class="object">Location</td>
+					<td class="syntax">location.port</td>
+					<td class="desc"> Returns the port number the server uses for a URL </td>
+					<td class="example"> document.write(location.port); <p>
+
+					</p></td>
+					<td class="example">
+					<script>
+						document.write(location.port);
+
+					</script></td>
+				</tr>
+
+				<tr>
+					<td class="object">Location</td>
+					<td class="syntax">location.protocol</td>
+					<td class="desc"> The protocol property returns the protocol of the current URL, including the first colon (:). </td>
+					<td class="example"> document.write(location.protocol); <p>
+
+					</p></td>
+					<td class="example">
+					<script>
+						document.write(location.protocol);
+					</script></td>
+				</tr>
+
+				<tr>
+					<td class="object">Location</td>
+					<td class="syntax">location.search</td>
+					<td class="desc"> The search property returns the query portion of a URL, including the question mark (?). <span class="warning"> Return the query portion of a URL. Assume that the current URL is http://www.example.com/submit.htm?email=someone@example.com: </span></td>
+					<td class="example">
+					<p>
+						document.write(location.search);
+					</p></td>
+					<td class="example">
+					<script>
+						document.write(location.search);
+					</script> ?email=someone@example.com </td>
+				</tr>
+				<tr>
+					<td colspan="5"><h1>HTML DOM Nodes</h1>
+					<p>
+						In the HTML DOM (Document Object Model), everything is a node:
+					</p>
+					<ul type="disc">
+						<li>
+							The document itself is a document node
+						</li>
+						<li>
+							All HTML elements are element nodes
+						</li>
+						<li>
+							All HTML attributes are attribute nodes
+						</li>
+						<li>
+							Text inside HTML elements are text nodes
+						</li>
+						<li>
+							Comments are comment nodes
+						</li>
+					</ul><h1>The Document Object</h1>
+					<p>
+						When an HTML document is loaded into a web browser, it becomes a document object.
+					</p>
+					<p>
+						The document object is the root node of the HTML document and the "owner" of all other nodes:
+						(element nodes, text nodes, attribute nodes, and comment nodes).
+					</p>
+					<p>
+						The document object provides properties and methods to access all node objects, from within JavaScript.
+					</p>
+					<p>
+						<span class="warning"> Tip: The document is a part of the window object and can be accessed as window.document. </span>
+					</p></td>
+				</tr>
+
+				<tr>
+					<td class="object">Document</td>
+					<td class="syntax">document.adoptNode(node)</td>
+					<td class="desc"><span class="warning">Returns an adapded node from another document to this document.</span></td>
+					<td class="example"><p>
+
+					</p></td>
+					<td class="example"></td>
+				</tr>
+
+				<tr>
+					<td class="object">Document</td>
+					<td class="syntax">document.anchors[].property</td>
+					<td class="desc"> The anchors collection returns an array of all the anchors in the current document. </td>
+					<td class="example">
+					<p>
+						document.write(document.anchors.length);
+					</p>
+					<p>
+						document.write(document.anchors[0].innerHTML);
+
+					</p></td>
+					<td class="example"><a name="html">HTML Tutorial</a>
+					<br>
+					<a name="css">CSS Tutorial</a>
+					<br>
+					<a name="xml">XML Tutorial</a>
+					<br>
+					<p>
+						Number of anchors:
+						<script>
+							document.write(document.anchors.length);
+						</script>
+					</p>
+					<p>
+						innerHTML of first anchor:
+						<script>
+							document.write(document.anchors[0].innerHTML);
+						</script>
+					</p></td>
+				</tr>
+				<tr>
+					<td class="object">Document</td>
+					<td class="syntax">document.applets</td>
+					<td class="desc">Returns a collection of all the applets in the document</td>
+					<td class="example"></td>
+					<td class="example"></td>
+				</tr>
+				<tr>
+					<td class="object">Document</td>
+					<td class="syntax">document.baseURI</td>
+					<td class="desc"> Returns the absolute base URI of a document <span class="warning">IE does not suppot this property</span></td>
+					<td class="example"><p></p></td>
+					<td class="example"></td>
+				</tr>
+				<tr>
+					<td class="object">Document</td>
+					<td class="syntax">document.body</td>
+					<td class="desc">Returns the body element of the document</td>
+					<td class="example"></td>
+					<td class="example"></td>
+				</tr>
+				<tr>
+					<td class="object">Document</td>
+					<td class="syntax">document.close()</td>
+					<td class="desc">The close() method closes the output stream previously opened with the document.open() method, and displays the collected data in this process.</td>
+
+					<td class="example">
+					<p>
+						function createDoc() {
+						var doc = document.open("text/html", "replace");
+						var txt = "<!DOCTYPE html>
+						<html>
+							<body>
+								Learning about the HTML DOM is fun!
+							</body>
+						</html>";
+						doc.write(txt);
+						doc.close();
+						}
+					</p></td>
+					<td class="example">
+					<script>
+						function createDoc() {
+							var doc = document.open("text/html", "new");
+							var txt = "<!DOCTYPE html><html><body>Learning about the HTML DOM is fun!</body></html>";
+							doc.write(txt);
+							doc.close();
+						}
+					</script>
+					<input type="button" value="New document" onclick="createDoc()">
+					</td>
+				</tr>
+				<tr>
+					<td class="object">Document</td>
+					<td class="syntax">document.cookie</td>
+					<td class="desc"> Returns all name/value pairs of cookies in the document </td>
+					<td class="example">
+					<p>
+						document.write(document.cookie);
+					</p></td>
+					<td class="example"> Cookies associated with this document:
+					<script>
+						document.write(document.cookie);
+					</script></td>
+				</tr>
+				<tr>
+					<td class="object">Document</td>
+					<td class="syntax">document.adoptNode(node)</td>
+					<td class="desc"><span class="warning"></span></td>
+					<td class="example"><p></p></td>
+					<td class="example"></td>
+				</tr>
+				<tr>
+					<td class="object">Document</td>
+					<td class="syntax">document.createAttribute(attributename)</td>
+					<td class="desc">The createAttribute() method creates an attribute with the specified name, and returns the attribute as an Attr object. </td>
+					<td class="example"><p>
+						function setAttrrNode() {<br/>
+							var h3 = document.getElementById("giveMesomeRays");<br/>
+							var att = document.createAttribute("class");<br/>
+							att.value = "democlass";<br/>
+							h3.setAttributeNode(att);<br/>
+						}
+					</p></td>
+					<td class="example">
+					<style type="text/css">
+						.democlass {
+							font-size: 14px;
+							color: red;
+						}
+					</style>
+					<button onclick="setAttrrNode()">Try it</button>
+					<script>
+						function setAttrrNode() {
+							var h3 = document.getElementById("giveMesomeRays");
+							var att = document.createAttribute("class");
+							att.value = "democlass";
+							h3.setAttributeNode(att);
+						}
+					</script>
+					<h3 id="giveMesomeRays">This is Sample text</h3></td>
+				</tr>
+				<tr>
+					<td class="object">Document</td>
+					<td class="syntax">document.createComment()</td>
+					<td class="desc">
+						Creates a Comment node with the specified text
+						<span class="warning"></span></td>
+					<td class="example"><p></p></td>
+					<td class="example">
+						<script>
+						function addComment(){
+							alert("HI");
+							var myComment = document.createComment('This is my first comment through Javascript');
+							var  commentDiv = document.getElementById("commentHolder");
+							document.commentDiv.appendChild(myComment);
+						}
+						</script>
+						 add commmnet to the page..... <br/>
+						 <button onclick="addComment()">Click Me</button>
+						 <div id="commentHolder"></div>
+					</td>
+				</tr>
+				<tr>
+					<td class="object">Document</td>
+					<td class="syntax">document.createDocumentFragment()</td>
+					<td class="desc">
+						<p>The createDocumentFragment() method creates a imaginary Node object, with all the properties and methods of the Node object.</p>
+						<p>The createDocumentFragment() method is usefull when you want to extract parts of your document, change, add, or delete, some of the content, and insert it back to your document.</p>
+						<p>You can also use the document's Document object to perform these changes, but to prevent destroying the document structure, it can be safer to extraxt only parts of the document, make the changes, and insert the part back to the document.</p>
+						<span class="warning">Note: Nodes being appended to the document fragment, from the document, will be removed from the document.</span>
+						</td>
+					<td class="example"><p>
+						function createDocFragmentation(){<br/>
+							var d = document.createDocumentFragment();<br/>
+							d.appendChild(document.getElementById("fragmentation"));<br/>
+							d.childNodes[0].childNodes[0].nodeValue="Milk";<br/>
+							document.getElementById("parentUl").appendChild(d);<br/>
+					};
+					</p></td>
+					<td class="example">
+						<ul id="parentUl"><li id="fragmentation">Coffee</li><li>Tea</li></ul>
+						<p id="createDocFragmentation">Click the button to make changes to a list item, using the createDocumentFragment method, then appending the list item as the last child of the list.</p>
+						<button onclick="createDocFragmentation()">Create Doc Fragmentation</button>
+
+					<script>
+					function createDocFragmentation()
+					{
+						var d = document.createDocumentFragment();
+						//d.appendChild(document.getElementsByTagName("LI")[0]);
+						d.appendChild(document.getElementById("fragmentation"));
+						d.childNodes[0].childNodes[0].nodeValue="Milk";
+						document.getElementById("parentUl").appendChild(d);
+					};
+					</script>
+					</td>
+				</tr>
+				<tr>
+					<td class="object">Document</td>
+					<td class="syntax">document.createElement(nodename)</td>
+					<td class="desc">
+						The createElement() method creates an Element Node with the specified name.
+						</td>
+					<td class="example"><p>
+						var myButton = document.createElement("button");<br/>
+								var text = document.createTextNode("Click Me");<br/>
+								myButton.appendChild(text);<br/>
+								document.getElementById("btnWrapper").appendChild(myButton);<br/>
+						
+					</p></td>
+					<td class="example">
+						<script>
+							function createButton(){
+								var myButton = document.createElement("button");
+								var text = document.createTextNode("Click Me");
+								myButton.appendChild(text);
+								document.getElementById("btnWrapper").appendChild(myButton);						
+							}
+						</script>
+						<button onclick="createButton()"> try now </button>
+						<div id="btnWrapper"></div>
+					</td>
+				</tr>
+				<tr>
+					<td class="object">Document</td>
+					<td class="syntax">document.createTextNode(text)</td>
+					<td class="desc">The createTextNode() method creates a Text Node with the specified text.</td>
+					<td class="example"><p>
+						function createTextNodeData(){<br/>
+								var heading = document.createElement("h1");<br/>
+								var txt = document.createTextNode("My World");<br/>
+								heading.appendChild(txt);<br/>
+								document.getElementsByClassName("textNodeWrapper")[0].appendChild(heading);<br/>
+							}
+					</p></td>
+					<td class="example">
+						<script>
+							function createTextNodeData(){
+								var heading = document.createElement("h1");
+								var txt = document.createTextNode("My World");
+								heading.appendChild(txt);
+								document.getElementsByClassName("textNodeWrapper")[0].appendChild(heading);
+							}
+						</script>
+						<button onclick="createTextNodeData()">Click Me</button>
+						<div class="textNodeWrapper"></div>
+						
+					</td>
+				</tr>
+				<tr>
+					<td class="object">Document</td>
+					<td class="syntax">document.doctype</td>
+					<td class="desc">
+						<p>The doctype property returns the doctype of the HTML document, as a DocumentType object.</p>
+						<span class="warning">Note: In Internet Explorer 8 and earlier, this property returns null for HTML and XHTML documents, and will only work for XML documents.</span><br/>
+						<span class="warning"><span>Note: If the document has no doctype specified, the return value is null.</span>
+					</td>
+					<td class="example"><p>
+						function getDoctType(){<br/>
+								var wrapper = document.createElement('div');<br/>
+								var attr = document.createAttribute('class');<br/>
+									attr.value= "docttypeWrapper";<br/>
+									wrapper.setAttributeNode(attr);<br/>
+									var contentPanel = document.getElementsByClassName('docttypeWrapper')[0];<br/>
+									contentPanel.innerHTML = document.doctype.name;<br/>
+							}
+						
+						
+					</p></td>
+					<td class="example">
+						<script>
+							function getDoctType(){
+								//var wrapper = document.getElementsByClassName('docttypeWrapper')[0];
+								var wrapper = document.createElement('div');
+								var attr = document.createAttribute('class');
+									attr.value= "docttypeWrapper";
+									wrapper.setAttributeNode(attr);
+									var contentPanel = document.getElementsByClassName('docttypeWrapper')[0];
+									contentPanel.innerHTML = document.doctype.name;
+							}
+						</script>
+						
+						<button onclick="getDoctType()">Click Me</button>
+						<div class="docttypeWrapper"></div>
+					</td>
+				</tr>
+				<tr>
+					<td class="object">Document</td>
+					<td class="syntax">document.documentElement;</td>
+					<td class="desc">
+						<p>The documentElement property returns the documentElement of a document, as an Element object.</p>
+						<p>For HTML documents the returned object is the HTML element.</p>
+						<span class="warning">Note: If the HTML element is missing, the return value is null.</span></td>
+					<td class="example"><p>
+						function docElememntNodes(){<br/>
+								var x=document.getElementById("docElememntNodes");<br/>
+								x.innerHTML=document.documentElement.nodeName;<br/>
+							}
+						
+					</p></td>
+					<td class="example">
+						<script>
+							function docElememntNodes(){
+								var x=document.getElementById("docElememntNodes");
+								x.innerHTML=document.documentElement.nodeName;
+								 
+							}
+						</script>
+						<div id="docElememntNodes"></div>
+						<button onclick="docElememntNodes()">Click ME</button>
+						
+					</td>
+				</tr>
+				<tr>
+					<td class="object">Document</td>
+					<td class="syntax">document.documentMode</td>
+					<td class="desc">
+						<p>Returns the mode used by the browser to render the document</p>
+						<span class="warning">Only IE supports it</span></td>
+					<td class="example"><p>
+						document.write(document.documentMode);
+						
+					</p></td>
+					<td class="example">
+						This document is displayed in:
+<script>
+document.write(document.documentMode);
+</script>
+						
+					</td>
+				</tr>
+				<tr>
+					<td class="object">Document</td>
+					<td class="syntax">
+						set<br/>
+						document.documentURI=locationURI<br/>
+						get<br/>
+						document.documentURI</td>
+					<td class="desc">
+						<p>Sets or returns the location of the document</p>
+						<p>If the document was created by the DocumentImplementation object, or if it is undefined, the return value is null.
+</p><span class="warning">IE does not supports this property</span></td>
+					<td class="example"><p>
+						function getLocationUri(){<br/>
+							var x=document.getElementById("getLocationUri");<br/>
+							x.innerHTML=document.documentURI;<br/>
+						}
+					</p></td>
+					<td class="example">
+						<script>
+						function getLocationUri()
+						{
+							var x=document.getElementById("getLocationUri");
+							x.innerHTML=document.documentURI;
+						}
+						</script>
+						<div id="getLocationUri"></div>
+						<button onclick="getLocationUri()">Click Me</button>
+						
+					</td>
+				</tr>
+				<tr>
+					<td class="object">Document</td>
+					<td class="syntax">document.domain</td>
+					<td class="desc">
+						<p>Returns the domain name of the server that loaded the document</p>
+						<span class="warning"></span></td>
+					<td class="example"><p>
+						 document.write(document.domain);
+					</p></td>
+					<td class="example">
+						<script>
+							 document.write(document.domain);
+						</script>
+					</td>
+				</tr>
+				<tr>
+					<td class="object">Document</td>
+					<td class="syntax">document.domConfig</td>
+					<td class="desc">Returns the configuration used when normalizeDocument() is invoked</td>
+					<td class="example"><p>NA</p></td>
+					<td class="example">NA</td>
+				</tr>
+				<tr>
+					<td class="object">Document</td>
+					<td class="syntax">document.forms[].property</td>
+					<td class="desc">
+						<p>Returns a collection of all the forms in the document</p>
+						<span class="warning"></span></td>
+					<td class="example"><p>
+						document.write(document.forms[0].name);
+					</p></td>
+					<td class="example">
+						<form name="Form1"></form>
+						<form name="Form2"></form>
+						<form></form>
+						
+						<p>Name of first form:
+						<script>
+						document.write(document.forms[0].name);
+						</script></p>
+						
+					</td>
+				</tr>
+				<tr>
+					<td class="object">Document</td>
+					<td class="syntax">document.getElementById()</td>
+					<td class="desc">
+						<p>Returns the element that has the ID attribute with the specified value</p>
+						</td>
+					<td class="example"><p>
+						function writeElement(){<br/>
+							document.getElementById("customIDName").innerHTML="Hello World";<br/>
+						}<br/>
+					</p></td>
+					<td class="example">
+						<script>
+						function writeElement(){
+							document.getElementById("customIDName").innerHTML="Hello World";
+						}
+						</script>
+						<button onclick="writeElement()">Click Me</button>
+						<div id="customIDName">This is div with id customIDName</div>
+						
+					</td>
+				</tr>
+				<tr>
+					<td class="object">Document</td>
+					<td class="syntax">document.getElementsByName(name)</td>
+					<td class="desc">
+						<p>The getElementsByName() method accesses all elements with the specified name.</p>
+						</td>
+					<td class="example"><p>
+						function getElements(){<br/>
+						var x=document.getElementsByName("x");<br/>
+						alert(x.length);<br/>
+						}
+					</p></td>
+					<td class="example">
+						<script>
+						function getElements()
+						{
+						var x=document.getElementsByName("x");
+						alert(x.length);
+						}
+				</script>
+				
+				Cats:
+<input name="x" type="radio" value="Cats">
+Dogs:
+<input name="x" type="radio" value="Dogs">
+
+<input type="button" onclick="getElements()" value="How many elements named 'x'?">
+
+						
+					</td>
+				</tr>
+				<tr>
+					<td class="object">Document</td>
+					<td class="syntax">document.getElementsByTagName(tagname)</td>
+					<td class="desc"><p>Returns a NodeList containing all elements with the specified tagname</p></td>
+					<td class="example"><p>
+						function paraCount(){<br/>
+								var count = document.getElementsByTagName("P").length;<br/>
+								alert(count)<br/>
+							}
+					</p></td>
+					<td class="example">
+						<p>Will alert the count of all paragrpahs in document</p>
+												
+						<script>
+							function paraCount(){
+								var count = document.getElementsByTagName("P").length;
+								alert(count)
+							}
+						</script>
+						<button onclick="paraCount()">Click Me</button>
+					</td>
+				</tr>
+				<tr>
+					<td class="object">Document</td>
+					<td class="syntax">document.images[].property</td>
+					<td class="desc">
+						<p>The images collection returns an array of all the images in the current document.</p>
+					</td>
+					<td class="example"><p>
+						document.write(document.images[1].className);<br/>
+						document.write(document.images[0].id);
+						
+					</p></td>
+					<td class="example">
+						<img border="0" src="http://lorempixel.com/400/200/city" id="imgIdLbl" width="150" height="113">
+						<img border="0" src="http://lorempixel.com/400/200/people" class="myImage" width="152" height="128">
+						
+						<script>
+							function imageDesc(){
+								var img = document.images.length;
+							}
+						</script>
+						<br/>
+						<button onclick="imageDesc()">Click Me</button>
+						<p>Id of first image:
+						<script>
+						document.write(document.images[0].id);
+						</script></p>
+						<br/>
+						<p>
+						
+						The ClassName of Last Images is :
+						<script>
+							document.write(document.images[1].className);
+						</script>
+					</td>
+				</tr>
+				<tr>
+					<td class="object">Document</td>
+					<td class="syntax">document.implementation</td>
+					<td class="desc">
+						<p>The implementation property returns the DOMimplementation object that handles this document, as a DocumentImplementation object.</p>
+						<span class="warning"></span></td>
+					<td class="example"><p>
+						function checkFeatures(){<br/>
+						var imp=document.implementation;<br/>
+							var x=document.getElementById("checkFeatures");<br/>
+							x.innerHTML=imp.hasFeature("HTML","1.0");<br/>
+					}
+						
+					</p></td>
+					<td class="example">
+					<p id="checkFeatures">Click the button to check if this document has the feature HTML DOM 1.0</p>
+					<button onclick="checkFeatures()">Try it</button>
+					<script>
+					function checkFeatures(){
+					var imp=document.implementation;
+						var x=document.getElementById("checkFeatures");
+						x.innerHTML=imp.hasFeature("HTML","1.0");
+					}
+					</script>
+						
+					</td>
+				</tr>
+				<tr>
+					<td class="object">Document</td>
+					<td class="syntax">document.importNode(node,deep);<br/><br/>
+						deep : Boolean : true, false.<br/>
+						 -> Required. If set to false, only the node itself is imported, if set to true, all child nodes (descendants) are also imported
+						</td>
+					<td class="desc">
+						<p>The importNode() method imports a node from another document.</p>
+						<p>The imported node can be of all node types.</p>
+						<p>If the second parameter is set to true, the nodes's child nodes will also be imported.</p>
+						<p>Accessing a frame with origin "http://www.w3schools.com". Protocols, domains, and ports must match.</p>
+						<span class="warning">
+							Note: Internet explorer 8 and earlier does not support this method.
+							</span></td>
+					<td class="example"><p></p></td>
+					<td class="example">
+						<p id="getDataFrmIFrame">Click the button above to get and display the value of the first H1 element in the iframe:</p>
+						<script>
+							function getDataFrmIFrame(){
+								
+								var frame=document.getElementsByTagName("iframe")[0];
+								var textImport = frame.contentWindow.document.getElementsByTagName("h1")[0];
+								var displayData = document.importNode(textImport, true);
+								document.getElementById("dataDisplay").appendChild(displayData);
+							}
+						</script>
+						<iframe src="http://www.w3schools.com/" id="myframe" style="height:280px;width:420px;"></iframe>
+						<div id="dataDisplay"></div>
+						<button onclick="getDataFrmIFrame()">Click Me</button>
+						
+					</td>
+				</tr>
+				<tr>
+					<td class="object">Document</td>
+					<td class="syntax">document.inputEncoding</td>
+					<td class="desc">
+					<p>The inputEncoding property returns the character encoding for the document.</p>
+					<p>The inputEncoding property returns the character encoding at the time of parsing, and will return null if the document is created in memory.</p>	
+						<span class="warning">Opera &amp; Internet explorer 8 and earlier does not support this property.</span></td>
+					<td class="example"><p>
+						document.write(document.inputEncoding);
+					</p></td>
+					<td class="example">
+						<script>
+							document.write(document.inputEncoding);
+						</script>
+					</td>
+				</tr>
+				<tr>
+					<td class="object">Document</td>
+					<td class="syntax">document.lastModified</td>
+					<td class="desc">
+						<p>The lastModified property returns the date and time the current document was last modified.</p>
+					</td>
+					<td class="example"><p>
+						document.write(document.lastModified);
+					</p></td>
+					<td class="example">
+						This document was last modified on:
+						<script>
+						document.write(document.lastModified);
+						</script>
+						
+					</td>
+				</tr>
+				<tr>
+					<td class="object">Document</td>
+					<td class="syntax">document.links[].property</td>
+					<td class="desc">
+						<p>The links collection returns an array of all the links in the current document.</p>
+						<span class="warning">Tip: The links collection counts &lta href=""&gt tags and &lt area &gt tags.</span></td>
+					<td class="example"><p>
+						document.write(document.links.length);
+					</p></td>
+					<td class="example">
+						
+						img src ="planets.gif" width="145" height="126" alt="Planets" usemap ="#planetmap">
+<map name="planetmap">
+<area shape="rect" coords="0,0,82,126" href="sun.htm" alt="Sun">
+<area shape="circle" coords="90,58,3" href="mercur.htm" alt="Mercury">
+<area shape="circle" coords="124,58,8" href="venus.htm" alt="Venus">
+</map>
+
+<p><a href="/js/">JavaScript Tutorial</a></p>
+
+<p>Number of areas/links:
+<script>
+document.write(document.links.length);
+</script></p>
+						
+					</td>
+				</tr>
+				<tr>
+					<td class="object">Document</td>
+					<td class="syntax">document.normalize() <br/>
+						node.normalize()
+					</td>
+					<td class="desc">
+						<p>The normalize() method removes empty Text nodes, and joins adjacent Text nodes.</p>
+						<span class="warning"></span></td>
+					<td class="example"><p>
+						function normalizeContent(){ <br/>
+								var y=document.createTextNode(" Click again");<br/>
+								var x=document.getElementById("normalizeContent");<br/>
+									x.appendChild(y);<br/>
+								var z=document.getElementById("cc");<br/>
+									z.innerHTML=x.childNodes.length;<br/>
+							}<br/>
+							
+							function normPara(){<br/>
+								document.normalize();<br/>
+								var x=document.getElementById("normalizeContent");<br/>  
+								var z=document.getElementById("cc");<br/>
+								z.innerHTML=x.childNodes.length;<br/>
+							}
+					</p></td>
+					<td class="example">
+						
+						<p id="normalizeContent">Click one button to add text, click another button to normalize the document</p>
+						<button onclick="normalizeContent()">Add a Text Node</button>
+						<button onclick="normPara()">Normalize the Document</button>
+						<script>
+							function normalizeContent(){
+								var y=document.createTextNode(" Click again");
+								var x=document.getElementById("normalizeContent");
+									x.appendChild(y);
+								var z=document.getElementById("cc");
+									z.innerHTML=x.childNodes.length;
+							}
+							
+							function normPara(){
+								document.normalize();
+								var x=document.getElementById("normalizeContent");  
+								var z=document.getElementById("cc");
+								z.innerHTML=x.childNodes.length;
+							}
+						</script>
+						<p>The paragraph above has <span id="cc">1</span> child node(s).</p>
+					</td>
+				</tr>
+				<tr>
+					<td class="object">Document</td>
+					<td class="syntax">document.open(MIMEtype,replace) <br/> <br/>
+						MIMEtype : Optional. The type of document you are writing to. Default value is "text/html" <br/> <br/>
+						replace : Optional. If set, the history entry for the new document inherits the history entry from the document which opened this document
+						 </td>
+					<td class="desc"><span class="warning"></span></td>
+					<td class="example"><p>
+						function createDoc(){<br/>
+						  var doc=document.open("text/html","replace");<br/>
+						  var txt="<html><body>Learning about the HTML DOM is fun!</body></html>";<br/>
+						  doc.write(txt);<br/>
+						  doc.close();<br/>
+						  }
+						
+					</p></td>
+					<td class="example">
+						<script>
+						function createDoc()
+						  {
+						  var doc=document.open("text/html","replace");
+						  var txt="<html><body>Learning about the HTML DOM is fun!</body></html>";
+						  doc.write(txt);
+						  doc.close();
+						  }
+						</script>
+						<input type="button" value="New document" onclick="createDoc()">
+					</td>
+					
+				</tr>
+				<tr>
+					<td class="object">Document</td>
+					<td class="syntax">document.readyState</td>
+					<td class="desc">
+						<p>The readyState property returns the (loading) status of the current document.</p>
+						<p>This property returns one of four values:</p>
+						<ul type="disc">
+							<li>uninitialized - Has not started loading yet</li>
+							<li>loading - Is loading</li>
+							<li>interactive - Has loaded enough and the user can interact with it</li>
+							<li>complete - Fully loaded</li>
+						</ul>
+						</td>
+					<td class="example"><p>
+						var docStatus = document.readyState;<br/>
+						var dataholder = document.getElementById('statusContainer');<br/>
+							dataholder.innerHTML = docStatus;<br/>
+					</p></td>
+					<td class="example">
+						<script>
+						function getDocStatus(){
+							debugger;
+							var docStatus = document.readyState;
+							//var div = document.createElement('div');
+							//var attr  = document.createAttribute('class');
+								//attr.value = "getDocStatus";
+								//div.setAttributeNode(attr);
+							var dataholder = document.getElementById('statusContainer');
+							//var dataTarget = document.getElementsByClassName('getDocStatus');
+								dataholder.innerHTML = docStatus;
+								//dataholder.innerHTML = dataTarget;
+						}
+							
+						</script>
+						
+						<button onclick="getDocStatus()">Get Doc Status</button>
+						<div id="statusContainer"></div>
+					</td>
+				</tr>
+				<tr>
+					<td class="object">Document</td>
+					<td class="syntax">document.referrer</td>
+					<td class="desc">
+						<p>The referrer property returns the URL of the document that loaded the current document.</p>
+						</td>
+					<td class="example"><p>
+						document.write(document.referrer);
+					</p></td>
+					<td class="example">
+						<script>
+							document.write(document.referrer);
+						</script>
+
+					</td>
+				</tr>
+				<tr>
+					<td class="object">Document</td>
+					<td class="syntax">document.renameNode(node,namespaceURI,nodename)<br/>
+						document.strictErrorChecking=true|false
+					</td>
+					<td class="desc"><span class="warning">Currenly no one browsers support this propery</span></td>
+					<td class="example"><p></p></td>
+					<td class="example"></td>
+				</tr>
+				<tr>
+					<td class="object">Document</td>
+					<td class="syntax">document.title</td>
+					<td class="desc"><p>Return the title of the current document:</p></td>
+					<td class="example"><p>
+						document.write(document.title)
+					</p></td>
+					<td class="example">
+						<script>
+							document.write(document.title);
+						</script>
+					</td>
+				</tr>
+				
+				
+				<tr>
+					<td class="object">Document</td>
+					<td class="syntax">document.URL</td>
+					<td class="desc"><p>The URL property returns the full URL of the current document.</p></td>
+					<td class="example"><p>
+						document.write(document.URL);
+					</p></td>
+					<td class="example">
+						<script>
+							document.write(document.URL);
+						</script
+					</td>
+				</tr>
+				
+				<tr>
+					<td class="object">Document</td>
+					<td class="syntax">document.write(exp1,exp2,exp3,...)</td>
+					<td class="desc"><p>The write() method writes HTML expressions or JavaScript code to a document.</p></td>
+					<td class="example">
+						document.write("<h1>Hello World!</h1><p>Have a nice day!</p>");
+					</td>
+					<td class="example">
+							document.write("<h1>Hello World!</h1><p>Have a nice day!</p>");
+					</td>
+				</tr>
+				
+				<tr>
+					<td class="object">Document</td>
+					<td class="syntax"> document.writeln(exp1,exp2,exp3,...)</td>
+					<td class="desc"><p>The writeln() method is identical to the write() method, with the addition of writing a newline character after each statement.</p></td>
+					<td class="example"><p>
+document.writeln("Hello World!");
+document.writeln("Have a nice day!");
+</p></td>
+<td class="example">
+<p>Note that write() does NOT add a new line after each statement:</p>
+<pre>
+<script>
+document.write("Hello World!");
+document.write("Have a nice day!");
+</script>
+</pre>
+<p>Note that writeln() add a new line after each statement:</p>
+<pre>
+<script>
+document.writeln("Hello World!");
+document.writeln("Have a nice day!");
+</script>
+</pre>
+					</td>
+				</tr>
+				
+				<tr>
+					<td class="object">element</td>
+					<td class="syntax">element.accessKey</td>
+					<td class="desc"><p>Sets or returns the accesskey for an element</p></td>
+					<td class="example"><p>
+					</p></td>
+					<td class="example">
+						<script>
+						function accesskey(){
+						  	document.getElementById('accessKeyDiv').accessKey="w"
+						  }
+						</script>
+						<div id="accessKeyDiv">This div can be access by W key</div>
+						<button onclick="accesskey()">Click</button>
+					</td>
+				</tr>
+				
+				
+				<tr>
+					<td class="object">element</td>
+					<td class="syntax">element.appendChild(node)</td>
+					<td class="desc"><p>The appendChild() method appends a node as the last child of a node.</p>
+						<p class="warning">Tip: If you want create a new paragraph, with text, remember to create the text as a Text node wich you append to the paragraph, then append the paragraph to the document.</p>
+						<p>You can also use the appendChild() method to move an element from one element to another.</p>
+					</td>
+					<td class="example"><p>
+						function appendNewItem(){<br/>
+								var node = document.createElement('li');<br/>
+								var textNode = document.createTextNode('Milk');<br/>
+								node.appendChild(textNode); <br/>
+								document.getElementById("drinks").appendChild(node);<br/>
+							}<br/>
+							<br/>
+							function shiftContent(){<br/>
+								var getNode = document.getElementById("drinks").lastChild;<br/>
+								document.getElementById("satyas").appendChild(getNode);<br/>
+							}
+					</p></td>
+					<td class="example">
+						<h3>Labels</h3>
+						<ul id="drinks">
+							<li>Tea</li>
+							<li>Coffee</li>
+						</ul>
+						<h3>Labels</h3>
+						<ul id="satyas">
+							<li>Water</li>
+							<li>Milk</li>
+						</ul>
+						<script type="text/javascript">
+							function appendNewItem(){
+								var node = document.createElement('li');
+								var textNode = document.createTextNode('Milk');
+								node.appendChild(textNode); 
+								document.getElementById("drinks").appendChild(node);
+							}
+							
+							function shiftContent(){
+								var getNode = document.getElementById("drinks").lastChild;
+								document.getElementById("satyas").appendChild(getNode);
+							}
+							
+						</script>
+						
+						<button onclick="appendNewItem()">Click Me</button>
+						<button onclick="shiftContent()">Swap Items</button>
+						
+					</td>
+				</tr>
+				
+				
+				<tr>
+					<td class="object">element</td>
+					<td class="syntax">element.attributes</td>
+					<td class="desc"><p>The attributes property returns a collection of the specified node's attributes, as a NamedNodeMap.</p>
+						<p class="warning">Tip: You can use the length property to determine the number of attributes, then you can loop through all attributes nodes and extract the info you want. </p>
+						<p class="warning"> Tip: Each attribute is a Node object, with all the properties available for the Node object.</p>
+						<p class="warning"> Note: In Internet Explorer 8 and earlier, the attributes property will return a collection of all possible attributes for an element</p>
+					</td>
+					
+					<td class="example"><p>
+						var btnAttr = document.getElementById("countAttributes"); <br/>
+								var btmAttrLgth = btnAttr.attributes.length;<br/>
+								alert('Hi!!... This button has total' + btmAttrLgth);<br/>
+					</p></td>
+					<td class="example">
+						<script>
+							function getAttributelength(){
+								var btnAttr = document.getElementById("countAttributes"); 
+								var btmAttrLgth = btnAttr.attributes.length;
+								alert('Hi!!... This button has total' + btmAttrLgth);
+							}
+						</script>
+						<button id="countAttributes" onclick="getAttributelength()" for="satish" name="button" value="satyaspb">Click Me</button>
+					</td>
+				</tr>
+				<tr>
+					<td class="object">element</td>
+					<td class="syntax">element.childNodes</td>
+					<td class="desc"><p>The childNodes property returns a collection of a node's child nodes, as a NodeList.</p>
+						<p class="warning">
+							Tip: You can use the length property to determine the number of child nodes, then you can loop through all child nodes and extract the info you want. 
+						</p>
+						
+					</td>
+					<td class="example"><p>
+						function getChildNodes(){ <br/>
+								var txt = "";<br/>
+								var allNodes =  document.body.childNodes;<br/>
+								
+								for(i=0;i &lt; allNodes.length; i++){<br/>
+									txt =  txt + allNodes[i].nodeName ;<br/>
+								}
+								<br/>
+								document.getElementById("nodeWrapper").innerHTML = txt;
+								
+							}
+					</p></td>
+					<td class="example">
+						<script>
+							function getChildNodes(){
+								var txt = "";
+								var allNodes =  document.body.childNodes;
+								
+								for(i=0;i<allNodes.length; i++){
+									txt =  txt + allNodes[i].nodeName + "<br/>"
+								}
+								
+								document.getElementById("nodeWrapper").innerHTML = txt;
+								
+							}
+						</script>
+						<button onclick="getChildNodes()">Click Me</button>
+						
+						<div id="nodeWrapper"></div>
+						
+					</td>
+				</tr>
+				
+				
+				<tr>
+					<td class="object">element</td>
+					<td class="syntax">HTMLElementObject.className=classname</td>
+					<td class="desc"><p>The className property sets or returns the class attribute of an element.</p></td>
+					<td class="example"><p>
+						var x=document.getElementsByTagName('body')[0]; <br/>
+							document.write("Body CSS class: " + x.className);<br/>
+						 document.write(document.getElementById('myid').className);
+					</p></td>
+					<td class="example">
+						<div id="myid" class="SatishBorkar"></div>
+						<script>
+							 document.write(document.getElementById('myid').className);
+						</script>
+					</td>
+				</tr>
+				<tr>
+					<td class="object">element</td>
+					<td class="syntax">element.clientHeight<br/>
+						element.clientWidth
+						
+					</td>
+					<td class="desc"><p>Returns the viewable height / width of an element</p></td>
+					<td class="example"><p>
+						document.write("Width of Window : " + document.body.clientWidth);<br/>
+							document.write("Height of Window : " + document.body.clientHeight);
+					</p></td>
+					<td class="example">
+						<script>
+							document.write("Width of Window : " + document.body.clientWidth);
+							document.write('<br/>');
+							document.write("Height of Window : " + document.body.clientHeight);
+						</script>
+					</td>
+				</tr>
+				
+				
+				<tr>
+					<td class="object">element</td>
+					<td class="syntax">element.cloneNode()</td>
+					<td class="desc"><p> The cloneNode() method creates a copy of a node, and returns the clone.</p>
+					<p>The cloneNode() method clones all attributes and their values.</p>
+					<p>Set the deep parameter value to true if you want to clone all descendants, otherwise false.	</p>
+					</td>
+					<td class="example"><p>
+						function addNewFruitItem(){<br/>
+								var newListFruits = document.getElementById("myfriutsLists").lastChild;<br/>
+								var cloneItem =	newListFruits.cloneNode(true);<br/>
+								document.getElementById("mynewListFruits").appendChild(cloneItem);<br/>
+							}<br/>
+					</p></td>
+					<td class="example">
+						<ul id="myfriutsLists">
+							<li>Orange</li>
+							<li>Banana</li>
+							<li>Papaya</li>
+						</ul>
+						
+						<ul id="mynewListFruits">
+							<li>Kiwi</li>
+							<li>Lemon</li>
+						</ul>
+						<p>This Example works in new page- there are some page levels conflicts with this script.</p>
+						
+						<script>
+							function addNewFruitItem(){
+								var newListFruits = document.getElementById("myfriutsLists").lastChild;
+								var cloneItem =	newListFruits.cloneNode(true);
+								document.getElementById("mynewListFruits").appendChild(cloneItem);
+							}
+							
+						</script>
+						
+						<button onclick="addNewFruitItem()">Click Me</button>
+						
+					</td>
+				</tr>
+				<tr>
+					<td class="object">element</td>
+					<td class="syntax">node.compareDocumentPosition(node)</td>
+					<td class="desc"><p>The compareDocumentPosition() method compares two nodes, and returns an integer describing where they are positioned in the document.</p>
+						<p>Look at the example above. The possible return values would specify:</p>
+						<ul type="disc">
+							<li>1: No relationship, the two nodes do not belong to the same document.</li>
+							<li>2: The first node (p1) is positioned after the second node (p2).</li>
+							<li>4: The first node (p1) is positioned before the second node (p2).</li>	
+							<li>8: The first node (p1) is positioned inside the second node (p2).</li>
+							<li>16: The second node (p2) is positioned inside the first node (p1).</li>
+							<li>32: No relationship, or the two nodes are two attributes on the same element.</li>
+						</ul>
+						<p class="warning">Note: The return value could also be a combination of values. I.e. the returnvalue 20 means that p2 is inside p1 (16) AND p1 is positioned before p2 (4). <br/>
+							Note: The compareDocumentPosition method is not supported in Internet Explorer 8 and earlier.
+							 </p>
+					</td>
+					<td class="example"><p>
+						function checkDocumentPosition(){<br/>
+								var para1 = document.getElementById("para1");<br/>
+								var para2 = document.getElementById("para2");<br/>
+								var resultHolder = document.getElementById("showParaResult");<br/>
+								resultHolder.innerHTML = para1.compareDocumentPosition(para2);<br/>
+							}
+					</p></td>
+					<td class="example">
+						
+						<p id="para2"> Lorem ispum is simply dummy text </p>
+						<p id="para1"> Lorem ispum is simply dummy text </p>
+						<div id="showParaResult"></div>
+						<button onclick="checkDocumentPosition()"> Click </button>
+						<script>
+							function checkDocumentPosition(){
+								var para1 = document.getElementById("para1");
+								var para2 = document.getElementById("para2");
+								var resultHolder = document.getElementById("showParaResult");
+								resultHolder.innerHTML = para1.compareDocumentPosition(para2);
+							}
+						</script>
+					</td>
+				</tr>
+				
+				
+				<tr>
+					<td class="object">element</td>
+					<td class="syntax">HTMLElementObject.dir=text-direction</td>
+					<td class="desc"><p>The dir property sets or returns the text-direction for an element.</p></td>
+					<td class="example"><p>
+						var pageDir = document.getElementsByTagName('body')[0]; <br/>
+							document.write("Text direction: " + pageDir.dir);<br/>
+							document.write("An alternate way: ");<br/>
+							document.write(document.getElementById('dirDiv').dir);<br/>
+					</p></td>
+					<td class="example">
+						<div id="dirDiv" dir="rtl">This is simply dummy text</div>
+						<script>
+							var pageDir = document.getElementsByTagName('body')[0];
+							document.write("Text direction: " + pageDir.dir);
+							document.write("<br>");
+							document.write("An alternate way: ");
+							document.write(document.getElementById('dirDiv').dir);
+						</script>
+						
+					</td>
+				</tr>
+				<tr>
+					<td class="object">element</td>
+					<td class="syntax">node.firstChild</td>
+					<td class="desc"><p>The firstChild property returns the first child node of the specified node, as a Node object.</p></td>
+					<td class="example"><p>
+						document.write(document.body.firstChild.nodeName)
+					</p></td>
+					<td class="example">
+						<script>
+							document.write(document.body.firstChild.nodeName);
+						</script>
+					</td>
+				</tr>
+				
+				
+				<tr>
+					<td class="object">element</td>
+					<td class="syntax">element.getAttribute(attributename)</td>
+					<td class="desc"><p>Returns the specified attribute value of an element node</p></td>
+					<td class="example"><p>
+						function getElemAttr(){ <br/>
+							var selector = document.getElementsByClassName("getAttrClass")[0];<br/>
+							var myattr = selector.getAttribute("target");<br/>
+							selector.innerHTML = "Target : " + myattr; <br/>
+						}
+					</p></td>
+					<td class="example">
+						<div class="getAttrClass" target="_blank" data-link="satishborkar.com">
+						</div>
+						<script>
+						function getElemAttr(){
+							var selector = document.getElementsByClassName("getAttrClass")[0];
+							var myattr = selector.getAttribute("target");
+							selector.innerHTML = "Target : " + myattr; 
+							
+						}
+						</script>
+						<button onclick="getElemAttr()">Click ME</button>
+					</td>
+				</tr>
+				<tr>
+					<td class="object">element</td>
+					<td class="syntax">element.getAttributeNode(attributename)</td>
+					<td class="desc"><p>The getAttributeNode() method returns the attribute with the specified name, as an Attr object.</p>
+						<p class="warning">Tip: Use the getAttribute if you just want to return the attribute value.</p>
+					</td>
+					<td class="example"><p>
+						function getAttrNode(){<br/>
+								var link = document.getElementById('nodeLink');<br/>
+								var linkNode = link.getAttributeNode("href").nodeName;<br/>
+								document.getElementById("showNodeData").innerHTML = linkNode;<br/> 
+							}
+					</p></td>
+					<td class="example">
+						<a href="#nogo" target="_blank" class="linkSample" id="nodeLink">Sample Link</a>
+						<script>
+							function getAttrNode(){
+								var link = document.getElementById('nodeLink');
+								var linkNode = link.getAttributeNode("href").nodeName;
+								document.getElementById("showNodeData").innerHTML = linkNode; 
+							}
+						</script>
+						
+						<button onclick="getAttrNode()">Click Me</button>
+						<div id="showNodeData"></div>
+						
+					</td>
+				</tr>
+				
+				
+				<tr>
+					<td class="object">element</td>
+					<td class="syntax">element.getElementsByTagName(tagname)</td>
+					<td class="desc"><p>The getElementsByTagName() method returns a collection of an elements's child elements with the specified tagname, as a NodeList object.</p>
+						<p class="warning">Tip: The parametervalue "*" returns all of the element's child elements.</p>
+					</td>
+					<td class="example"><p>
+					</p></td>
+					<td class="example">
+						<ul class="friendClircle">
+							<li>Satish</li>
+							<li>Prathmesh</li>
+							<li>Dinesh</li>
+							<li>Navin</li>
+						</ul>
+						<script>
+							document.write(document.getElementsByClassName("friendClircle")[0].textContent);
+						</script>
+						
+					</td>
+				</tr>
+				<tr>
+					<td class="object">element</td>
+					<td class="syntax">element.getFeature()</td>
+					<td class="desc"><p>Returns an object which implements the APIs of a specified feature</p></td>
+					<td class="example"><p>
+						NA
+					</p></td>
+					<td class="example">
+						NA
+					</td>
+				</tr>
+				
+				
+				<tr>
+					<td class="object">element</td>
+					<td class="syntax">element.getUserData()</td>
+					<td class="desc"><p>Returns the object associated to a key on an element</p></td>
+					<td class="example"><p>
+						NA
+					</p></td>
+					<td class="example">
+						NA
+					</td>
+				</tr>
+				<tr>
+					<td class="object">element</td>
+					<td class="syntax">element.hasAttribute()</td>
+					<td class="desc"><p>Returns true if an element has the specified attribute, otherwise false</p></td>
+					<td class="example"><p>
+						document.getElementsByClassName("checkAttribute")[0].hasAttribute("target")
+					</p></td>
+					<td class="example">
+						<p>Check if the button has target attribute</p>
+						<button onclick="checkAttr()" class="checkAttribute" target="_blank">Click Me</button>
+						<script>
+						function checkAttr(){
+							alert(document.getElementsByClassName("checkAttribute")[0].hasAttribute("target"))
+						}
+							
+						</script>
+						
+					</td>
+				</tr>
+				
+				
+				<tr>
+					<td class="object">element</td>
+					<td class="syntax">element.hasAttributes()</td>
+					<td class="desc"><p>Returns true if an element has any attributes, otherwise false</p></td>
+					<td class="example"><p>
+						document.body.hasAttributes();
+					</p></td>
+					<td class="example">
+						<script>
+							function getBodyAttr(){
+								alert(document.body.hasAttributes())
+								document.getElementById("satyaspbbb").innerHTML = "because body has this attribute : &ltbody dir ='rlt'&gt" ;  
+							}
+							
+						</script>
+						<button onclick="getBodyAttr()">Click Me</button>
+						<div id="satyaspbbb"></div>
+					</td>
+				</tr>
+				<tr>
+					<td class="object">element</td>
+					<td class="syntax">element.hasChildNodes()</td>
+					<td class="desc"><p>Returns true if an element has any child nodes, otherwise false</p></td>
+					<td class="example"><p>
+						function checkChildNodes(){ <br/>
+								var mynode = document.getElementsByClassName("countingChild")[0];<br/>
+								var dataDisplay = document.getElementById("countingChild");<br/>
+								dataDisplay.innerHTML = mynode.hasChildNodes();	<br/>
+							}
+					</p></td>
+					<td class="example">
+						<ul class="countingChild">
+							<li>Satish</li>
+							<li>Prathmesh</li>
+							<li>Pradip</li>
+							<li>Sachin</li>
+						</ul>
+						
+						<div> Is upper list has child node : <span id="countingChild" style="color:green"></span> </div>
+						
+						<script>
+							function checkChildNodes(){
+								var mynode = document.getElementsByClassName("countingChild")[0];
+								var dataDisplay = document.getElementById("countingChild");
+								dataDisplay.innerHTML = mynode.hasChildNodes();	
+							}
+							
+						</script>
+						<button onclick="checkChildNodes()">Click Me</button>
+					</td>
+				</tr>
+				
+				
+				<tr>
+					<td class="object">element</td>
+					<td class="syntax">HTMLElementObject.id=id</td>
+					<td class="desc"><p>The id property sets or returns the id of an element.</p></td>
+					<td class="example"><p>
+						var divData = document.getElementById("Omlymipa"); <br/>
+							divData.innerHTML = divData.id;
+					</p></td>
+					<td class="example">
+						<div id="Omlymipa"></div>
+						<script>
+							var divData = document.getElementById("Omlymipa");
+							divData.innerHTML = divData.id;
+						</script>
+				</td>
+				</tr>
+				
+				<tr>
+					<td class="object">element</td>
+					<td class="syntax">element.innerHTML<br/>
+						HTMLElementObject.innerHTML=text
+					</td>
+					<td class="desc"><p>The innerHTML property sets or returns the inner HTML of an element.</p></td>
+					<td class="example"><p>
+					</p></td>
+					<td class="example">
+						<a href="http://www.microsoft.com/" class="changeLink" target="_blank">Microsoft</a>
+						<script>
+							function changeLink(){
+								var changeLink = document.getElementsByClassName("changeLink")[0];
+								changeLink.innerHTML = "W3C School";
+								changeLink.href ="http://www.w3cschool.com";
+								changeLink.target="_self";
+							}
+						</script>
+						<button onclick="changeLink()">Click Me</button>
+					</td>
+				</tr>
+				<tr>
+					<td class="object">element</td>
+					<td class="syntax">element.insertBefore()
+						<br/>
+						.insertBefore(newItem,existingItem);
+						</td>
+					<td class="desc"><p>Inserts a new child node before a specified, existing, child node</p></td>
+					<td class="example"><p>
+					</p></td>
+					<td class="example">
+						<script>
+							function getNewNode(){
+								var newItem = document.createElement("li");
+								var textNode = ["Ajay", "Vijay", ""];
+								newItem.appendChild(textNode);
+								var list = document.getElementById("getInsertNode"); 
+								list.insertBefore(newItem, list.childNodes[0]);
+							}
+						</script>
+						<ul id="getInsertNode">
+							<li>Satish</li>
+							<li>Pradip</li>
+							<li>Prathmesh</li>
+							<li>Sachin</li>
+						</ul>
+						<button onclick="getNewNode()">Click Me</button>
+					</td>
+				</tr>
+				<tr>
+					<td class="object">element</td>
+					<td class="syntax">node.isDefaultNamespace(namespaceURI)</td>
+					<td class="desc"><p>The isDefaultNamespace() method returns true if the specified namespace is default, otherwise false.</p>
+						<p class="warning">Note: Internet Explorer 8 and earlier does not support this method.</p>
+						
+					</td>
+					<td class="example"><p>
+						document.documentElement.isDefaultNamespace('http://www.w3.org/1999/xhtml');
+					</p></td>
+					<td class="example">
+						<script>
+							var nameSpaceStatus = document.documentElement.isDefaultNamespace('http://www.w3.org/1999/xhtml');
+							document.getElementById("nameSpaceStatus").innerHTML = nameSpaceStatus;
+						</script>
+						<div id="nameSpaceStatus"></div>
+						
+					</td>
+				</tr>
+				<tr>
+					<td class="object">element</td>
+					<td class="syntax">element.isEqualNode()</td>
+					<td class="desc"><p>The isEqualNode() method checks if two nodes are equal.</p>
+						<p>Two nodes are equal if all the following conditions are true:</p>
+						<ul type="square">
+							<li>They have the same Node Type</li>
+							<li>They have the same nodeName, NodeValue, localName, nameSpaceURI and prefix</li>
+							<li>They have the same childNodes with all the descendants</li>
+							<li>They have the same attributes and attribute values (the attributes does not have be in the same order)</li>
+						</ul>
+						<p class="warning">Tip: Use the isSameNode() method to determine if two nodes are the same node.</p>
+					</td>
+					<td class="example"><p>
+						var com1 = document.getElementsByClassName("compareLink")[0];<br/>
+						var com2 = document.getElementsByClassName("compareLink")[1];<br/>
+							displayMessage.innerHTML = com1.isEqualNode(com2); <br/>
+					</p></td>
+					<td class="example">
+						<a href="#nogo" class="compareLink" title="Sample Link">Same Link</a><br/>
+						<a href="#nogo" class="compareLink" title="Sample Link">Same Link</a><br/>
+						<br/>
+						<button onclick="CompareTwoLinks()">Compare Links</button><br/>
+						<br/>
+						<a href="#nogo" id="compare1" title="Sample Link">Sample Link 1 </a><br/>
+						<a href="#nogo" id="compare2" title="Sample Link">Sample Link 2</a><br/>
+						<button onclick="CompareLinks(compare1, compare2)">Compare Links</button>
+						<script>
+						function CompareLinks(compare1, compare2){
+							var displayMessage = document.getElementById("displayMessage");
+							displayMessage.innerHTML = compare1.isEqualNode(compare2) + "  : - because Id attribute of both are different" 
+							
+						}
+						
+						function CompareTwoLinks(){
+							var com1 = document.getElementsByClassName("compareLink")[0];
+							var com2 = document.getElementsByClassName("compareLink")[1];
+							
+							displayMessage.innerHTML = com1.isEqualNode(com2) + "  : - because both the Link are same in all attrubite and node type"
+						}
+						</script>
+						<div id="displayMessage"></div>
+					</td>
+				</tr>
+				<tr>
+					<td class="object">element</td>
+					<td class="syntax">node.isSameNode(node)</td>
+					<td class="desc"><p>Checks if two elements are equal</p>
+						<p class="warning">Note: Firefox stopped supported this method as of version 10, Instead, use === to compare if two nodes are the same.<br/>
+							Internet Explorer 8 and earlier does not support the isSame method.
+						</p>
+					</td>
+					<td class="example">
+						<p>
+					function myisSameNode(){<br/>
+						var item1=document.getElementById("myisSameNode");<br/>
+						var item2=document.getElementsByClassName("myisSameNode")[0];<br/>
+						var myisSameNode=document.getElementById("myisSameNodeDemo");<br/>
+						myisSameNode.innerHTML=item1.isSameNode(item2);
+					}
+					</p></td>
+					<td class="example">
+					<ul id="myisSameNode" class="myisSameNode">
+						<li>Coffee</li>
+						<li>Tea</li>
+					</ul>
+					<script>
+					function myisSameNode()
+					{
+						var item1=document.getElementById("myisSameNode");
+						var item2=document.getElementsByClassName("myisSameNode")[0];
+						var myisSameNode=document.getElementById("myisSameNodeDemo");
+						myisSameNode.innerHTML=item1.isSameNode(item2);
+					}
+					</script>
+					<div id="myisSameNodeDemo"></div>
+					<button onclick="myisSameNode()">Check Same Node</button>
+					</td>
+				</tr>
+				<tr>
+					<td class="object">element</td>
+					<td class="syntax">node.isSupported(feature,version)</td>
+					<td class="desc"><p>The isSupported() method checks if a specified feature is supported for the specified node.</p>
+						<p class="warning"> Internet Explorer 8 and earlier does not support this method.</p>
+						
+					</td>
+					<td class="example"><p>
+						function checkSupport(){ <br/>
+								var checkItem = document.getElementsByClassName("checkSupport")[0];<br/>
+								var checkSupportedDisplay = document.getElementById("checkSupport");<br/>
+								checkSupportedDisplay.innerHTML = checkItem.isSupported("Core","2.0");<br/>
+							}
+					</p></td>
+					<td class="example">
+						<button onclick="checkSupport()" class="checkSupport">Try it</button>
+						<p id="checkSupport">
+							Click the button to check the feature Core XML DOM Level 2 is supported for the button element.
+						</p>
+						
+						<script>
+							function checkSupport(){
+								var checkItem = document.getElementsByClassName("checkSupport")[0];
+								var checkSupportedDisplay = document.getElementById("checkSupport");
+								checkSupportedDisplay.innerHTML = checkItem.isSupported("Core","2.0");
+							}
+							
+						</script>
+						
+					</td>
+				</tr>
+				<tr>
+					<td class="object">element</td>
+					<td class="syntax">HTMLElementObject.lang=language-code</td>
+					<td class="desc"><p>The lang property sets or returns the language code for an element.</p></td>
+					<td class="example"><p>
+						var x=document.getElementsByTagName('body')[0]; <br/>
+						document.write("Body language: " + x.lang);<br/>
+						document.write("<br>");<br/>
+						document.write("An alternate way: ");<br/>
+						document.write(document.getElementById('mylangId').lang);<br/>
+					</p></td>
+					<td class="example">
+					<script>
+						var x=document.getElementsByTagName('body')[0];
+						document.write("Body language: " + x.lang);
+						document.write("<br>");
+						document.write("An alternate way: ");
+						document.write(document.getElementById('mylangId').lang);
+					</script>
+					</td>
+				</tr>
+				<tr>
+					<td class="object">element</td>
+					<td class="syntax">node.lastChild</td>
+					<td class="desc"><p>The lastChild property returns the last child node of the specified node, as a Node object.</p></td>
+					<td class="example"><p>
+						var myJNode = document.getElementById("dsatyaspb").lastChild.textContent;
+					</p></td>
+					<td class="example">
+						<div id="dsatyaspb">The Dummy Div with ID</div>
+						<script>
+						function dsatyaspb(){
+							var myJNode = document.getElementById("dsatyaspb").lastChild.textContent;
+							alert(myJNode);
+						}
+							
+						</script>
+						<button onclick="dsatyaspb()">Click Me</button>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+		<script src="js/libs/jquery-1.6.2.min.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function() {
+				// adding Classes to the object type
+
+				$('td.object').each(function() {
+
+					var labelReady = $(this).text();
+					var myName = labelReady.toLowerCase().split(',');
+					$(this).empty();
+					for (var c in myName) {
+						var objectName = document.createElement('label');
+						objectName.id = myName[c];
+						objectName.className = myName[c];
+						objectName.innerHTML = myName[c];
+						$(this).append(objectName);
+					}
+
+				});
+			});
+		</script>
+	</body>
+</html>

@@ -1,0 +1,83 @@
+<!doctype html>
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js ie7 oldie" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js ie8 oldie" lang="en"> <![endif]-->
+<!-- Consider adding an manifest.appcache: h5bp.com/d/Offline -->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+
+  <!-- Use the .htaccess and remove these lines to avoid edge case issues.
+       More info: h5bp.com/b/378 -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+  <title>CSS Counter </title>
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <!-- Mobile viewport optimized: j.mp/bplateviewport -->
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <style type="text/css">
+  body { 
+	  	margin: 15px; 
+	  	font-size: 13px; 
+	  	line-height: 1.231; 
+	  	 /* Create a chapter counter scope */
+	  	counter-reset: chapter;
+  	}
+  	code.snippet{
+	 	display: block;	
+	 	width:96%; 
+	 	margin:0 auto; 
+	 	height: auto; 
+	 	background: #000;
+	 	padding:2%; 
+	 	color: #e66000; 
+	 	border-radius: 4px;
+	 	box-shadow: 3px 3px #ccc 3px; 
+	 	word-break: normal; 
+	 	word-wrap: normal;
+}
+
+code.snippet p{
+	counter-reset: section;      /* Set section to 0 */
+	padding-left: 2%;
+	width: 98%;
+	margin-bottom: 10px;
+	position: relative;
+}
+
+code.snippet p:before {
+    content: "" counter(chapter) "";
+    counter-increment: chapter;  /* Add 1 to chapter */
+   	color: #ccc;
+   	display: block;
+   	min-width: 10px;
+   	width:auto;
+   	height: 15px;
+   	position: absolute;
+   	left: 0;
+   	top: 0;
+}
+
+
+
+  </style>
+</head>
+
+<body>
+	<code class="snippet" oncontextmenu="return false ">
+		
+<p>blockquote { margin: 1em 40px; }</p>
+<p>dfn { font-style: italic; }</p>
+<p>hr { display: block; height: 1px; border: 0; border-top: 1px solid #ccc; margin: 1em 0; padding: 0; }</p>
+<p>ins { background: #ff9; color: #000; text-decoration: none; }</p>
+<p>ins { background: #ff9; color: #000; text-decoration: none; }</p>
+<p>ins { background: #ff9; color: #000; text-decoration: none; }</p>
+<p>ins { background: #ff9; color: #000; text-decoration: none; }</p>
+		
+	</code>
+  </div> <!--! end of #container -->
+</body>
+</html>

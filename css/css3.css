@@ -1,0 +1,1332 @@
+/* 
+ * HTML5 ✰ Boilerplate
+ *
+ * What follows is the result of much research on cross-browser styling. 
+ * Credit left inline and big thanks to Nicolas Gallagher, Jonathan Neal,
+ * Kroc Camen, and the H5BP dev community and team.
+ *
+ * Detailed information about this CSS: h5bp.com/css
+ * 
+ * ==|== normalize ==========================================================
+ */
+
+
+/* =============================================================================
+   HTML5 display definitions
+   ========================================================================== */
+
+article, aside, details, figcaption, figure, footer, header, hgroup, nav, section { display: block; }
+audio, canvas, video { display: inline-block; *display: inline; *zoom: 1; }
+audio:not([controls]) { display: none; }
+[hidden] { display: none; }
+
+/* =============================================================================
+   Base
+   ========================================================================== */
+
+/*
+ * 1. Correct text resizing oddly in IE6/7 when body font-size is set using em units
+ * 2. Force vertical scrollbar in non-IE
+ * 3. Prevent iOS text size adjust on device orientation change, without disabling user zoom: h5bp.com/g
+ */
+
+html { font-size: 100%; overflow-y: scroll; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
+
+body { margin: 0; font-size: 13px; line-height: 1.231; }
+
+body, button, input, select, textarea { font-family: sans-serif; color: #222; }
+
+/* 
+ * Remove text-shadow in selection highlight: h5bp.com/i
+ * These selection declarations have to be separate
+ * Also: hot pink! (or customize the background color to match your design)
+ */
+
+::-moz-selection { background: #fe57a1; color: #fff; text-shadow: none; }
+::selection { background: #fe57a1; color: #fff; text-shadow: none; }
+
+
+/* =============================================================================
+   Links
+   ========================================================================== */
+
+a { color: #00e; }
+a:visited { color: #551a8b; }
+a:hover { color: #06e; }
+a:focus { outline: thin dotted; }
+
+/* Improve readability when focused and hovered in all browsers: h5bp.com/h */
+a:hover, a:active { outline: 0; }
+
+
+/* =============================================================================
+   Typography
+   ========================================================================== */
+
+abbr[title] { border-bottom: 1px dotted; }
+
+b, strong { font-weight: bold; }
+
+blockquote { margin: 1em 40px; }
+
+dfn { font-style: italic; }
+
+hr { display: block; height: 1px; border: 0; border-top: 1px solid #ccc; margin: 1em 0; padding: 0; }
+
+ins { background: #ff9; color: #000; text-decoration: none; }
+
+mark { background: #ff0; color: #000; font-style: italic; font-weight: bold; }
+
+/* Redeclare monospace font family: h5bp.com/j */
+pre, code, kbd, samp { font-family: monospace, monospace; _font-family: 'courier new', monospace; font-size: 1em; }
+
+/* Improve readability of pre-formatted text in all browsers */
+pre { white-space: pre; white-space: pre-wrap; word-wrap: break-word; }
+
+q { quotes: none; }
+q:before, q:after { content: ""; content: none; }
+
+small { font-size: 85%; }
+
+/* Position subscript and superscript content without affecting line-height: h5bp.com/k */
+sub, sup { font-size: 75%; line-height: 0; position: relative; vertical-align: baseline; }
+sup { top: -0.5em; }
+sub { bottom: -0.25em; }
+
+
+/* =============================================================================
+   Lists
+   ========================================================================== */
+
+ul, ol { margin: 1em 0; padding: 0 0 0 40px; }
+dd { margin: 0 0 0 40px; }
+nav ul, nav ol { list-style: none; list-style-image: none; margin: 0; padding: 0; }
+
+
+/* =============================================================================
+   Embedded content
+   ========================================================================== */
+
+/*
+ * 1. Improve image quality when scaled in IE7: h5bp.com/d
+ * 2. Remove the gap between images and borders on image containers: h5bp.com/e 
+ */
+
+img { border: 0; -ms-interpolation-mode: bicubic; vertical-align: middle; }
+
+/*
+ * Correct overflow not hidden in IE9 
+ */
+
+svg:not(:root) { overflow: hidden; }
+
+
+/* =============================================================================
+   Figures
+   ========================================================================== */
+
+figure { margin: 0; }
+
+
+/* =============================================================================
+   Forms
+   ========================================================================== */
+
+form { margin: 0; }
+fieldset { border: 0; margin: 0; padding: 0; }
+
+/* Indicate that 'label' will shift focus to the associated form element */
+label { /*cursor: pointer;*/ }
+
+/* 
+ * 1. Correct color not inheriting in IE6/7/8/9 
+ * 2. Correct alignment displayed oddly in IE6/7 
+ */
+
+legend { border: 0; *margin-left: -7px; padding: 0; }
+
+/*
+ * 1. Correct font-size not inheriting in all browsers
+ * 2. Remove margins in FF3/4 S5 Chrome
+ * 3. Define consistent vertical alignment display in all browsers
+ */
+
+button, input, select, textarea { font-size: 100%; margin: 0; vertical-align: baseline; *vertical-align: middle; }
+
+/*
+ * 1. Define line-height as normal to match FF3/4 (set using !important in the UA stylesheet)
+ * 2. Correct inner spacing displayed oddly in IE6/7
+ */
+
+button, input { line-height: normal; *overflow: visible; }
+
+/*
+ * Reintroduce inner spacing in 'table' to avoid overlap and whitespace issues in IE6/7
+ */
+
+table button, table input { *overflow: auto; }
+
+/*
+ * 1. Display hand cursor for clickable form elements
+ * 2. Allow styling of clickable form elements in iOS
+ */
+
+button, input[type="button"], input[type="reset"], input[type="submit"] { cursor: pointer; -webkit-appearance: button; }
+
+/*
+ * Consistent box sizing and appearance
+ */
+
+input[type="checkbox"], input[type="radio"] { box-sizing: border-box; }
+input[type="search"] { -webkit-appearance: textfield; -moz-box-sizing: content-box; -webkit-box-sizing: content-box; box-sizing: content-box; }
+input[type="search"]::-webkit-search-decoration { -webkit-appearance: none; }
+
+/* 
+ * Remove inner padding and border in FF3/4: h5bp.com/l 
+ */
+
+button::-moz-focus-inner, input::-moz-focus-inner { border: 0; padding: 0; }
+
+/* 
+ * 1. Remove default vertical scrollbar in IE6/7/8/9 
+ * 2. Allow only vertical resizing
+ */
+
+textarea { overflow: auto; vertical-align: top; resize: vertical; }
+
+/* Colors for form validity */
+input:valid, textarea:valid {  }
+input:invalid, textarea:invalid { background-color: #f0dddd; }
+
+
+/* =============================================================================
+   Tables
+   ========================================================================== */
+
+table { border-collapse: collapse; border-spacing: 0; }
+td { vertical-align: top; }
+
+
+/* ==|== primary styles =====================================================
+   Author: Satish B	
+   ========================================================================== */
+body{ width:1000px; height: auto; margin:5% auto; 
+animation: all;
+-moz-animation: all;
+-o-animation: all;
+-webkit-animation: all;
+-ms-animation: all;
+ }
+
+.box-model{}
+
+.box-model article{
+	width: 100%; height: auto; min-height: 30px; line-height: 30px;
+	border-bottom: 2px solid #ccc; margin: 10px 0; float: left; font-size:22px; font-weight: bold;
+	background: url(../img/GreenCheck.png) left center no-repeat; text-indent: 25px; font-family:"Century Gothic";
+	
+}
+
+.full{
+	width: 100%; height: auto; float: left;
+}
+
+
+
+.box-model article:first-letter{
+	text-transform: uppercase;
+}
+.box{width:120px; height: 120px;  margin:10px; padding: 5px; float: left; text-align: center; border: 1px solid #ccc }
+.box-no-br{width:120px; height: 120px;  margin:10px; padding: 5px; float: left; text-align: center;}
+.box:hover{box-shadow:0px 0px 3px #ccc;
+	-moz-box-shadow:0px 0px 3px #ccc;
+	-webkit-box-shadow:0px 0px 15px #ccc;
+	-o-box-shadow:0px 0px 3px #ccc; }
+
+/* border-radius */
+
+.radius{
+	border-radius: 15px;
+	}
+.round{
+	border-radius: 50%;
+	-webkit-border-radius: 50%;
+	}
+
+/*Box shadow*/
+.shadow{
+	box-shadow:4px 4px 3px #ccc;
+	-moz-box-shadow:4px 4px 3px #ccc;
+	-webkit-box-shadow:4px 4px 3px #ccc;
+	-o-box-shadow:4px 4px 3px #ccc;
+ }
+
+.shadowNoAngle{
+	box-shadow:0px 0px 3px #ccc;
+	-moz-box-shadow:0px 0px 3px #ccc;
+	-webkit-box-shadow:0px 0px 15px #ccc;
+	-o-box-shadow:0px 0px 3px #ccc;
+ }
+
+
+/* Border Image :  */
+.borderCornersRound{
+-moz-border-image:url(../img/border.png) 30 30 round; /* Firefox */
+-webkit-border-image:url(../img/border.png) 30 30 round; /* Safari and Chrome */
+-o-border-image:url(../img/border.png) 30 30 round; /* Opera */
+border-image:url(../img/border.png) 30 30 round;
+}
+
+.borderCornersStretch{
+-moz-border-image:url(../img/border.png) 30 30 stretch; /* Firefox */
+-webkit-border-image:url(../img/border.png) 30 30 stretch; /* Safari and Chrome */
+-o-border-image:url(../img/border.png) 30 30 stretch; /* Opera */
+border-image:url(../img/border.png) 30 30 stretch;
+}
+
+
+.brdCorWidth{
+-moz-border-image:url(../img/border.png) 30 30 round; /* Firefox */
+-webkit-border-image:url(../img/border.png) 30 30 round; /* Safari and Chrome */
+-o-border-image:url(../img/border.png) 30 30 round; /* Opera */
+border-image:url(../img/border.png) 30 30 round;
+border-width: 15px;
+}
+
+
+/* Background-size: length|percentage|cover|contain; */
+.bgSize{
+	background: url(../img/ajax-loader_new.gif) center center no-repeat;
+	background-size: 50px 50px;
+}
+
+.bgSizePer{
+	background: url(../img/ajax-loader_new.gif) center center no-repeat;
+	background-size: 50%;
+}
+
+.bgSizeContain{
+	background: url(../img/ajax-loader_new.gif) center center no-repeat;
+	background-size: contain;
+}
+
+.bgSizeCover{
+	background: url(../img/ajax-loader_new.gif) center center no-repeat;
+	background-size: cover;
+}
+
+/* background-origin: padding-box|border-box|content-box; */
+.bg_originPB{
+	background: url(../img/waterproof.gif) no-repeat;
+	padding:35px;
+	border:5px dotted #000000;
+	background-origin: padding-box;
+	-moz-background-origin: padding-box;
+	-webkit-background-origin: padding-box;	
+}
+
+.bg_originCB{
+	background: url(../img/waterproof.gif)  no-repeat;
+	padding:35px;
+	border:5px dotted #000000;
+	background-origin: content-box;
+	-moz-background-origin: content-box;
+	-webkit-background-origin: content-box;	
+}
+
+.bg_originBB{
+	background: url(../img/waterproof.gif) no-repeat;
+	padding:35px;
+	border:5px dotted #000000;
+	background-origin: border-box;
+	-moz-background-origin: border-box;
+	-webkit-background-origin: border-box;	
+}
+
+/* background-clip: border-box|padding-box|content-box; */
+.bgClip_bb{
+	background: yellow;
+	padding:20px;
+	border:5px dotted #000000;
+	background-clip: border-box;
+	-webkit-background-clip: border-box;
+	-moz-background-clip: border-box;
+}
+
+.bgClip_cb{
+	background: yellow;
+	border:5px dotted #000000;
+	padding:20px;
+	background-clip: content-box;
+	-webkit-background-clip: content-box;
+	-moz-background-clip: content-box;
+}
+
+.bgClip_pb{
+	background: yellow;
+	padding:20px;
+	border:5px dotted #000000;
+	background-clip: padding-box;
+	-webkit-background-clip: padding-box;
+	-moz-background-clip: padding-box;
+}
+
+/*text-shadow: h-shadow v-shadow blur color;*/
+p.experimental{ font-size: 50px; font-weight: bold; font-family: "Century Gothic"; padding:2px; margin: 0px; }
+.tshadow{text-shadow: 5px 5px 5px #FF0000;}
+.tshado{text-shadow: 2px 1px 5px #FF0000;}
+.tsado{text-shadow: 0px 20px 5px #FF0000;}
+.tsado2{text-shadow: -0px -20px 5px #FF0000;}
+.txtStroke{text-shadow: 2px 2px 0px #FF0000;}
+.txtGlow{text-shadow: 0px 0px 10px #FF0000;}
+.txtStrke{text-shadow: -2px -2px 0px #FF0000;}
+.txtStrke2{text-shadow: 0px -2px 0px #FF0000;}
+.txtStrke3{text-shadow: -2px 0px 0px #FF0000;}
+.txtRnd{text-shadow: 50px 50px 10px #FF0000; color:#fff; }
+
+/*word-break: keep-all|break-all|hyphenate|Normal;*/
+.wrdbrkNrml{ word-break: normal; }
+.wrdbrkepAl{ word-break: keep-all; }
+.wrdbrkAll{ word-break: break-all; }
+.wrdbrkhy{ word-break: hyphenate; }
+
+/* transforms :rotate | translate | scale | skew | matrix  -- 2D Transforms  */
+
+/* rotate */
+.rotate1{ 
+	background:red;
+	transform: rotate(30deg);
+	 -webkit-transform: rotate(30deg);
+ -moz-transform: rotate(30deg);
+ -ms-transform: rotate(30deg);
+ -o-transform: rotate(30deg);
+}
+
+.rotate2{ 
+	background:red;
+	transform: rotate(90deg);
+	 -webkit-transform: rotate(90deg);
+ -moz-transform: rotate(90deg);
+ -ms-transform: rotate(90deg);
+ -o-transform: rotate(90deg);
+}
+
+
+.rotate3{ 
+	background:red;
+	transform: rotate(130deg);
+	 -webkit-transform: rotate(130deg);
+ -moz-transform: rotate(130deg);
+ -ms-transform: rotate(130deg);
+ -o-transform: rotate(130deg);
+}
+
+
+.rotate4{ 
+	background:red;
+	transform: rotate(240deg);
+	 -webkit-transform: rotate(240deg);
+ -moz-transform: rotate(240deg);
+ -ms-transform: rotate(240deg);
+ -o-transform: rotate(240deg);
+}
+
+/* translate */
+.translate1{
+	background: green;
+	transform: translate(10px, 10px);
+	 -webkit-transform: translate(10px, 10px);
+ -moz-transform: translate(10px, 10px);
+ -ms-transform: translate(10px, 10px);
+ -o-transform: translate(10px, 10px);
+}
+
+
+.translate2{
+	background: green;
+	transform: translate(-10px, -10px);
+	 -webkit-transform: translate(-10px, -10px);
+ -moz-transform: translate(-10px, -10px);
+ -ms-transform: translate(-10px, -10px);
+ -o-transform: translate(-10px, -10px);
+}
+
+
+.translate3{
+	background: green;
+}
+
+/* Scale */
+.scale1{background: yellow;}
+.scale1:hover{
+	transform: scale(2,2);
+	 -webkit-transform: scale(2,2);
+ -moz-transform: scale(2,2);
+ -ms-transform: scale(2,2);
+ -o-transform: scale(2,2);
+}
+
+/* skew */
+.skew1{
+	background-color: #0066EE;
+	transform: skew(20deg, 30deg);
+	-webkit-transform: skew(20deg, 30deg);
+ -moz-transform: skew(20deg, 30deg);
+ -ms-transform: skew(20deg, 30deg);
+ -o-transform: skew(20deg, 30deg);
+}
+
+.skew2{
+	background-color: #0066EE;
+	transform: skew(-20deg, -30deg);
+	-webkit-transform: skew(-20deg, -30deg);
+ -moz-transform: skew(-20deg, -30deg);
+ -ms-transform: skew(-20deg, -30deg);
+ -o-transform: skew(-20deg, -30deg);
+}
+
+.skew3{
+	background-color: #0066EE;
+	transform: skew(50deg, 50deg);
+	-webkit-transform: skew(50deg, 50deg);
+ -moz-transform: skew(50deg, 50deg);
+ -ms-transform: skew(50deg, 50deg);
+ -o-transform: skew(50deg, 50deg);
+}
+
+/* perspective */
+#perspective1
+{
+position: relative;
+height: 150px;
+width: 150px;
+margin: 50px;
+padding:10px;
+border: 1px solid black;
+perspective:150;
+-webkit-perspective:150; /* Safari and Chrome */
+}
+
+#perspective2
+{
+padding:50px;
+position: absolute;
+border: 1px solid black;
+background-color: red;
+transform: rotateX(45deg);
+-webkit-transform: rotateX(45deg); /* Safari and Chrome */
+}
+
+#perspective3
+{
+position: relative;
+height: 150px;
+width: 150px;
+margin: 50px;
+padding:10px;
+border: 1px solid black;
+perspective:280;
+-webkit-perspective:280; /* Safari and Chrome */
+}
+
+#perspective4
+{
+padding:50px;
+position: absolute;
+border: 1px solid black;
+background-color: red;
+transform: rotateX(145deg);
+-webkit-transform: rotateX(145deg); /* Safari and Chrome */
+}
+/* matrix */
+.matrix1{
+	background-color: #710909;
+	transform: rotate(15deg) translateX(20px)  scale(1, 0.6) skew(-15deg, -20deg) translateX(40px);
+	-webkit-transform: rotate(15deg) translateX(20px)  scale(1, 0.6) skew(-15deg, -20deg) translateX(40px);
+	-moz-transform: rotate(15deg) translateX(20px)  scale(1, 0.6) skew(-15deg, -20deg) translateX(40px);
+ -ms-transform: rotate(15deg) translateX(20px)  scale(1, 0.6) skew(-15deg, -20deg) translateX(40px);
+ -o-transform: rotate(15deg) translateX(20px)  scale(1, 0.6) skew(-15deg, -20deg) translateX(40px);
+}
+
+.matrix2{
+	background-color: #710909;
+	transform:matrix(0.866,0.5,-0.5,0.866,0,0);
+	-webkit-transform:matrix(0.866,0.5,-0.5,0.866,0,0);
+ -moz-transform:matrix(0.866,0.5,-0.5,0.866,0,0);
+ -ms-transform:matrix(0.866,0.5,-0.5,0.866,0,0);
+ -o-transform:matrix(0.866,0.5,-0.5,0.866,0,0);
+}
+
+.matrix3{
+	background-color: #710909;
+	transform: rotate(15deg) skew(-15deg, -20deg);
+	-webkit-transform: rotate(15deg) skew(-15deg, -20deg);
+ -moz-transform: rotate(15deg) skew(-15deg, -20deg);
+ -ms-transform: rotate(15deg) skew(-15deg, -20deg);
+ -o-transform: rotate(15deg) skew(-15deg, -20deg);
+}
+
+.matrix4{
+	background-color: #222222;
+	transform: rotate(80deg) translate(20px);
+	-webkit-transform: rotate(80deg) translate(20px);
+ -moz-transform: rotate(80deg) translate(20px);
+ -ms-transform: rotate(80deg) translate(20px);
+ -o-transform: rotate(80deg) translate(20px);
+}
+
+.matrix5{
+	background-color: #222222;
+	transform: skew(80deg) translate(20px);
+	-webkit-transform: skew(80deg) translate(20px);
+ -moz-transform: skew(80deg) translate(20px);
+ -ms-transform: skew(80deg) translate(20px);
+ -o-transform: skew(80deg) translate(20px);
+}
+
+.matrix6{
+	background-color: #222222;
+	transform: skewY(80deg) translateY(20px);
+	-webkit-transform: skewY(80deg) translateY(20px);
+ -moz-transform: skewY(80deg) translateY(20px);
+ -ms-transform: skewY(80deg) translateY(20px);
+ -o-transform: skewY(80deg) translateY(20px);
+}
+
+/* transition: property duration timing-function delay; */
+.transition1{
+	background-color: #C6E746;
+	transition: width 2s;
+	-webkit-transition: width 2s;
+ -moz-transition: width 2s;
+ -ms-transition: width 2s;
+ -o-transition: width 2s;
+}
+
+.transition1:hover{
+	width:500px;
+}
+
+.transition2{
+	background-color: #C6E746;
+	transition: background 2s;
+	-webkit-transition: background 2s;
+ -moz-transition: background 2s;
+ -ms-transition: background 2s;
+ -o-transition: background 2s;
+}
+
+.transition2:hover{
+	background-color: #551A8B;
+}
+
+.transition3{
+	background-color: #C6E746;
+	font-family:"Century Gothic"; font-size:40px; font-weight:bold; color:#710909;
+	transition:  color 1s, font-size 1s;
+	-webkit-transition: color 1s, font-size 1s;
+ -moz-transition:  color 1s, font-size 1s;
+ -ms-transition:  color 1s, font-size 1s;
+ -o-transition:  color 1s, font-size 1s;
+}
+
+.transition3:hover{
+	color: #0066EE;
+	font-size: 45px;
+}
+
+
+.transition4{
+	background-color: #C6E746;
+	transition-property: width;
+	transition-duration: 1s;
+	transition-timing-function: linear;
+	transition-delay: 1s;
+	/* Firefox 4 */
+	-moz-transition-property:width;
+	-moz-transition-duration:1s;
+	-moz-transition-timing-function:linear;
+	-moz-transition-delay:1s;
+	/* Safari and Chrome */
+	-webkit-transition-property:width;
+	-webkit-transition-duration:1s;
+	-webkit-transition-timing-function:linear;
+	-webkit-transition-delay:1s;
+	/* Opera */
+	-o-transition-property:width;
+	-o-transition-duration:1s;
+	-o-transition-timing-function:linear;
+	-o-transition-delay:1s
+}
+
+.transition4:hover{
+	width: 400px;
+}
+
+
+
+/* CSS 3 Animations */
+.anim1{
+	background-color: #0000EE;
+}
+
+.anim1:hover{
+	animation: myfist 2s;
+	-webkit-animation: myfist 2s;
+	 -moz-animation: myfist 2s;
+	 -ms-animation: myfist 2s;
+	 -o-animation: myfist 2s;
+}
+
+@keyframes myfist{
+	from{ background-color: #0000EE; }
+	to{background-color: #FF0000;} 
+}
+
+@-moz-keyframes myfist{
+	from{ background-color: #0000EE; }
+	to{background-color: #FF0000;} 
+}
+
+@-webkit-keyframes myfist{
+	from{ background-color: #0000EE; }
+	to{background-color: #FF0000;} 
+}
+
+@-o-keyframes myfist{
+	from{ background-color: #0000EE; }
+	to{background-color: #FF0000;} 
+}
+
+@-o-keyframes myfist{
+	from{ background-color: #0000EE; }
+	to{background-color: #FF0000;} 
+}
+
+
+.anim2{
+	background-color: #0000EE;
+}
+.anim2:hover{
+	animation: widChange 2s;
+	-webkit-animation: widChange 2s;
+ -moz-animation: widChange 2s;
+ -ms-animation: widChange 2s;
+ -o-animation: widChange 2s;
+}
+
+@-moz-keyframes widChange{
+	0%{width: 120px}
+	25%{ width: 180px; background-color: #0066EE; }
+	50%{ width: 280px; background-color: #710909 }
+	75%{ width: 210px ;background-color: #008000; }
+	100%{ width:250px; background-color: #FFFF00 }
+}
+
+@-webkit-keyframes widChange{
+	0%{width: 120px}
+	25%{ width: 180px; background-color: #0066EE; }
+	50%{ width: 280px; background-color: #710909 }
+	75%{ width: 210px ;background-color: #008000; }
+	100%{ width:250px; background-color: #FFFF00 }
+}
+
+@-o-keyframes widChange{
+	0%{width: 120px}
+	25%{ width: 180px; background-color: #0066EE; }
+	50%{ width: 280px; background-color: #710909 }
+	75%{ width: 210px ;background-color: #008000; }
+	100%{ width:250px; background-color: #FFFF00 }
+}
+
+@-khtml-keyframes widChange{
+	0%{width: 120px}
+	25%{ width: 180px; background-color: #0066EE; }
+	50%{ width: 280px; background-color: #710909 }
+	75%{ width: 210px ;background-color: #008000; }
+	100%{ width:250px; background-color: #FFFF00 }
+}
+
+.anim3
+{
+position:relative;
+animation-name:myfirst;
+animation-duration:5s;
+animation-timing-function:linear;
+animation-delay:2s;
+animation-iteration-count:infinite;
+animation-direction:alternate;
+animation-play-state:running;
+/* Firefox: */
+-moz-animation-name:myfirst;
+-moz-animation-duration:5s;
+-moz-animation-timing-function:linear;
+-moz-animation-delay:2s;
+-moz-animation-iteration-count:infinite;
+-moz-animation-direction:alternate;
+-moz-animation-play-state:running;
+/* Safari and Chrome: */
+-webkit-animation-name:myfirst;
+-webkit-animation-duration:5s;
+-webkit-animation-timing-function:linear;
+-webkit-animation-delay:2s;
+-webkit-animation-iteration-count:infinite;
+-webkit-animation-direction:alternate;
+-webkit-animation-play-state:running;
+/* Opera: */
+-o-animation-name:myfirst;
+-o-animation-duration:5s;
+-o-animation-timing-function:linear;
+-o-animation-delay:2s;
+-o-animation-iteration-count:infinite;
+-o-animation-direction:alternate;
+-o-animation-play-state:running;
+}
+
+@keyframes myfirst
+{
+0%   {background:red; left:0px; top:0px;}
+25%  {background:yellow; left:200px; top:0px;}
+50%  {background:blue; left:200px; top:200px;}
+75%  {background:green; left:0px; top:200px;}
+100% {background:red; left:0px; top:0px;}
+}
+
+@-moz-keyframes myfirst /* Firefox */
+{
+0%   {background:red; left:0px; top:0px;}
+25%  {background:yellow; left:200px; top:0px;}
+50%  {background:blue; left:200px; top:200px;}
+75%  {background:green; left:0px; top:200px;}
+100% {background:red; left:0px; top:0px;}
+}
+
+@-webkit-keyframes myfirst /* Safari and Chrome */
+{
+0%   {background:red; left:0px; top:0px;}
+25%  {background:yellow; left:200px; top:0px;}
+50%  {background:blue; left:200px; top:200px;}
+75%  {background:green; left:0px; top:200px;}
+100% {background:red; left:0px; top:0px;}
+}
+
+@-o-keyframes myfirst /* Opera */
+{
+0%   {background:red; left:0px; top:0px;}
+25%  {background:yellow; left:200px; top:0px;}
+50%  {background:blue; left:200px; top:200px;}
+75%  {background:green; left:0px; top:200px;}
+100% {background:red; left:0px; top:0px;}
+}
+
+
+
+/* columns: column-width column-count; */
+.column1{
+	columns:30px 3;
+	 -webkit-columns:30px 3;
+ -moz-columns:30px 3;
+ -ms-columns:30px 3;
+ -o-columns:30px 3;
+ margin: 10px;
+ padding:10px;
+ border:1px solid #710909;
+}
+
+.column2{
+	margin: 10px;
+	 padding:10px;
+	 border:1px solid #710909;
+	columns:30px 3;
+	 -webkit-columns:30px 3;
+	 -moz-columns:30px 3;
+	 -ms-columns:30px 3;
+	 -o-columns:30px 3;
+	 column-gap: 50px;
+	  -webkit-column-gap: 50px;
+ -moz-column-gap: 50px;
+ -ms-column-gap: 50px;
+ -o-column-gap: 50px;
+ column-rule:4px outset #ff00ff; 
+ -webkit-column-rule:4px outset #ff00ff;
+ -moz-column-rule:4px outset #ff00ff;
+ -ms-column-rule:4px outset #ff00ff;
+ -o-column-rule:4px outset #ff00ff;
+	 
+}
+
+
+/* resize: none|both|horizontal|vertical */
+.resizeB{
+	resize: both; overflow: auto;
+}
+
+.resizeH{
+	resize: horizontal; overflow: auto;
+}
+.resizeV{
+	resize: vertical; overflow: auto;
+}
+
+/*box-sizing: content-box|border-box|inherit:*/
+.bxSizing-CB{
+	box-sizing: content-box;
+	-webkit-box-sizing: content-box;
+ -moz-box-sizing: content-box;
+ -ms-box-sizing: content-box;
+ -o-box-sizing: content-box;
+ background: #0066EE;
+}	
+
+.bxSizing-BB{
+	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+ -moz-box-sizing: border-box;
+ -ms-box-sizing: border-box;
+ -o-box-sizing: border-box;
+ background: #0066EE;
+}
+
+.outlineOff{
+	border:2px solid black;
+outline:2px solid red;
+outline-offset:15px;
+}
+
+
+/* generated by http://www.css3animationgenerator.com */
+@-webkit-keyframes slide {
+0% {opacity: 0; -webkit-transform: translate3d(0px, 0px, 0px); width: 50px;}
+1% {opacity: 0.09; -webkit-transform: translate3d(43.68px, 0px, 0px); width: 54.37px;}
+2% {opacity: 0.2; -webkit-transform: translate3d(102.36px, 0px, 0px); width: 60.24px;}
+3% {opacity: 0.34; -webkit-transform: translate3d(171.44px, 0px, 0px); width: 67.14px;}
+4% {opacity: 0.49; -webkit-transform: translate3d(246.45px, 0px, 0px); width: 74.64px;}
+5% {opacity: 0.65; -webkit-transform: translate3d(323.22px, 0px, 0px); width: 82.32px;}
+6% {opacity: 0.8; -webkit-transform: translate3d(398.06px, 0px, 0px); width: 89.81px;}
+7% {opacity: 0.94; -webkit-transform: translate3d(467.83px, 0px, 0px); width: 96.78px;}
+8% {opacity: 1.06; -webkit-transform: translate3d(530.02px, 0px, 0px); width: 103px;}
+9% {opacity: 1.17; -webkit-transform: translate3d(582.8px, 0px, 0px); width: 108.28px;}
+10% {opacity: 1.25; -webkit-transform: translate3d(625px, 0px, 0px); width: 112.5px;}
+11% {opacity: 1.31; -webkit-transform: translate3d(656.08px, 0px, 0px); width: 115.61px;}
+12% {opacity: 1.35; -webkit-transform: translate3d(676.07px, 0px, 0px); width: 117.61px;}
+13% {opacity: 1.37; -webkit-transform: translate3d(685.51px, 0px, 0px); width: 118.55px;}
+14% {opacity: 1.37; -webkit-transform: translate3d(685.32px, 0px, 0px); width: 118.53px;}
+15% {opacity: 1.35; -webkit-transform: translate3d(676.78px, 0px, 0px); width: 117.68px;}
+16% {opacity: 1.32; -webkit-transform: translate3d(661.33px, 0px, 0px); width: 116.13px;}
+17% {opacity: 1.28; -webkit-transform: translate3d(640.59px, 0px, 0px); width: 114.06px;}
+18% {opacity: 1.23; -webkit-transform: translate3d(616.16px, 0px, 0px); width: 111.62px;}
+19% {opacity: 1.18; -webkit-transform: translate3d(589.64px, 0px, 0px); width: 108.96px;}
+20% {opacity: 1.13; -webkit-transform: translate3d(562.5px, 0px, 0px); width: 106.25px;}
+21% {opacity: 1.07; -webkit-transform: translate3d(536.04px, 0px, 0px); width: 103.6px;}
+22% {opacity: 1.02; -webkit-transform: translate3d(511.37px, 0px, 0px); width: 101.14px;}
+23% {opacity: 0.98; -webkit-transform: translate3d(489.39px, 0px, 0px); width: 98.94px;}
+24% {opacity: 0.94; -webkit-transform: translate3d(470.73px, 0px, 0px); width: 97.07px;}
+25% {opacity: 0.91; -webkit-transform: translate3d(455.81px, 0px, 0px); width: 95.58px;}
+26% {opacity: 0.89; -webkit-transform: translate3d(444.82px, 0px, 0px); width: 94.48px;}
+27% {opacity: 0.88; -webkit-transform: translate3d(437.75px, 0px, 0px); width: 93.77px;}
+28% {opacity: 0.87; -webkit-transform: translate3d(434.41px, 0px, 0px); width: 93.44px;}
+29% {opacity: 0.87; -webkit-transform: translate3d(434.48px, 0px, 0px); width: 93.45px;}
+30% {opacity: 0.88; -webkit-transform: translate3d(437.5px, 0px, 0px); width: 93.75px;}
+31% {opacity: 0.89; -webkit-transform: translate3d(442.96px, 0px, 0px); width: 94.3px;}
+32% {opacity: 0.9; -webkit-transform: translate3d(450.29px, 0px, 0px); width: 95.03px;}
+33% {opacity: 0.92; -webkit-transform: translate3d(458.93px, 0px, 0px); width: 95.89px;}
+34% {opacity: 0.94; -webkit-transform: translate3d(468.31px, 0px, 0px); width: 96.83px;}
+35% {opacity: 0.96; -webkit-transform: translate3d(477.9px, 0px, 0px); width: 97.79px;}
+36% {opacity: 0.97; -webkit-transform: translate3d(487.26px, 0px, 0px); width: 98.73px;}
+37% {opacity: 0.99; -webkit-transform: translate3d(495.98px, 0px, 0px); width: 99.6px;}
+38% {opacity: 1.01; -webkit-transform: translate3d(503.75px, 0px, 0px); width: 100.38px;}
+39% {opacity: 1.02; -webkit-transform: translate3d(510.35px, 0px, 0px); width: 101.03px;}
+40% {opacity: 1.03; -webkit-transform: translate3d(515.63px, 0px, 0px); width: 101.56px;}
+41% {opacity: 1.04; -webkit-transform: translate3d(519.51px, 0px, 0px); width: 101.95px;}
+42% {opacity: 1.04; -webkit-transform: translate3d(522.01px, 0px, 0px); width: 102.2px;}
+43% {opacity: 1.05; -webkit-transform: translate3d(523.19px, 0px, 0px); width: 102.32px;}
+44% {opacity: 1.05; -webkit-transform: translate3d(523.17px, 0px, 0px); width: 102.32px;}
+45% {opacity: 1.04; -webkit-transform: translate3d(522.1px, 0px, 0px); width: 102.21px;}
+46% {opacity: 1.04; -webkit-transform: translate3d(520.17px, 0px, 0px); width: 102.02px;}
+47% {opacity: 1.04; -webkit-transform: translate3d(517.57px, 0px, 0px); width: 101.76px;}
+48% {opacity: 1.03; -webkit-transform: translate3d(514.52px, 0px, 0px); width: 101.45px;}
+49% {opacity: 1.02; -webkit-transform: translate3d(511.21px, 0px, 0px); width: 101.12px;}
+50% {opacity: 1.02; -webkit-transform: translate3d(507.81px, 0px, 0px); width: 100.78px;}
+51% {opacity: 1.01; -webkit-transform: translate3d(504.51px, 0px, 0px); width: 100.45px;}
+52% {opacity: 1; -webkit-transform: translate3d(501.42px, 0px, 0px); width: 100.14px;}
+53% {opacity: 1; -webkit-transform: translate3d(498.67px, 0px, 0px); width: 99.87px;}
+54% {opacity: 0.99; -webkit-transform: translate3d(496.34px, 0px, 0px); width: 99.63px;}
+55% {opacity: 0.99; -webkit-transform: translate3d(494.48px, 0px, 0px); width: 99.45px;}
+56% {opacity: 0.99; -webkit-transform: translate3d(493.1px, 0px, 0px); width: 99.31px;}
+57% {opacity: 0.98; -webkit-transform: translate3d(492.22px, 0px, 0px); width: 99.22px;}
+58% {opacity: 0.98; -webkit-transform: translate3d(491.8px, 0px, 0px); width: 99.18px;}
+59% {opacity: 0.98; -webkit-transform: translate3d(491.81px, 0px, 0px); width: 99.18px;}
+60% {opacity: 0.98; -webkit-transform: translate3d(492.19px, 0px, 0px); width: 99.22px;}
+61% {opacity: 0.99; -webkit-transform: translate3d(492.87px, 0px, 0px); width: 99.29px;}
+62% {opacity: 0.99; -webkit-transform: translate3d(493.79px, 0px, 0px); width: 99.38px;}
+63% {opacity: 0.99; -webkit-transform: translate3d(494.87px, 0px, 0px); width: 99.49px;}
+64% {opacity: 0.99; -webkit-transform: translate3d(496.04px, 0px, 0px); width: 99.6px;}
+65% {opacity: 0.99; -webkit-transform: translate3d(497.24px, 0px, 0px); width: 99.72px;}
+66% {opacity: 1; -webkit-transform: translate3d(498.41px, 0px, 0px); width: 99.84px;}
+67% {opacity: 1; -webkit-transform: translate3d(499.5px, 0px, 0px); width: 99.95px;}
+68% {opacity: 1; -webkit-transform: translate3d(500.47px, 0px, 0px); width: 100.05px;}
+69% {opacity: 1; -webkit-transform: translate3d(501.29px, 0px, 0px); width: 100.13px;}
+70% {opacity: 1; -webkit-transform: translate3d(501.95px, 0px, 0px); width: 100.2px;}
+71% {opacity: 1; -webkit-transform: translate3d(502.44px, 0px, 0px); width: 100.24px;}
+72% {opacity: 1.01; -webkit-transform: translate3d(502.75px, 0px, 0px); width: 100.28px;}
+73% {opacity: 1.01; -webkit-transform: translate3d(502.9px, 0px, 0px); width: 100.29px;}
+74% {opacity: 1.01; -webkit-transform: translate3d(502.9px, 0px, 0px); width: 100.29px;}
+75% {opacity: 1.01; -webkit-transform: translate3d(502.76px, 0px, 0px); width: 100.28px;}
+76% {opacity: 1.01; -webkit-transform: translate3d(502.52px, 0px, 0px); width: 100.25px;}
+77% {opacity: 1; -webkit-transform: translate3d(502.2px, 0px, 0px); width: 100.22px;}
+78% {opacity: 1; -webkit-transform: translate3d(501.82px, 0px, 0px); width: 100.18px;}
+79% {opacity: 1; -webkit-transform: translate3d(501.4px, 0px, 0px); width: 100.14px;}
+80% {opacity: 1; -webkit-transform: translate3d(500.98px, 0px, 0px); width: 100.1px;}
+81% {opacity: 1; -webkit-transform: translate3d(500.56px, 0px, 0px); width: 100.06px;}
+82% {opacity: 1; -webkit-transform: translate3d(500.18px, 0px, 0px); width: 100.02px;}
+83% {opacity: 1; -webkit-transform: translate3d(499.83px, 0px, 0px); width: 99.98px;}
+84% {opacity: 1; -webkit-transform: translate3d(499.54px, 0px, 0px); width: 99.95px;}
+85% {opacity: 1; -webkit-transform: translate3d(499.31px, 0px, 0px); width: 99.93px;}
+86% {opacity: 1; -webkit-transform: translate3d(499.14px, 0px, 0px); width: 99.91px;}
+87% {opacity: 1; -webkit-transform: translate3d(499.03px, 0px, 0px); width: 99.9px;}
+88% {opacity: 1; -webkit-transform: translate3d(498.98px, 0px, 0px); width: 99.9px;}
+89% {opacity: 1; -webkit-transform: translate3d(498.98px, 0px, 0px); width: 99.9px;}
+90% {opacity: 1; -webkit-transform: translate3d(499.02px, 0px, 0px); width: 99.9px;}
+91% {opacity: 1; -webkit-transform: translate3d(499.11px, 0px, 0px); width: 99.91px;}
+92% {opacity: 1; -webkit-transform: translate3d(499.22px, 0px, 0px); width: 99.92px;}
+93% {opacity: 1; -webkit-transform: translate3d(499.36px, 0px, 0px); width: 99.94px;}
+94% {opacity: 1; -webkit-transform: translate3d(499.5px, 0px, 0px); width: 99.95px;}
+95% {opacity: 1; -webkit-transform: translate3d(499.65px, 0px, 0px); width: 99.97px;}
+96% {opacity: 1; -webkit-transform: translate3d(499.8px, 0px, 0px); width: 99.98px;}
+97% {opacity: 1; -webkit-transform: translate3d(499.94px, 0px, 0px); width: 99.99px;}
+98% {opacity: 1; -webkit-transform: translate3d(500.06px, 0px, 0px); width: 100.01px;}
+99% {opacity: 1; -webkit-transform: translate3d(500.16px, 0px, 0px); width: 100.02px;}
+100% {opacity: 1; -webkit-transform: translate3d(500px, 0px, 0px); width: 100px;}
+}
+
+@-moz-keyframes slide {
+0% {opacity: 0; -moz-transform: translate3d(0px, 0px, 0px); width: 50px;}
+1% {opacity: 0.09; -moz-transform: translate3d(43.68px, 0px, 0px); width: 54.37px;}
+2% {opacity: 0.2; -moz-transform: translate3d(102.36px, 0px, 0px); width: 60.24px;}
+3% {opacity: 0.34; -moz-transform: translate3d(171.44px, 0px, 0px); width: 67.14px;}
+4% {opacity: 0.49; -moz-transform: translate3d(246.45px, 0px, 0px); width: 74.64px;}
+5% {opacity: 0.65; -moz-transform: translate3d(323.22px, 0px, 0px); width: 82.32px;}
+6% {opacity: 0.8; -moz-transform: translate3d(398.06px, 0px, 0px); width: 89.81px;}
+7% {opacity: 0.94; -moz-transform: translate3d(467.83px, 0px, 0px); width: 96.78px;}
+8% {opacity: 1.06; -moz-transform: translate3d(530.02px, 0px, 0px); width: 103px;}
+9% {opacity: 1.17; -moz-transform: translate3d(582.8px, 0px, 0px); width: 108.28px;}
+10% {opacity: 1.25; -moz-transform: translate3d(625px, 0px, 0px); width: 112.5px;}
+11% {opacity: 1.31; -moz-transform: translate3d(656.08px, 0px, 0px); width: 115.61px;}
+12% {opacity: 1.35; -moz-transform: translate3d(676.07px, 0px, 0px); width: 117.61px;}
+13% {opacity: 1.37; -moz-transform: translate3d(685.51px, 0px, 0px); width: 118.55px;}
+14% {opacity: 1.37; -moz-transform: translate3d(685.32px, 0px, 0px); width: 118.53px;}
+15% {opacity: 1.35; -moz-transform: translate3d(676.78px, 0px, 0px); width: 117.68px;}
+16% {opacity: 1.32; -moz-transform: translate3d(661.33px, 0px, 0px); width: 116.13px;}
+17% {opacity: 1.28; -moz-transform: translate3d(640.59px, 0px, 0px); width: 114.06px;}
+18% {opacity: 1.23; -moz-transform: translate3d(616.16px, 0px, 0px); width: 111.62px;}
+19% {opacity: 1.18; -moz-transform: translate3d(589.64px, 0px, 0px); width: 108.96px;}
+20% {opacity: 1.13; -moz-transform: translate3d(562.5px, 0px, 0px); width: 106.25px;}
+21% {opacity: 1.07; -moz-transform: translate3d(536.04px, 0px, 0px); width: 103.6px;}
+22% {opacity: 1.02; -moz-transform: translate3d(511.37px, 0px, 0px); width: 101.14px;}
+23% {opacity: 0.98; -moz-transform: translate3d(489.39px, 0px, 0px); width: 98.94px;}
+24% {opacity: 0.94; -moz-transform: translate3d(470.73px, 0px, 0px); width: 97.07px;}
+25% {opacity: 0.91; -moz-transform: translate3d(455.81px, 0px, 0px); width: 95.58px;}
+26% {opacity: 0.89; -moz-transform: translate3d(444.82px, 0px, 0px); width: 94.48px;}
+27% {opacity: 0.88; -moz-transform: translate3d(437.75px, 0px, 0px); width: 93.77px;}
+28% {opacity: 0.87; -moz-transform: translate3d(434.41px, 0px, 0px); width: 93.44px;}
+29% {opacity: 0.87; -moz-transform: translate3d(434.48px, 0px, 0px); width: 93.45px;}
+30% {opacity: 0.88; -moz-transform: translate3d(437.5px, 0px, 0px); width: 93.75px;}
+31% {opacity: 0.89; -moz-transform: translate3d(442.96px, 0px, 0px); width: 94.3px;}
+32% {opacity: 0.9; -moz-transform: translate3d(450.29px, 0px, 0px); width: 95.03px;}
+33% {opacity: 0.92; -moz-transform: translate3d(458.93px, 0px, 0px); width: 95.89px;}
+34% {opacity: 0.94; -moz-transform: translate3d(468.31px, 0px, 0px); width: 96.83px;}
+35% {opacity: 0.96; -moz-transform: translate3d(477.9px, 0px, 0px); width: 97.79px;}
+36% {opacity: 0.97; -moz-transform: translate3d(487.26px, 0px, 0px); width: 98.73px;}
+37% {opacity: 0.99; -moz-transform: translate3d(495.98px, 0px, 0px); width: 99.6px;}
+38% {opacity: 1.01; -moz-transform: translate3d(503.75px, 0px, 0px); width: 100.38px;}
+39% {opacity: 1.02; -moz-transform: translate3d(510.35px, 0px, 0px); width: 101.03px;}
+40% {opacity: 1.03; -moz-transform: translate3d(515.63px, 0px, 0px); width: 101.56px;}
+41% {opacity: 1.04; -moz-transform: translate3d(519.51px, 0px, 0px); width: 101.95px;}
+42% {opacity: 1.04; -moz-transform: translate3d(522.01px, 0px, 0px); width: 102.2px;}
+43% {opacity: 1.05; -moz-transform: translate3d(523.19px, 0px, 0px); width: 102.32px;}
+44% {opacity: 1.05; -moz-transform: translate3d(523.17px, 0px, 0px); width: 102.32px;}
+45% {opacity: 1.04; -moz-transform: translate3d(522.1px, 0px, 0px); width: 102.21px;}
+46% {opacity: 1.04; -moz-transform: translate3d(520.17px, 0px, 0px); width: 102.02px;}
+47% {opacity: 1.04; -moz-transform: translate3d(517.57px, 0px, 0px); width: 101.76px;}
+48% {opacity: 1.03; -moz-transform: translate3d(514.52px, 0px, 0px); width: 101.45px;}
+49% {opacity: 1.02; -moz-transform: translate3d(511.21px, 0px, 0px); width: 101.12px;}
+50% {opacity: 1.02; -moz-transform: translate3d(507.81px, 0px, 0px); width: 100.78px;}
+51% {opacity: 1.01; -moz-transform: translate3d(504.51px, 0px, 0px); width: 100.45px;}
+52% {opacity: 1; -moz-transform: translate3d(501.42px, 0px, 0px); width: 100.14px;}
+53% {opacity: 1; -moz-transform: translate3d(498.67px, 0px, 0px); width: 99.87px;}
+54% {opacity: 0.99; -moz-transform: translate3d(496.34px, 0px, 0px); width: 99.63px;}
+55% {opacity: 0.99; -moz-transform: translate3d(494.48px, 0px, 0px); width: 99.45px;}
+56% {opacity: 0.99; -moz-transform: translate3d(493.1px, 0px, 0px); width: 99.31px;}
+57% {opacity: 0.98; -moz-transform: translate3d(492.22px, 0px, 0px); width: 99.22px;}
+58% {opacity: 0.98; -moz-transform: translate3d(491.8px, 0px, 0px); width: 99.18px;}
+59% {opacity: 0.98; -moz-transform: translate3d(491.81px, 0px, 0px); width: 99.18px;}
+60% {opacity: 0.98; -moz-transform: translate3d(492.19px, 0px, 0px); width: 99.22px;}
+61% {opacity: 0.99; -moz-transform: translate3d(492.87px, 0px, 0px); width: 99.29px;}
+62% {opacity: 0.99; -moz-transform: translate3d(493.79px, 0px, 0px); width: 99.38px;}
+63% {opacity: 0.99; -moz-transform: translate3d(494.87px, 0px, 0px); width: 99.49px;}
+64% {opacity: 0.99; -moz-transform: translate3d(496.04px, 0px, 0px); width: 99.6px;}
+65% {opacity: 0.99; -moz-transform: translate3d(497.24px, 0px, 0px); width: 99.72px;}
+66% {opacity: 1; -moz-transform: translate3d(498.41px, 0px, 0px); width: 99.84px;}
+67% {opacity: 1; -moz-transform: translate3d(499.5px, 0px, 0px); width: 99.95px;}
+68% {opacity: 1; -moz-transform: translate3d(500.47px, 0px, 0px); width: 100.05px;}
+69% {opacity: 1; -moz-transform: translate3d(501.29px, 0px, 0px); width: 100.13px;}
+70% {opacity: 1; -moz-transform: translate3d(501.95px, 0px, 0px); width: 100.2px;}
+71% {opacity: 1; -moz-transform: translate3d(502.44px, 0px, 0px); width: 100.24px;}
+72% {opacity: 1.01; -moz-transform: translate3d(502.75px, 0px, 0px); width: 100.28px;}
+73% {opacity: 1.01; -moz-transform: translate3d(502.9px, 0px, 0px); width: 100.29px;}
+74% {opacity: 1.01; -moz-transform: translate3d(502.9px, 0px, 0px); width: 100.29px;}
+75% {opacity: 1.01; -moz-transform: translate3d(502.76px, 0px, 0px); width: 100.28px;}
+76% {opacity: 1.01; -moz-transform: translate3d(502.52px, 0px, 0px); width: 100.25px;}
+77% {opacity: 1; -moz-transform: translate3d(502.2px, 0px, 0px); width: 100.22px;}
+78% {opacity: 1; -moz-transform: translate3d(501.82px, 0px, 0px); width: 100.18px;}
+79% {opacity: 1; -moz-transform: translate3d(501.4px, 0px, 0px); width: 100.14px;}
+80% {opacity: 1; -moz-transform: translate3d(500.98px, 0px, 0px); width: 100.1px;}
+81% {opacity: 1; -moz-transform: translate3d(500.56px, 0px, 0px); width: 100.06px;}
+82% {opacity: 1; -moz-transform: translate3d(500.18px, 0px, 0px); width: 100.02px;}
+83% {opacity: 1; -moz-transform: translate3d(499.83px, 0px, 0px); width: 99.98px;}
+84% {opacity: 1; -moz-transform: translate3d(499.54px, 0px, 0px); width: 99.95px;}
+85% {opacity: 1; -moz-transform: translate3d(499.31px, 0px, 0px); width: 99.93px;}
+86% {opacity: 1; -moz-transform: translate3d(499.14px, 0px, 0px); width: 99.91px;}
+87% {opacity: 1; -moz-transform: translate3d(499.03px, 0px, 0px); width: 99.9px;}
+88% {opacity: 1; -moz-transform: translate3d(498.98px, 0px, 0px); width: 99.9px;}
+89% {opacity: 1; -moz-transform: translate3d(498.98px, 0px, 0px); width: 99.9px;}
+90% {opacity: 1; -moz-transform: translate3d(499.02px, 0px, 0px); width: 99.9px;}
+91% {opacity: 1; -moz-transform: translate3d(499.11px, 0px, 0px); width: 99.91px;}
+92% {opacity: 1; -moz-transform: translate3d(499.22px, 0px, 0px); width: 99.92px;}
+93% {opacity: 1; -moz-transform: translate3d(499.36px, 0px, 0px); width: 99.94px;}
+94% {opacity: 1; -moz-transform: translate3d(499.5px, 0px, 0px); width: 99.95px;}
+95% {opacity: 1; -moz-transform: translate3d(499.65px, 0px, 0px); width: 99.97px;}
+96% {opacity: 1; -moz-transform: translate3d(499.8px, 0px, 0px); width: 99.98px;}
+97% {opacity: 1; -moz-transform: translate3d(499.94px, 0px, 0px); width: 99.99px;}
+98% {opacity: 1; -moz-transform: translate3d(500.06px, 0px, 0px); width: 100.01px;}
+99% {opacity: 1; -moz-transform: translate3d(500.16px, 0px, 0px); width: 100.02px;}
+100% {opacity: 1; -moz-transform: translate3d(500px, 0px, 0px); width: 100px;}
+}
+
+@keyframes slide {
+0% {opacity: 0; transform: translate3d(0px, 0px, 0px); width: 50px;}
+1% {opacity: 0.09; transform: translate3d(43.68px, 0px, 0px); width: 54.37px;}
+2% {opacity: 0.2; transform: translate3d(102.36px, 0px, 0px); width: 60.24px;}
+3% {opacity: 0.34; transform: translate3d(171.44px, 0px, 0px); width: 67.14px;}
+4% {opacity: 0.49; transform: translate3d(246.45px, 0px, 0px); width: 74.64px;}
+5% {opacity: 0.65; transform: translate3d(323.22px, 0px, 0px); width: 82.32px;}
+6% {opacity: 0.8; transform: translate3d(398.06px, 0px, 0px); width: 89.81px;}
+7% {opacity: 0.94; transform: translate3d(467.83px, 0px, 0px); width: 96.78px;}
+8% {opacity: 1.06; transform: translate3d(530.02px, 0px, 0px); width: 103px;}
+9% {opacity: 1.17; transform: translate3d(582.8px, 0px, 0px); width: 108.28px;}
+10% {opacity: 1.25; transform: translate3d(625px, 0px, 0px); width: 112.5px;}
+11% {opacity: 1.31; transform: translate3d(656.08px, 0px, 0px); width: 115.61px;}
+12% {opacity: 1.35; transform: translate3d(676.07px, 0px, 0px); width: 117.61px;}
+13% {opacity: 1.37; transform: translate3d(685.51px, 0px, 0px); width: 118.55px;}
+14% {opacity: 1.37; transform: translate3d(685.32px, 0px, 0px); width: 118.53px;}
+15% {opacity: 1.35; transform: translate3d(676.78px, 0px, 0px); width: 117.68px;}
+16% {opacity: 1.32; transform: translate3d(661.33px, 0px, 0px); width: 116.13px;}
+17% {opacity: 1.28; transform: translate3d(640.59px, 0px, 0px); width: 114.06px;}
+18% {opacity: 1.23; transform: translate3d(616.16px, 0px, 0px); width: 111.62px;}
+19% {opacity: 1.18; transform: translate3d(589.64px, 0px, 0px); width: 108.96px;}
+20% {opacity: 1.13; transform: translate3d(562.5px, 0px, 0px); width: 106.25px;}
+21% {opacity: 1.07; transform: translate3d(536.04px, 0px, 0px); width: 103.6px;}
+22% {opacity: 1.02; transform: translate3d(511.37px, 0px, 0px); width: 101.14px;}
+23% {opacity: 0.98; transform: translate3d(489.39px, 0px, 0px); width: 98.94px;}
+24% {opacity: 0.94; transform: translate3d(470.73px, 0px, 0px); width: 97.07px;}
+25% {opacity: 0.91; transform: translate3d(455.81px, 0px, 0px); width: 95.58px;}
+26% {opacity: 0.89; transform: translate3d(444.82px, 0px, 0px); width: 94.48px;}
+27% {opacity: 0.88; transform: translate3d(437.75px, 0px, 0px); width: 93.77px;}
+28% {opacity: 0.87; transform: translate3d(434.41px, 0px, 0px); width: 93.44px;}
+29% {opacity: 0.87; transform: translate3d(434.48px, 0px, 0px); width: 93.45px;}
+30% {opacity: 0.88; transform: translate3d(437.5px, 0px, 0px); width: 93.75px;}
+31% {opacity: 0.89; transform: translate3d(442.96px, 0px, 0px); width: 94.3px;}
+32% {opacity: 0.9; transform: translate3d(450.29px, 0px, 0px); width: 95.03px;}
+33% {opacity: 0.92; transform: translate3d(458.93px, 0px, 0px); width: 95.89px;}
+34% {opacity: 0.94; transform: translate3d(468.31px, 0px, 0px); width: 96.83px;}
+35% {opacity: 0.96; transform: translate3d(477.9px, 0px, 0px); width: 97.79px;}
+36% {opacity: 0.97; transform: translate3d(487.26px, 0px, 0px); width: 98.73px;}
+37% {opacity: 0.99; transform: translate3d(495.98px, 0px, 0px); width: 99.6px;}
+38% {opacity: 1.01; transform: translate3d(503.75px, 0px, 0px); width: 100.38px;}
+39% {opacity: 1.02; transform: translate3d(510.35px, 0px, 0px); width: 101.03px;}
+40% {opacity: 1.03; transform: translate3d(515.63px, 0px, 0px); width: 101.56px;}
+41% {opacity: 1.04; transform: translate3d(519.51px, 0px, 0px); width: 101.95px;}
+42% {opacity: 1.04; transform: translate3d(522.01px, 0px, 0px); width: 102.2px;}
+43% {opacity: 1.05; transform: translate3d(523.19px, 0px, 0px); width: 102.32px;}
+44% {opacity: 1.05; transform: translate3d(523.17px, 0px, 0px); width: 102.32px;}
+45% {opacity: 1.04; transform: translate3d(522.1px, 0px, 0px); width: 102.21px;}
+46% {opacity: 1.04; transform: translate3d(520.17px, 0px, 0px); width: 102.02px;}
+47% {opacity: 1.04; transform: translate3d(517.57px, 0px, 0px); width: 101.76px;}
+48% {opacity: 1.03; transform: translate3d(514.52px, 0px, 0px); width: 101.45px;}
+49% {opacity: 1.02; transform: translate3d(511.21px, 0px, 0px); width: 101.12px;}
+50% {opacity: 1.02; transform: translate3d(507.81px, 0px, 0px); width: 100.78px;}
+51% {opacity: 1.01; transform: translate3d(504.51px, 0px, 0px); width: 100.45px;}
+52% {opacity: 1; transform: translate3d(501.42px, 0px, 0px); width: 100.14px;}
+53% {opacity: 1; transform: translate3d(498.67px, 0px, 0px); width: 99.87px;}
+54% {opacity: 0.99; transform: translate3d(496.34px, 0px, 0px); width: 99.63px;}
+55% {opacity: 0.99; transform: translate3d(494.48px, 0px, 0px); width: 99.45px;}
+56% {opacity: 0.99; transform: translate3d(493.1px, 0px, 0px); width: 99.31px;}
+57% {opacity: 0.98; transform: translate3d(492.22px, 0px, 0px); width: 99.22px;}
+58% {opacity: 0.98; transform: translate3d(491.8px, 0px, 0px); width: 99.18px;}
+59% {opacity: 0.98; transform: translate3d(491.81px, 0px, 0px); width: 99.18px;}
+60% {opacity: 0.98; transform: translate3d(492.19px, 0px, 0px); width: 99.22px;}
+61% {opacity: 0.99; transform: translate3d(492.87px, 0px, 0px); width: 99.29px;}
+62% {opacity: 0.99; transform: translate3d(493.79px, 0px, 0px); width: 99.38px;}
+63% {opacity: 0.99; transform: translate3d(494.87px, 0px, 0px); width: 99.49px;}
+64% {opacity: 0.99; transform: translate3d(496.04px, 0px, 0px); width: 99.6px;}
+65% {opacity: 0.99; transform: translate3d(497.24px, 0px, 0px); width: 99.72px;}
+66% {opacity: 1; transform: translate3d(498.41px, 0px, 0px); width: 99.84px;}
+67% {opacity: 1; transform: translate3d(499.5px, 0px, 0px); width: 99.95px;}
+68% {opacity: 1; transform: translate3d(500.47px, 0px, 0px); width: 100.05px;}
+69% {opacity: 1; transform: translate3d(501.29px, 0px, 0px); width: 100.13px;}
+70% {opacity: 1; transform: translate3d(501.95px, 0px, 0px); width: 100.2px;}
+71% {opacity: 1; transform: translate3d(502.44px, 0px, 0px); width: 100.24px;}
+72% {opacity: 1.01; transform: translate3d(502.75px, 0px, 0px); width: 100.28px;}
+73% {opacity: 1.01; transform: translate3d(502.9px, 0px, 0px); width: 100.29px;}
+74% {opacity: 1.01; transform: translate3d(502.9px, 0px, 0px); width: 100.29px;}
+75% {opacity: 1.01; transform: translate3d(502.76px, 0px, 0px); width: 100.28px;}
+76% {opacity: 1.01; transform: translate3d(502.52px, 0px, 0px); width: 100.25px;}
+77% {opacity: 1; transform: translate3d(502.2px, 0px, 0px); width: 100.22px;}
+78% {opacity: 1; transform: translate3d(501.82px, 0px, 0px); width: 100.18px;}
+79% {opacity: 1; transform: translate3d(501.4px, 0px, 0px); width: 100.14px;}
+80% {opacity: 1; transform: translate3d(500.98px, 0px, 0px); width: 100.1px;}
+81% {opacity: 1; transform: translate3d(500.56px, 0px, 0px); width: 100.06px;}
+82% {opacity: 1; transform: translate3d(500.18px, 0px, 0px); width: 100.02px;}
+83% {opacity: 1; transform: translate3d(499.83px, 0px, 0px); width: 99.98px;}
+84% {opacity: 1; transform: translate3d(499.54px, 0px, 0px); width: 99.95px;}
+85% {opacity: 1; transform: translate3d(499.31px, 0px, 0px); width: 99.93px;}
+86% {opacity: 1; transform: translate3d(499.14px, 0px, 0px); width: 99.91px;}
+87% {opacity: 1; transform: translate3d(499.03px, 0px, 0px); width: 99.9px;}
+88% {opacity: 1; transform: translate3d(498.98px, 0px, 0px); width: 99.9px;}
+89% {opacity: 1; transform: translate3d(498.98px, 0px, 0px); width: 99.9px;}
+90% {opacity: 1; transform: translate3d(499.02px, 0px, 0px); width: 99.9px;}
+91% {opacity: 1; transform: translate3d(499.11px, 0px, 0px); width: 99.91px;}
+92% {opacity: 1; transform: translate3d(499.22px, 0px, 0px); width: 99.92px;}
+93% {opacity: 1; transform: translate3d(499.36px, 0px, 0px); width: 99.94px;}
+94% {opacity: 1; transform: translate3d(499.5px, 0px, 0px); width: 99.95px;}
+95% {opacity: 1; transform: translate3d(499.65px, 0px, 0px); width: 99.97px;}
+96% {opacity: 1; transform: translate3d(499.8px, 0px, 0px); width: 99.98px;}
+97% {opacity: 1; transform: translate3d(499.94px, 0px, 0px); width: 99.99px;}
+98% {opacity: 1; transform: translate3d(500.06px, 0px, 0px); width: 100.01px;}
+99% {opacity: 1; transform: translate3d(500.16px, 0px, 0px); width: 100.02px;}
+100% {opacity: 1; transform: translate3d(500px, 0px, 0px); width: 100px;}
+}
+
+.slide {
+-webkit-animation: slide 5s forwards linear;
+-moz-animation: slide 5s forwards linear;
+animation: slide 5s forwards linear;
+background:#FFFF00; 
+}
+
+
+/*
+ -webkit-
+ -moz-
+ -ms-
+ -o-
+ */
+
+
+
+/* CSS 3 Selectors  */
+code{ display: block; width:100%; height: auto; padding: 5px; border:1px solid #79bae2; border-radius: 2px; float: left; margin: 2px; font-weight: bold;  }
+code label { font-weight: normal }
+section{width: 100%; height: auto; padding: 5px; border-radius: 2px; float: left; margin: 2px;  }
+
+/* *[style ] selector */
+section.casCadeSelector *[style]{ color: #0000EE !important }
+
+
+/* normal input */
+.nrml{
+
+}
+/* transparent  */
+.trnsprnt{
+	 /* IE 8 */
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=55)";
+  /* IE 5-7 */
+  filter: alpha(opacity=55);
+  /* Netscape */
+  -moz-opacity: 0.55;
+  /* Safari 1.x */
+  -khtml-opacity: 0.4;
+  /* Good browsers */
+  opacity: 0.4;
+  outline: 1px solid #ddd;
+  margin: 0px;
+  padding: 0px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ==|== non-semantic helper classes ========================================
+   Please define your styles before this section.
+   ========================================================================== */
+
+/* For image replacement */
+.ir { display: block; border: 0; text-indent: -999em; overflow: hidden; background-color: transparent; background-repeat: no-repeat; text-align: left; direction: ltr; }
+.ir br { display: none; }
+
+/* Hide from both screenreaders and browsers: h5bp.com/u */
+.hidden { display: none !important; visibility: hidden; }
+
+/* Hide only visually, but have it available for screenreaders: h5bp.com/v */
+.visuallyhidden { border: 0; clip: rect(0 0 0 0); height: 1px; margin: -1px; overflow: hidden; padding: 0; position: absolute; width: 1px; }
+
+/* Extends the .visuallyhidden class to allow the element to be focusable when navigated to via the keyboard: h5bp.com/p */
+.visuallyhidden.focusable:active, .visuallyhidden.focusable:focus { clip: auto; height: auto; margin: 0; overflow: visible; position: static; width: auto; }
+
+/* Hide visually and from screenreaders, but maintain layout */
+.invisible { visibility: hidden; }
+
+/* Contain floats: h5bp.com/q */ 
+.clearfix:before, .clearfix:after { content: ""; display: table; }
+.clearfix:after { clear: both; }
+.clearfix { zoom: 1; }
+
+
+
+/* ==|== media queries ======================================================
+   PLACEHOLDER Media Queries for Responsive Design.
+   These override the primary ('mobile first') styles
+   Modify as content requires.
+   ========================================================================== */
+
+@media only screen and (min-width: 480px) {
+  /* Style adjustments for viewports 480px and over go here */
+
+}
+
+@media only screen and (min-width: 768px) {
+  /* Style adjustments for viewports 768px and over go here */
+
+}
+
+
+
+/* ==|== print styles =======================================================
+   Print styles.
+   Inlined to avoid required HTTP connection: h5bp.com/r
+   ========================================================================== */
+ 
+@media print {
+  * { background: transparent !important; color: black !important; text-shadow: none !important; filter:none !important; -ms-filter: none !important; } /* Black prints faster: h5bp.com/s */
+  a, a:visited { text-decoration: underline; }
+  a[href]:after { content: " (" attr(href) ")"; }
+  abbr[title]:after { content: " (" attr(title) ")"; }
+  .ir a:after, a[href^="javascript:"]:after, a[href^="#"]:after { content: ""; }  /* Don't show links for images, or javascript/internal links */
+  pre, blockquote { border: 1px solid #999; page-break-inside: avoid; }
+  thead { display: table-header-group; } /* h5bp.com/t */
+  tr, img { page-break-inside: avoid; }
+  img { max-width: 100% !important; }
+  @page { margin: 0.5cm; }
+  p, h2, h3 { orphans: 3; widows: 3; }
+  h2, h3 { page-break-after: avoid; }
+}

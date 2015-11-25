@@ -1,0 +1,162 @@
+<!doctype html>
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js ie7 oldie" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js ie8 oldie" lang="en"> <![endif]-->
+<!-- Consider adding an manifest.appcache: h5bp.com/d/Offline -->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+
+  <!-- Use the .htaccess and remove these lines to avoid edge case issues.
+       More info: h5bp.com/b/378 -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+  <title>CSS 3 Perspection Animation</title>
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <!-- Mobile viewport optimized: j.mp/bplateviewport -->
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+
+  <!-- Place favicon.ico and apple-touch-icon.png in the root directory: mathiasbynens.be/notes/touch-icons -->
+
+  <!-- CSS: implied media=all -->
+  <!-- CSS concatenated and minified via ant build script-->
+    <link href='http://fonts.googleapis.com/css?family=Carrois+Gothic' rel='stylesheet' type='text/css'>
+    <style>
+    	*, *:after, *:before{
+	margin: 0px;
+	padding: 0px;
+}
+
+body{
+	margin: 0px;
+	padding: 30px;
+	background:#ebebeb url(../img/bg.png)left top repeat;
+	
+	-webkit-perspective: 800px;
+	-moz-perspective: 800px;
+	-ms-perspective: 800px;
+	-o-perspective: 800px;
+	perspective: 800px;
+	
+	-webkit-perspective-origin: 50% 50%;
+	-moz-perspective-origin: 50% 50%;
+	-ms-perspective-origin: 50% 50%;
+	-0-perspective-origin: 50% 50%;
+	perspective-origin: 50% 50%;
+	
+}
+
+.flipper, .flipper2, .flipper3, .flipper4{
+	width: 350px;
+	height: 350px;
+	float: left;
+	margin:15px;
+	font-size: 25px;
+	color: #fff;
+	font-family:"Lato",Calibri,Arial,sans-serif !important;
+	text-align:center;
+	background: #ea8200;
+	border:3px solid #b95a00;
+	box-shadow: 0px 0px 80px #7d2800 inset;
+	backface-visibility:visible;
+	
+	
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-ms-box-sizing: border-box;
+	-o-box-sizing: border-box;
+	box-sizing: border-box;
+	
+	
+	-webkit-transition: transform 1s ease;
+	-moz-transition: transform 1s ease;
+	-ms-transition: transform 1s ease;
+	-o-transition: transform 1s ease;
+	transition: transform 1s ease;
+	
+	-webkit-transform-origin: 50% 50%;
+	-moz-transform-origin: 50% 50%;
+	-ms-transform-origin: 50% 50%;
+	-o-transform-origin: 50% 50%;
+	transform-origin: 50% 50%;
+	
+}
+
+.flipper2{
+	background: #ea8200 url(img/07.jpg)left top no-repeat;
+}
+
+
+.flipper:hover{
+	-webkit-transform:rotateY( 180deg );
+	-moz-transform:rotateY( 180deg );
+	-ms-transform: rotateY( 180deg );
+	-o-transform:rotateY( 180deg );
+	transform:rotateY( 180deg );
+	
+	box-shadow: 0px 0px 120px #7d2800 inset;
+	 
+	/*
+	-webkit-transform: rotate(360deg);
+	-moz-transform: rotate(360deg);
+	-ms-transform: rotate(360deg);
+	-o-transform: rotate(360deg);
+	transform: rotate(360deg);
+	
+	-webkit-transform: translateX( 300px ) rotateY( 15deg );
+	-moz-transform: translateX( 300px ) rotateY( 15deg );
+	-ms-transform: translateX( 300px ) rotateY( 15deg );
+	-o-transform: translateX( 300px ) rotateY( 15deg );
+	transform: translateX( 300px ) rotateY( 45deg );
+	
+	
+	-webkit-transform: translateX( 300px);
+	-moz-transform: translateX( 300px);
+	-ms-transform:translateX( 300px);
+	-o-transform: translateX( 300px);
+	transform: translateX( 300px);
+	
+	*/
+}
+
+.flipper2:hover{
+	-webkit-transform:rotateX( 180deg );
+	-moz-transform:rotateX( 180deg );
+	-ms-transform: rotateX( 180deg );
+	-o-transform:rotateX( 180deg );
+	transform:rotateX( 180deg );
+	box-shadow: 0px 0px 120px #7d2800 inset;
+}
+
+
+.flipper3:hover{
+	-webkit-transform:rotateZ( 180deg );
+	-moz-transform:rotateZ( 180deg );
+	-ms-transform: rotateZ( 180deg );
+	-o-transform:rotateZ( 180deg );
+	transform:rotateZ( 180deg );
+	box-shadow: 0px 0px 120px #7d2800 inset;
+}
+
+.flipper4:hover{
+	-webkit-transform:rotateX(180deg ) rotateY( 35deg );
+	-moz-transform: rotateX( 180deg ) rotateY( 35deg );
+	-ms-transform: rotateX( 180deg ) rotateY( 35deg );
+	-o-transform: rotateX( 180deg ) rotateY( 35deg );
+	transform: rotateX( 180deg ) rotateY( 35deg );
+	box-shadow: 0px 0px 120px #7d2800 inset;
+}
+
+    </style>
+</head>
+
+<body>
+	<div class="flipper">CSS Perspective Translate by <br/> Y axis:)</div>
+	<div class="flipper2">CSS Perspective Translate by<br/> X axis:)</div>
+	<div class="flipper3">CSS Perspective Translate by<br/> Z axis:)</div>
+	<div class="flipper4">CSS Perspective Translate by<br/> X &amp; Y axis:) </div>
+</body>
+</html>
