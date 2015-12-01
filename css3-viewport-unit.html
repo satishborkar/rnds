@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title> Example of Viewport Width / Height [new CSS3 units] </title>
+
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'>
+  <style type="text/css">
+
+  * *:before, *:after, body{
+    margin: 0;
+    padding: 0;
+    vertical-align: top;
+    font-family: 'Open Sans', sans-serif;
+  }
+
+  body{
+   width: 90vw;
+   margin-left:5vw;
+   margin-top:5vw;
+   font-size: 14px;
+   color: #333;
+   -webkit-transition:all 0.5s;
+   -moz-transition:all 0.5s;
+    -ms-transition:all 0.5s;
+   transition:all 0.5s;
+  }
+
+  p{
+    line-height: 25px;
+  }
+
+#overlay{
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background: #000;
+  z-index: 999;
+  opacity: 0.5;
+  display: none;
+}
+
+
+#modalPanel{
+  width: 60vw;
+  height: 60vh;
+  border-top:2vh solid #79bae2;
+  border-bottom:2vh solid #79bae2;
+  border-left:1vw solid #79bae2;
+  border-right:1vw solid #79bae2;
+  z-index: 9999;
+  position: fixed;
+  left: 20.5vw;
+  top:20vh;
+  border-radius:1.3vh; 
+  background: #79bae2;
+  display: none;
+}
+
+.modalContainer{
+  width: 96%;
+  padding:0 2%;
+  height: inherit;
+  background: #fff;
+  border-radius:1vh;
+  display: none;
+}
+
+body.modal-active #overlay,
+body.modal-active #modalPanel,
+body.modal-active .modalContainer{
+  display: block;
+}
+
+body.modal-active #content{
+ -webkit-filter:blur(4px);
+    -moz-filter:blur(4px);
+    -ms-filter:blur(4px);
+    filter:blur(4px);
+}
+
+.row{
+  width: 100%;
+  height: auto;
+  float: left;
+}
+
+.clr{
+  clear: both;
+}
+
+.close-btn{
+  display: block;
+  width: 20px;
+  height: 25px;
+  background: #79bae2;
+  text-align: center;
+  font-weight: bold;
+  line-height: 25px;
+  position: absolute;
+  right: -6px;
+  top: -6px;
+  border-radius: 5px;
+  text-decoration: none;
+  color: #fff;
+}
+
+.close-btn:hover,
+.close-btn:focus{
+  color: #000;
+}
+
+  </style>
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+  <script type="text/javascript">
+  $(document).ready(function(){
+    $('.dialog').click(function(){
+      $('body').addClass('modal-active');
+    });
+
+    $('.close-btn').click(function(){
+      $('body').removeClass('modal-active');
+    });
+  })
+
+  </script>
+</head>
+<body>
+
+<div class="row" id="content">
+
+<h1>CSS3 viewport width [vw] and viewport height [vh] unit  </h1>
+<a href="#nogo" class="dialog"> Open dialog </a>
+  <p>
+  CSS 3had intruduced new Unit which will help us to improve coding for width specific deveice.
+  <br/>
+  <strong>Viewport Width = vw;</strong>
+  <br/>
+  for e.g  = 100vw; // this is fullscreen <br/>
+  1 vw  = 1/100 of the screen width <br/>
+<br/>
+<strong>Viewport Height = vh;</strong>
+  <br/>
+  for e.g  = 100vh; // this is fullscreen <br/>
+  1 vh  = 1/100 of the screen height <br/>
+
+</p>
+<img src="http://lorempixel.com/200/200/city" style="float:left; margin:10px">
+<img src="http://lorempixel.com/200/200/food" style="float:left; margin:10px">
+<img src="http://lorempixel.com/200/200/nightlife" style="float:left; margin:10px">
+<img src="http://lorempixel.com/200/200/fashion" style="float:left; margin:10px">
+
+
+</div>
+<div class="clr"></div>
+
+<div id="overlay"></div>
+<div id="modalPanel">
+<a href="#close" class="close-btn"> X </a>
+  <div class="modalContainer">
+    <div style="padding:2% 0">
+      <p>
+  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+  tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+  quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+  consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+  cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+  proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+</p>
+
+<p>
+  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+  tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+  quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+  consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+  cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+  proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+</p>
+    </div>
+  </div>
+</div>
+</body>
+</html>
